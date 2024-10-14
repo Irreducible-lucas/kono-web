@@ -11,5 +11,14 @@ export { default as ContactUs } from "./ContactUs";
 export { default as LankMarkImages } from "./LandMarkImages";
 export { default as FeaturedDevelopment } from "./FeaturedDevelopment";
 export { default as News } from "./News";
+export { default as History } from "./History";
+export { default as CouncilStructure } from "./CouncilStructure";
+export { default as Vision } from "./Vision";
+export { default as Officials } from "./Officials";
+export { default as HealthCare } from "./HealthCare";
+export { default as Education } from "./Education";
+export { default as Agriculture } from "./Agriculture";
+export { default as Infrastructure } from "./Infrastructure";
+export { default as EnvironmentalServices } from "./EnvironmentalServices";
 
 

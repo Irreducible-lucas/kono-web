@@ -1,3 +1,4 @@
+import { Home } from "lucide-react";
 import {
   NewsImage1,
   NewsImage2,
@@ -32,40 +33,82 @@ export const links: Link[] = [
   {
     id: 1,
     text: "Home",
-    url: "/",
-    child: null,
+    url: "/home",
+    child: null
   },
   {
     id: 2,
     text: "About Us",
     url: "/aboutus",
-    child: null,
+    child: [
+      {
+        id: 1,
+        text: "History of Kono",
+        url: "/aboutus/history",
+      },
+      { id: 2, text: "Council Structure", url: "/aboutus/council-structure" },
+      { id: 3, text: "Vision and Mission", url: "/aboutus/vision&mission" },
+        { id: 4, text: "Officials and Chiefdoms", url: "/aboutus/officials" } ]
   },
   
   {
     id: 3,
     text: "Council Services",
     url: "/council-services",
-    child: null
-    
+    child:[
+      {
+        id: 1,
+        text: "Healthcare",
+        url: "/council-services/healthcare",
+      },
+      { id: 2, text: "Education", url: "/council-services/education" },
+      { id: 3, text: "Agriculture and Livelihood", url: "/council-services/agriculture-livelihood" },
+        { id: 4, text: "Infrastructure", url: "/council-services/infrastructure" },
+        { id: 5, text: "Environmental Services", url: "/council-services/environmental-services" },
+       ]
   },
   {
     id: 4,
     text: "Development Projects",
     url: "/development-projects",
-    child: null,
+    child: [
+      {
+        id: 1,
+        text: "Ongoing-Projects",
+        url: "/development-projects/ongoing-project",
+      },
+      { id: 2, text: "Completed Projects", url: "/development-projects/completed-project" },
+      { id: 3, text: "Upcoming Project", url: "/council-services/upcoming-project" },
+       ]
   },
   {
     id: 5,
     text: "Reports and Financials",
     url: "/reports-financials",
-    child: null,
+    child: [
+      {
+        id: 1,
+        text: "Annual Budget",
+        url: "/reports-financials/annual-budget",
+      },
+      { id: 2, text: "Projects Reports and Update", url: "/reports-financials/project-report-update" },
+      { id: 3, text: "Project Funding", url: "/reports-financials/project-funding" },
+      { id: 4, text: "Public Expenditure Report", url: "/reports-financials/public-expenditure-report" },
+       ]
   },
   {
     id: 6,
     text: "Governance and policies",
     url: "/governance-policies",
-    child: null,
+    child: [
+      {
+        id: 1,
+        text: "Council Policies",
+        url: "/governance-policies/council-policies",
+      },
+      { id: 2, text: "Bylaws and Ordiances", url: "/governance-policies/bylaws&ordiances" },
+  
+       ]
   },
   {
     id: 7,

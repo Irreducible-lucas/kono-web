@@ -3,7 +3,7 @@ import styles from "../styles";
 
 const HeroSection = () => {
   return (
-    <section className=" p-3 w-full pt-10 bg-blue-600 ">
+    <section className=" p-3 w-full pt-10">
       <div className="flex flex-col md:flex-row items-center justify-between  mb-20">
         <div className="">
           <h1
