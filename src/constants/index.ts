@@ -1,4 +1,3 @@
-import { Home } from "lucide-react";
 import {
   NewsImage1,
   NewsImage2,
@@ -27,7 +26,11 @@ import {
   FeaturedsDevelopment,
   FeaturedTypes,
   News,
+  SupportedProgram,
+  YouthDevelopment,
+  EducationalPolicy,
 } from "../types";
+import { CareLogo } from "../assets/logos";
 
 export const links: Link[] = [
   {
@@ -78,7 +81,7 @@ export const links: Link[] = [
         url: "/development-projects/ongoing-project",
       },
       { id: 2, text: "Completed Projects", url: "/development-projects/completed-project" },
-      { id: 3, text: "Upcoming Project", url: "/council-services/upcoming-project" },
+      { id: 3, text: "Upcoming Project", url: "/development-projects/upcoming-project" },
        ]
   },
   {
@@ -91,9 +94,9 @@ export const links: Link[] = [
         text: "Annual Budget",
         url: "/reports-financials/annual-budget",
       },
-      { id: 2, text: "Projects Reports and Update", url: "/reports-financials/project-report-update" },
+      { id: 2, text: "Projects Reports and Update", url: "/reports-financials/projects-report" },
       { id: 3, text: "Project Funding", url: "/reports-financials/project-funding" },
-      { id: 4, text: "Public Expenditure Report", url: "/reports-financials/public-expenditure-report" },
+      { id: 4, text: "Public Expenditure Report", url: "/reports-financials/public-expenditure" },
        ]
   },
   {
@@ -106,7 +109,7 @@ export const links: Link[] = [
         text: "Council Policies",
         url: "/governance-policies/council-policies",
       },
-      { id: 2, text: "Bylaws and Ordiances", url: "/governance-policies/bylaws&ordiances" },
+      { id: 2, text: "Bylaws and Ordiances", url: "/governance-policies/bylaws-ordiances" },
   
        ]
   },
@@ -405,3 +408,118 @@ export const FeaturedType: FeaturedTypes[] = [
     url: "#",
   },
 ];
+
+export const SupportedPrograms: SupportedProgram[] = [
+  {
+    id: 1,
+      image: SustainableGrowthImage,
+      title: "Supported Program",
+    
+  },
+  {
+    id: 2,
+    image: HealthImage,
+    title: "Supported Program",
+   
+  },
+  {
+    id: 3,
+    image: SustainableGrowthImage,
+    title: "Supported Program",
+  
+  },
+  {
+    id: 4,
+    image: GenderEqualityImage,
+    title: "Supported Program",
+    
+  },
+  {
+    id: 5,
+    image: ClimateImage,
+    title: "Supported Program",
+  },
+  {
+    id: 6,
+    image: ClimateImage,
+    title: "Supported Program",
+    
+  },
+];
+export const YouthDevelopments: YouthDevelopment[] = [
+  {
+    id: 1,
+    title: "youth development",
+    image: NewsImage6,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 2,
+    title: "youth development",
+    image: NewsImage6,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 3,
+    title: "youth development",
+    image: NewsImage6,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 4,
+    title: "youth development",
+    image: NewsImage6,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 5,
+    title: "youth development",
+    image: NewsImage6,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 6,
+    title: "youth development",
+    image: NewsImage6,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+
+    ];
+
+    export const Education: EducationalPolicy[] = [
+      {
+        id: 1,
+        title: "Educational Policies",
+        image: CareLogo,
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+        url: "#",
+      },
+      {
+        id: 2,
+        title: "Educational Policies",
+        image: CareLogo,
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+        url: "#",
+      },
+      {
+        id: 3,
+        title: "Educational Policies",
+        image: CareLogo,
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+        url: "#",
+      },
+      {
+        id: 4,
+        title: "Educational Policies",
+        image: CareLogo,
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+        url: "#",
+      },
+          ];
+    

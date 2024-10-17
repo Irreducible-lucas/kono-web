@@ -20,5 +20,19 @@ export { default as Education } from "./Education";
 export { default as Agriculture } from "./Agriculture";
 export { default as Infrastructure } from "./Infrastructure";
 export { default as EnvironmentalServices } from "./EnvironmentalServices";
+export { default as AboutCarousal } from "./AboutCarousal";
+export { default as SupportedProgram } from "./SupportedProgram";
+export { default as YouthDevelopment } from "./YouthDevelopment";
+export {default as AgriculturalResources} from "./AgriculturalResources"
+export {default as OngoingProject} from "./OngoingProject"
+export {default as CompletdProject} from "./CompletedProject"
+export {default as UpcomingProject} from "./UpcomingProject"
+export {default as AnnualBudget} from "./AnnualBudget"
+export {default as ProjectReport} from "./ProjectUpdate"
+export {default as ProjectFunding} from "./ProjectFunding"
+export {default as PublicExpenditure} from "./PublicExpenditure"
+export {default as CouncilPolicies} from "./CouncilPolicies"
+export {default as ByLaws} from "./ByLaws"
+
 
 

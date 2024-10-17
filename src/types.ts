@@ -57,3 +57,28 @@ export interface Testimonial {
   rating: number;
   feedback: string;
 };
+
+export interface CouncilServiceCard {
+  image: string;
+  title: string;
+  description: string;
+}
+export interface SupportedProgram {
+  id: number;
+  title: string;
+  image: string;
+};
+export interface YouthDevelopment {
+  id: number;
+  title: string;
+  image: string;
+  url: string;
+  description: string;
+};
+export interface EducationalPolicy {
+  id: number;
+  title: string;
+  image: string;
+  url: string;
+  description: string;
+};

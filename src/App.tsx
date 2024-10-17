@@ -20,6 +20,10 @@ import SignUp from "./pages/SignUp";
 import Root from "./layouts/Root";
 import {
   Agriculture,
+  AnnualBudget,
+  ByLaws,
+  CompletdProject,
+  CouncilPolicies,
   CouncilStructure,
   Education,
   EnvironmentalServices,
@@ -28,6 +32,11 @@ import {
   Home,
   Infrastructure,
   Officials,
+  OngoingProject,
+  ProjectFunding,
+  ProjectReport,
+  PublicExpenditure,
+  UpcomingProject,
   Vision,
 } from "./components";
 
@@ -60,10 +69,25 @@ const App = () => {
               element={<EnvironmentalServices />}
             />
           </Route>
+          <Route path="development-projects">
+            <Route index element={<OngoingProject />} />
+            <Route path="ongoing-project" element={<OngoingProject />} />
+            <Route path="completed-project" element={<CompletdProject />} />
+            <Route path="upcoming-project" element={<UpcomingProject />} />
+          </Route>
+          <Route path="reports-financials">
+            <Route index element={<AnnualBudget />} />
+            <Route path="annual-budget" element={<AnnualBudget />} />
+            <Route path="projects-report" element={<ProjectReport />} />
+            <Route path="project-funding" element={<ProjectFunding />} />
+            <Route path="public-expenditure" element={<PublicExpenditure />} />
+          </Route>
+          <Route path="governance-policies">
+            <Route index element={<CouncilPolicies />} />
+            <Route path="council-policies" element={<CouncilPolicies />} />
+            <Route path="bylaws-ordiances" element={<ByLaws />} />
+          </Route>
 
-          <Route path="development-projects" element={<DevelopmentProject />} />
-          <Route path="reports-financials" element={<Report />} />
-          <Route path="governance-policies" element={<GovernancePolicies />} />
           <Route path="contact" element={<Contact />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
