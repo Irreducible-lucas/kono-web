@@ -8,11 +8,7 @@ import {
   ErrorPage,
   LandingPage,
   Login,
-  AboutUs,
   CouncilServices,
-  DevelopmentProject,
-  Report,
-  GovernancePolicies,
   Contact,
 } from "./pages";
 
