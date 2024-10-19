@@ -37,7 +37,6 @@ export const links: Link[] = [
     id: 1,
     text: "Home",
     url: "/home",
-    child: null
   },
   {
     id: 2,
@@ -51,24 +50,38 @@ export const links: Link[] = [
       },
       { id: 2, text: "Council Structure", url: "/aboutus/council-structure" },
       { id: 3, text: "Vision and Mission", url: "/aboutus/vision&mission" },
-        { id: 4, text: "Officials and Chiefdoms", url: "/aboutus/officials" } ]
+      { id: 4, text: "Profiles and Pictures", url: "/aboutus/profiles" },
+      { id: 5, text: "Officials and Chiefdoms", url: "/aboutus/officials" },
+    ],
   },
-  
+
   {
     id: 3,
     text: "Council Services",
     url: "/council-services",
-    child:[
+    child: [
       {
         id: 1,
         text: "Healthcare",
         url: "/council-services/healthcare",
       },
       { id: 2, text: "Education", url: "/council-services/education" },
-      { id: 3, text: "Agriculture and Livelihood", url: "/council-services/agriculture-livelihood" },
-        { id: 4, text: "Infrastructure", url: "/council-services/infrastructure" },
-        { id: 5, text: "Environmental Services", url: "/council-services/environmental-services" },
-       ]
+      {
+        id: 3,
+        text: "Agriculture and Livelihood",
+        url: "/council-services/agriculture",
+      },
+      {
+        id: 4,
+        text: "Infrastructure",
+        url: "/council-services/infrastructure",
+      },
+      {
+        id: 5,
+        text: "Environmental Services",
+        url: "/council-services/environmental",
+      },
+    ],
   },
   {
     id: 4,
@@ -80,9 +93,17 @@ export const links: Link[] = [
         text: "Ongoing-Projects",
         url: "/development-projects/ongoing-project",
       },
-      { id: 2, text: "Completed Projects", url: "/development-projects/completed-project" },
-      { id: 3, text: "Upcoming Project", url: "/development-projects/upcoming-project" },
-       ]
+      {
+        id: 2,
+        text: "Completed Projects",
+        url: "/development-projects/completed-project",
+      },
+      {
+        id: 3,
+        text: "Upcoming Project",
+        url: "/development-projects/upcoming-project",
+      },
+    ],
   },
   {
     id: 5,
@@ -94,10 +115,22 @@ export const links: Link[] = [
         text: "Annual Budget",
         url: "/reports-financials/annual-budget",
       },
-      { id: 2, text: "Projects Reports and Update", url: "/reports-financials/projects-report" },
-      { id: 3, text: "Project Funding", url: "/reports-financials/project-funding" },
-      { id: 4, text: "Public Expenditure Report", url: "/reports-financials/public-expenditure" },
-       ]
+      {
+        id: 2,
+        text: "Projects Reports and Update",
+        url: "/reports-financials/projects-report",
+      },
+      {
+        id: 3,
+        text: "Project Funding",
+        url: "/reports-financials/project-funding",
+      },
+      {
+        id: 4,
+        text: "Public Expenditure Report",
+        url: "/reports-financials/public-expenditure",
+      },
+    ],
   },
   {
     id: 6,
@@ -109,9 +142,12 @@ export const links: Link[] = [
         text: "Council Policies",
         url: "/governance-policies/council-policies",
       },
-      { id: 2, text: "Bylaws and Ordiances", url: "/governance-policies/bylaws-ordiances" },
-  
-       ]
+      {
+        id: 2,
+        text: "Bylaws and Ordiances",
+        url: "/governance-policies/bylaws-ordiances",
+      },
+    ],
   },
   {
     id: 7,
@@ -119,35 +155,36 @@ export const links: Link[] = [
     url: "/contact",
     child: null,
   },
-  
 ];
 export const reviews: Review[] = [
   {
     image: Rebecca,
-      name: 'Noheem Ayomikun',
-      rating: 4.5,
-      feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
+    name: "Noheem Ayomikun",
+    rating: 4.5,
+    feedback:
+      "The product not only met but exceeded my expectations. I'll definitely be a returning customer!",
   },
   {
     image: Ramatu,
-    name: 'Victoria Tosin',
+    name: "Victoria Tosin",
     rating: 4.5,
-    feedback: "Outstanding laptop performance and exceptional service  highly recommend!"
-},
+    feedback:
+      "Outstanding laptop performance and exceptional service  highly recommend!",
+  },
 
   {
     image: Ramatu,
-      name: 'Kabir Olakunle',
-      rating: 4.5,
-      feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
+    name: "Kabir Olakunle",
+    rating: 4.5,
+    feedback:
+      "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!",
   },
- 
 ];
 
 export const ProgramCards: ProgramCardProps[] = [
   {
     id: 1,
-      image: SustainableGrowthImage,
+    image: SustainableGrowthImage,
     link_url: "/program-areas/sustainable-growth",
   },
   {
@@ -398,9 +435,8 @@ export const FeaturedType: FeaturedTypes[] = [
   },
   {
     id: 6,
-    title:
-      "Road",
-      url: "#",
+    title: "Road",
+    url: "#",
   },
   {
     id: 7,
@@ -412,27 +448,23 @@ export const FeaturedType: FeaturedTypes[] = [
 export const SupportedPrograms: SupportedProgram[] = [
   {
     id: 1,
-      image: SustainableGrowthImage,
-      title: "Supported Program",
-    
+    image: SustainableGrowthImage,
+    title: "Supported Program",
   },
   {
     id: 2,
     image: HealthImage,
     title: "Supported Program",
-   
   },
   {
     id: 3,
     image: SustainableGrowthImage,
     title: "Supported Program",
-  
   },
   {
     id: 4,
     image: GenderEqualityImage,
     title: "Supported Program",
-    
   },
   {
     id: 5,
@@ -443,7 +475,6 @@ export const SupportedPrograms: SupportedProgram[] = [
     id: 6,
     image: ClimateImage,
     title: "Supported Program",
-    
   },
 ];
 export const YouthDevelopments: YouthDevelopment[] = [
@@ -451,75 +482,83 @@ export const YouthDevelopments: YouthDevelopment[] = [
     id: 1,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 2,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 3,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 4,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 5,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 6,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
+];
 
-    ];
-
-    export const Education: EducationalPolicy[] = [
-      {
-        id: 1,
-        title: "Educational Policies",
-        image: CareLogo,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
-        url: "#",
-      },
-      {
-        id: 2,
-        title: "Educational Policies",
-        image: CareLogo,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
-        url: "#",
-      },
-      {
-        id: 3,
-        title: "Educational Policies",
-        image: CareLogo,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
-        url: "#",
-      },
-      {
-        id: 4,
-        title: "Educational Policies",
-        image: CareLogo,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
-        url: "#",
-      },
-          ];
-    
+export const Education: EducationalPolicy[] = [
+  {
+    id: 1,
+    title: "Educational Policies",
+    image: CareLogo,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 2,
+    title: "Educational Policies",
+    image: CareLogo,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 3,
+    title: "Educational Policies",
+    image: CareLogo,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 4,
+    title: "Educational Policies",
+    image: CareLogo,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+];

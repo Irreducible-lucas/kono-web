@@ -3,7 +3,7 @@ export const styles = {
 
   heroHeading: "font-manrope text-3xl font-bold",
 
-  heading1: "font-barlow lg:text-5xl text-3xl font-bold",
+  heading1: "lg:text-5xl text-3xl font-bold",
 
   heading2: "font-manrope text-2xl font-bold",
 

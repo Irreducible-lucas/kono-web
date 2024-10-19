@@ -1,4 +1,4 @@
-import { AboutCarousal, Footer, Header, SupportedProgram } from "../components";
+import { AboutCarousal, SupportedProgram } from "../components";
 import { motion } from "framer-motion";
 import { hero2, Women } from "../assets";
 import CouncilServicesCard from "./CouncilServicesCard";
@@ -21,7 +21,7 @@ const HealthCare = () => {
             image={hero2}
             title={"Health Care"}
             content={
-              "Information on local healthcare facilities public health initiativr, and programs supported by the council"
+              "Information on local healthcare facilities public health initiative, and programs supported by the council"
             }
           />
         </div>

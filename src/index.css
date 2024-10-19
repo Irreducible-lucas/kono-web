@@ -1,13 +1,12 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap'); 
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 .slider-slide > div {
   margin: 0 10px;
@@ -22,22 +21,19 @@
 
 #text-area {
   outline: none;
- 
 }
 #text-area div {
   display: list-item;
 }
 .custom-tab-list {
   display: flex;
-  
-  
 }
 
 .custom-tab {
   padding: 15px 20px;
   cursor: pointer;
   color: rgb(143, 154, 154);
-  border-bottom: 2px solid transparent; 
+  border-bottom: 2px solid transparent;
   text-align: center;
   font-size: 14px;
 }
@@ -46,6 +42,13 @@
   outline: none;
   border-bottom-color: blue; /* Blue bottom border for active tab */
   color: black;
+}
+.text-gradient {
+  background: linear-gradient(149.02deg, #ffa842 6.56%, #008a61 85.32%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
 }
 
 #custom-tab-panel {

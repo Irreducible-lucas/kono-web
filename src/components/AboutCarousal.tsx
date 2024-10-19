@@ -29,11 +29,11 @@ const AboutCarousal = (props: Props) => {
         {/* Centered div */}
         <div className="absolute z-10 inset-0 flex flex-col justify-center items-center ">
           <div className="flex flex-col items-center text-white gap-6">
-            <p className={`${styles.heading2} text-white text-center`}>
+            <p className={`${styles.heading1} text-white text-center`}>
               {title}
             </p>
             <p
-              className={`tex-sm md:text-lg font-poppins text-secondaryBlue text-center px-16`}
+              className={`tex-sm md:text-lg sm:w-[80%] w-full font-poppins text-secondaryBlue text-center px-16`}
             >
               {content}
             </p>
