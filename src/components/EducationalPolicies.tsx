@@ -6,7 +6,7 @@ const EducationalPolicies = () => {
   return (
     <section className={`${layout.section} `}>
       <h2
-        className={`${styles.heading1} text-center text-black font-bold uppercase`}
+        className={`${styles.heading1} lg:text-3xl text-center text-black font-bold uppercase`}
       >
         Updates on Education Policies
       </h2>

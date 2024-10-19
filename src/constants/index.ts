@@ -29,6 +29,15 @@ import {
   SupportedProgram,
   YouthDevelopment,
   EducationalPolicy,
+  AgriculturalResource,
+  CouncilPolicy,
+  LawCard,
+  ByLaw,
+  BudgetProject,
+  ExpenditureProject,
+  ProjectFunding,
+  AnnualBudget,
+  DepartmentalContact,
 } from "../types";
 import { CareLogo } from "../assets/logos";
 
@@ -37,7 +46,7 @@ export const links: Link[] = [
     id: 1,
     text: "Home",
     url: "/home",
-    child: null
+    child: null,
   },
   {
     id: 2,
@@ -51,24 +60,37 @@ export const links: Link[] = [
       },
       { id: 2, text: "Council Structure", url: "/aboutus/council-structure" },
       { id: 3, text: "Vision and Mission", url: "/aboutus/vision&mission" },
-        { id: 4, text: "Officials and Chiefdoms", url: "/aboutus/officials" } ]
+      { id: 4, text: "Officials and Chiefdoms", url: "/aboutus/officials" },
+    ],
   },
-  
+
   {
     id: 3,
     text: "Council Services",
     url: "/council-services",
-    child:[
+    child: [
       {
         id: 1,
         text: "Healthcare",
         url: "/council-services/healthcare",
       },
       { id: 2, text: "Education", url: "/council-services/education" },
-      { id: 3, text: "Agriculture and Livelihood", url: "/council-services/agriculture-livelihood" },
-        { id: 4, text: "Infrastructure", url: "/council-services/infrastructure" },
-        { id: 5, text: "Environmental Services", url: "/council-services/environmental-services" },
-       ]
+      {
+        id: 3,
+        text: "Agriculture and Livelihood",
+        url: "/council-services/agriculture-livelihood",
+      },
+      {
+        id: 4,
+        text: "Infrastructure",
+        url: "/council-services/infrastructure",
+      },
+      {
+        id: 5,
+        text: "Environmental Services",
+        url: "/council-services/environmental-services",
+      },
+    ],
   },
   {
     id: 4,
@@ -80,9 +102,17 @@ export const links: Link[] = [
         text: "Ongoing-Projects",
         url: "/development-projects/ongoing-project",
       },
-      { id: 2, text: "Completed Projects", url: "/development-projects/completed-project" },
-      { id: 3, text: "Upcoming Project", url: "/development-projects/upcoming-project" },
-       ]
+      {
+        id: 2,
+        text: "Completed Projects",
+        url: "/development-projects/completed-project",
+      },
+      {
+        id: 3,
+        text: "Upcoming Project",
+        url: "/development-projects/upcoming-project",
+      },
+    ],
   },
   {
     id: 5,
@@ -94,10 +124,22 @@ export const links: Link[] = [
         text: "Annual Budget",
         url: "/reports-financials/annual-budget",
       },
-      { id: 2, text: "Projects Reports and Update", url: "/reports-financials/projects-report" },
-      { id: 3, text: "Project Funding", url: "/reports-financials/project-funding" },
-      { id: 4, text: "Public Expenditure Report", url: "/reports-financials/public-expenditure" },
-       ]
+      {
+        id: 2,
+        text: "Projects Reports and Update",
+        url: "/reports-financials/projects-report",
+      },
+      {
+        id: 3,
+        text: "Project Funding",
+        url: "/reports-financials/project-funding",
+      },
+      {
+        id: 4,
+        text: "Public Expenditure Report",
+        url: "/reports-financials/public-expenditure",
+      },
+    ],
   },
   {
     id: 6,
@@ -109,9 +151,12 @@ export const links: Link[] = [
         text: "Council Policies",
         url: "/governance-policies/council-policies",
       },
-      { id: 2, text: "Bylaws and Ordiances", url: "/governance-policies/bylaws-ordiances" },
-  
-       ]
+      {
+        id: 2,
+        text: "Bylaws and Ordiances",
+        url: "/governance-policies/bylaws-ordiances",
+      },
+    ],
   },
   {
     id: 7,
@@ -119,35 +164,36 @@ export const links: Link[] = [
     url: "/contact",
     child: null,
   },
-  
 ];
 export const reviews: Review[] = [
   {
     image: Rebecca,
-      name: 'Noheem Ayomikun',
-      rating: 4.5,
-      feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
+    name: "Noheem Ayomikun",
+    rating: 4.5,
+    feedback:
+      "The product not only met but exceeded my expectations. I'll definitely be a returning customer!",
   },
   {
     image: Ramatu,
-    name: 'Victoria Tosin',
+    name: "Victoria Tosin",
     rating: 4.5,
-    feedback: "Outstanding laptop performance and exceptional service  highly recommend!"
-},
+    feedback:
+      "Outstanding laptop performance and exceptional service  highly recommend!",
+  },
 
   {
     image: Ramatu,
-      name: 'Kabir Olakunle',
-      rating: 4.5,
-      feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
+    name: "Kabir Olakunle",
+    rating: 4.5,
+    feedback:
+      "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!",
   },
- 
 ];
 
 export const ProgramCards: ProgramCardProps[] = [
   {
     id: 1,
-      image: SustainableGrowthImage,
+    image: SustainableGrowthImage,
     link_url: "/program-areas/sustainable-growth",
   },
   {
@@ -398,9 +444,8 @@ export const FeaturedType: FeaturedTypes[] = [
   },
   {
     id: 6,
-    title:
-      "Road",
-      url: "#",
+    title: "Road",
+    url: "#",
   },
   {
     id: 7,
@@ -412,27 +457,23 @@ export const FeaturedType: FeaturedTypes[] = [
 export const SupportedPrograms: SupportedProgram[] = [
   {
     id: 1,
-      image: SustainableGrowthImage,
-      title: "Supported Program",
-    
+    image: SustainableGrowthImage,
+    title: "Supported Program",
   },
   {
     id: 2,
     image: HealthImage,
     title: "Supported Program",
-   
   },
   {
     id: 3,
     image: SustainableGrowthImage,
     title: "Supported Program",
-  
   },
   {
     id: 4,
     image: GenderEqualityImage,
     title: "Supported Program",
-    
   },
   {
     id: 5,
@@ -443,83 +484,372 @@ export const SupportedPrograms: SupportedProgram[] = [
     id: 6,
     image: ClimateImage,
     title: "Supported Program",
-    
   },
 ];
+
 export const YouthDevelopments: YouthDevelopment[] = [
   {
     id: 1,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 2,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 3,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 4,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 5,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
   {
     id: 6,
     title: "youth development",
     image: NewsImage6,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
   },
+];
 
-    ];
+export const Education: EducationalPolicy[] = [
+  {
+    id: 1,
+    title: "Educational Policies",
+    image: CareLogo,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 2,
+    title: "Educational Policies",
+    image: CareLogo,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 3,
+    title: "Educational Policies",
+    image: CareLogo,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+  {
+    id: 4,
+    title: "Educational Policies",
+    image: CareLogo,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
+    url: "#",
+  },
+];
 
-    export const Education: EducationalPolicy[] = [
-      {
-        id: 1,
-        title: "Educational Policies",
-        image: CareLogo,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
-        url: "#",
-      },
-      {
-        id: 2,
-        title: "Educational Policies",
-        image: CareLogo,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
-        url: "#",
-      },
-      {
-        id: 3,
-        title: "Educational Policies",
-        image: CareLogo,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
-        url: "#",
-      },
-      {
-        id: 4,
-        title: "Educational Policies",
-        image: CareLogo,
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
-        url: "#",
-      },
-          ];
-    
+export const Agricultural: AgriculturalResource[] = [
+  {
+    id: 1,
+    image: NewsImage6,
+    url: "#",
+    title: "Acess to Agricultural Input",
+    description: "Acess to Seed, fertilizers,tools, and machinery",
+  },
+  {
+    id: 2,
+    image: NewsImage6,
+    url: "#",
+    title: "Acess to Agricultural Input",
+    description: "Acess to Seed, fertilizers,tools, and machinery",
+  },
+  {
+    id: 3,
+    image: NewsImage6,
+    url: "#",
+    title: "Acess to Agricultural Input",
+    description: "Acess to Seed, fertilizers,tools, and machinery",
+  },
+  {
+    id: 4,
+    image: NewsImage6,
+    url: "#",
+    title: "Acess to Agricultural Input",
+    description: "Acess to Seed, fertilizers,tools, and machinery",
+  },
+];
+
+export const PolicyCard: CouncilPolicy[] = [
+  {
+    id: 1,
+    image: SustainableGrowthImage,
+  },
+  {
+    id: 2,
+    image: HealthImage,
+  },
+  {
+    id: 3,
+    image: SustainableGrowthImage,
+  },
+  {
+    id: 4,
+    image: GenderEqualityImage,
+  },
+  {
+    id: 5,
+    image: ClimateImage,
+  },
+  {
+    id: 6,
+    image: ClimateImage,
+  },
+];
+
+export const LawCards: LawCard[] = [
+  {
+    id: 1,
+    title: "Rule 1",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: SustainableGrowthImage,
+  },
+  {
+    id: 2,
+    title: "Rule 2",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: HealthImage,
+  },
+  {
+    id: 3,
+    title: "Rule 3",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: SustainableGrowthImage,
+  },
+  {
+    id: 4,
+    title: "Rule 4",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: GenderEqualityImage,
+  },
+  {
+    id: 5,
+    title: "Rule 5",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: ClimateImage,
+  },
+  {
+    id: 6,
+    title: "Rule 6",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: ClimateImage,
+  },
+];
+export const Laws: ByLaw[] = [
+  {
+    id: 1,
+    image: NewsImage6,
+    title: "Laws",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+  },
+  {
+    id: 2,
+    image: NewsImage6,
+    title: "Laws",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+  },
+  {
+    id: 3,
+    image: NewsImage6,
+    title: "Laws",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+  },
+  {
+    id: 4,
+    image: NewsImage6,
+    title: "Laws",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+  },
+];
+
+
+export const BudgetProjects: BudgetProject[] = [
+  {
+    id: 1,
+    title: "Project 01",
+    text: "CITIZEN DRIVEN CLIMATE SENSITIVE WASH MANAGEMENT PROJECT",
+    link_url: "/program-areas/climate/1",
+    status: "completed",
+  },
+  {
+    id: 2,
+    title: "Project 02",
+    text: "ENHANCING CLIMATE RESILIENCE IN RURAL SIERRA LEONE PROJECT",
+    link_url: "/program-areas/climate/2",
+    status: "completed",
+     },
+  {
+    id: 3,
+    title: "Project 03",
+    text: "STRENGTHENING WOMEN AND YOUTH-LED BUSINESS FOR LOCAL ECONOMIC DEVELOPMENT PROJECT",
+    link_url: "/program-areas/climate/3",
+    status: "completed",
+    },
+  {
+    id: 4,
+    title: "Project 04",
+    text: "IMPROVED ACCESS TO SUSTAINABLY MANAGED MICRO-FINANCE AND WaSH SYSTEMS – WaSH SELF SUPPLY PROJECT",
+    link_url: "/program-areas/climate/4",
+    status: "completed",
+  },
+];
+export const ExpenditureProjects: ExpenditureProject[] = [
+  {
+    id: 1,
+    title: "Expenditure 01",
+    text: "CITIZEN DRIVEN CLIMATE SENSITIVE WASH MANAGEMENT PROJECT",
+    link_url: "/program-areas/climate/1",
+    status: "completed",
+  },
+  {
+    id: 2,
+    title: "Expenditure 02",
+    text: "ENHANCING CLIMATE RESILIENCE IN RURAL SIERRA LEONE PROJECT",
+    link_url: "/program-areas/climate/2",
+    status: "completed",
+     },
+  {
+    id: 3,
+    title: "Expenditure 03",
+    text: "STRENGTHENING WOMEN AND YOUTH-LED BUSINESS FOR LOCAL ECONOMIC DEVELOPMENT PROJECT",
+    link_url: "/program-areas/climate/3",
+    status: "completed",
+    },
+  {
+    id: 4,
+    title: "Expenditure 04",
+    text: "IMPROVED ACCESS TO SUSTAINABLY MANAGED MICRO-FINANCE AND WaSH SYSTEMS – WaSH SELF SUPPLY PROJECT",
+    link_url: "/program-areas/climate/4",
+    status: "completed",
+  },
+];
+
+export const ProjectFundings: ProjectFunding[] = [
+  {
+    id: 1,
+    title: "Project 01",
+    text: "CITIZEN DRIVEN CLIMATE SENSITIVE WASH MANAGEMENT PROJECT",
+    link_url: "/program-areas/climate/1",
+    status: "completed",
+  },
+  {
+    id: 2,
+    title: "Project 02",
+    text: "ENHANCING CLIMATE RESILIENCE IN RURAL SIERRA LEONE PROJECT",
+    link_url: "/program-areas/climate/2",
+    status: "completed",
+     },
+  {
+    id: 3,
+    title: "Project 03",
+    text: "STRENGTHENING WOMEN AND YOUTH-LED BUSINESS FOR LOCAL ECONOMIC DEVELOPMENT PROJECT",
+    link_url: "/program-areas/climate/3",
+    status: "completed",
+    },
+  {
+    id: 4,
+    title: "Project 04",
+    text: "IMPROVED ACCESS TO SUSTAINABLY MANAGED MICRO-FINANCE AND WaSH SYSTEMS – WaSH SELF SUPPLY PROJECT",
+    link_url: "/program-areas/climate/4",
+    status: "completed",
+  },
+];
+
+export const AnnualBudgets: AnnualBudget[] = [
+  {
+    id: 1,
+    title: "Budget 01",
+    text: "CITIZEN DRIVEN CLIMATE SENSITIVE WASH MANAGEMENT PROJECT",
+    link_url: "/program-areas/climate/1",
+  
+  },
+  {
+    id: 2,
+    title: "Budget 02",
+    text: "ENHANCING CLIMATE RESILIENCE IN RURAL SIERRA LEONE PROJECT",
+    link_url: "/program-areas/climate/2",
+
+     },
+  {
+    id: 3,
+    title: "Budget 03",
+    text: "STRENGTHENING WOMEN AND YOUTH-LED BUSINESS FOR LOCAL ECONOMIC DEVELOPMENT PROJECT",
+    link_url: "/program-areas/climate/3",
+
+    },
+  {
+    id: 4,
+    title: "Budget 04",
+    text: "IMPROVED ACCESS TO SUSTAINABLY MANAGED MICRO-FINANCE AND WaSH SYSTEMS – WaSH SELF SUPPLY PROJECT",
+    link_url: "/program-areas/climate/4",
+  
+  },
+];
+export const DepartmentContacts: DepartmentalContact[] = [
+  {
+    id: 1,
+    department: "Health Department",
+    phone: "555-555-555",
+    email: "info@konowebsite",
+   
+  
+  },
+  {
+    id: 2,
+    department: "Educational Department",
+    phone: "555-555-555",
+    email: "info@konowebsite",
+   
+     },
+  {
+    id: 3,
+    department: "Finance Department",
+    phone: "555-555-555",
+    email: "info@konowebsite",
+   
+  },
+];

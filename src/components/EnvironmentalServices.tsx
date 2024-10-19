@@ -2,6 +2,7 @@ import { AboutCarousal, Footer, Header } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
 import styles from "../styles";
+import EnvironmentalServicesCard from "./EnvironmentalServicesCard";
 const EnvironmentalServices = () => {
   return (
     <motion.div
@@ -24,6 +25,7 @@ const EnvironmentalServices = () => {
           />
         </div>
       </div>
+      <EnvironmentalServicesCard />
     </motion.div>
   );
 };

@@ -1,4 +1,3 @@
-export { default as Home } from "./Home";
 export { default as Header } from "./Header";
 export { default as Nav } from "./Nav"
 export { default as NavDisplay } from "./NavDisplay";
@@ -28,11 +27,14 @@ export {default as OngoingProject} from "./OngoingProject"
 export {default as CompletdProject} from "./CompletedProject"
 export {default as UpcomingProject} from "./UpcomingProject"
 export {default as AnnualBudget} from "./AnnualBudget"
-export {default as ProjectReport} from "./ProjectUpdate"
+export {default as ProjectReport} from "./ProjectReport"
 export {default as ProjectFunding} from "./ProjectFunding"
 export {default as PublicExpenditure} from "./PublicExpenditure"
 export {default as CouncilPolicies} from "./CouncilPolicies"
 export {default as ByLaws} from "./ByLaws"
+export {default as Electricity} from "./Electricity"
+export {default as RoadConstructions} from "./RoadConstruction"
+export {default as Sanitation} from "./Sanitation"
 
 
 

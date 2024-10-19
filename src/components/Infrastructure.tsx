@@ -1,7 +1,15 @@
-import { AboutCarousal, Footer, Header } from "../components";
+import {
+  AboutCarousal,
+  Electricity,
+  Footer,
+  Header,
+  RoadConstructions,
+  Sanitation,
+} from "../components";
 import { motion } from "framer-motion";
-import { hero2 } from "../assets";
+import { hero2, Women } from "../assets";
 import styles from "../styles";
+
 const Infrastructure = () => {
   return (
     <motion.div
@@ -24,6 +32,20 @@ const Infrastructure = () => {
           />
         </div>
       </div>
+      <RoadConstructions
+        title="Road Construction"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas recusandae odio beatae dolor perspiciatis atque magnam explicabo ullam, reiciendis nostrum nihil vero fuga ad rem deserunt eius earum reprehenderit libero!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas recusandae odio beatae dolor perspiciatis atque magnam explicabo ullam, reiciendis nostrum nihil vero fuga ad rem deserunt eius earum reprehenderit libero!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas recusandae odio beatae dolor perspiciatis atque magnam explicabo ullam, reiciendis nostrum nihil vero fuga ad rem deserunt eius earum reprehenderit libero!
+        "
+        image={Women}
+      />
+      <Sanitation />
+      <Electricity
+        title="Electricity"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas recusandae odio beatae dolor perspiciatis atque magnam explicabo ullam, reiciendis nostrum nihil vero fuga ad rem deserunt eius earum reprehenderit libero!"
+        image={Women}
+      />
     </motion.div>
   );
 };

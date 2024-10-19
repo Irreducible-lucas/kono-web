@@ -8,11 +8,7 @@ import {
   ErrorPage,
   LandingPage,
   Login,
-  AboutUs,
   CouncilServices,
-  DevelopmentProject,
-  Report,
-  GovernancePolicies,
   Contact,
 } from "./pages";
 
@@ -48,7 +44,7 @@ const App = () => {
           <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="home" element={<Home />} />
+          <Route path="home" element={<LandingPage />} />
           <Route path="aboutus">
             <Route index element={<History />} />
             <Route path="history" element={<History />} />

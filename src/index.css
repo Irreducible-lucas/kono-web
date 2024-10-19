@@ -118,3 +118,10 @@
     @apply bg-background text-foreground;
   }
 }
+.by-law-card:nth-child(even) {
+  grid-template-columns: 2fr 1fr;
+}
+
+.by-law-card:nth-child(even) img {
+  order: 2;
+}
