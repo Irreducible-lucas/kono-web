@@ -8,8 +8,17 @@ import {
   ErrorPage,
   LandingPage,
   Login,
+<<<<<<< HEAD
   CouncilServices,
+=======
+>>>>>>> c4b49469eff7a76e6ca50b12cf7243f30287b628
   Contact,
+  AboutUs,
+  Council,
+  Vision,
+  Home,
+  Profiles,
+  Officials,
 } from "./pages";
 
 import SignUp from "./pages/SignUp";
@@ -18,32 +27,30 @@ import {
   Agriculture,
   AnnualBudget,
   ByLaws,
-  CompletdProject,
+  CompletdProjects,
   CouncilPolicies,
-  CouncilStructure,
   Education,
   EnvironmentalServices,
   HealthCare,
-  History,
-  Home,
   Infrastructure,
-  Officials,
-  OngoingProject,
+  OngoingProjects,
   ProjectFunding,
   ProjectReport,
   PublicExpenditure,
-  UpcomingProject,
-  Vision,
+  UpcomingProjects,
 } from "./components";
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" errorElement={<ErrorPage />}>
-        <Route element={<Root />}>
+        <Route path="/" element={<Root />}>
+          <Route path="/" element={<Home />} />
+          <Route path="home" element={<Home />} />
           <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
+<<<<<<< HEAD
           <Route path="home" element={<LandingPage />} />
           <Route path="aboutus">
             <Route index element={<History />} />
@@ -53,24 +60,40 @@ const App = () => {
             <Route path="officials" element={<Officials />} />
           </Route>
           <Route path="council-services" element={<CouncilServices />} />
+=======
+          <Route path="aboutus/history" element={<AboutUs />} />
+          <Route path="aboutus/council-structure" element={<Council />} />
+          <Route path="aboutus/vision&mission" element={<Vision />} />
+          <Route path="aboutus/profiles" element={<Profiles />} />
+          <Route path="aboutus/officials" element={<Officials />} />
+>>>>>>> c4b49469eff7a76e6ca50b12cf7243f30287b628
 
-          <Route path="council-services">
-            <Route index element={<HealthCare />} />
-            <Route path="healthcare" element={<HealthCare />} />
-            <Route path="education" element={<Education />} />
-            <Route path="agriculture-livelihood" element={<Agriculture />} />
-            <Route path="infrastructure" element={<Infrastructure />} />
-            <Route
-              path="environmental-services"
-              element={<EnvironmentalServices />}
-            />
-          </Route>
-          <Route path="development-projects">
-            <Route index element={<OngoingProject />} />
-            <Route path="ongoing-project" element={<OngoingProject />} />
-            <Route path="completed-project" element={<CompletdProject />} />
-            <Route path="upcoming-project" element={<UpcomingProject />} />
-          </Route>
+          <Route path="council-services/healthcare" element={<HealthCare />} />
+          <Route path="council-services/education" element={<Education />} />
+          <Route
+            path="council-services/agriculture"
+            element={<Agriculture />}
+          />
+          <Route
+            path="council-services/infrastructure"
+            element={<Infrastructure />}
+          />
+          <Route
+            path="council-services/environmental"
+            element={<EnvironmentalServices />}
+          />
+          <Route
+            path="development-projects/ongoing-project"
+            element={<OngoingProjects />}
+          />
+          <Route
+            path="development-projects/completed-project"
+            element={<CompletdProjects />}
+          />
+          <Route
+            path="development-projects/upcoming-project"
+            element={<UpcomingProjects />}
+          />
           <Route path="reports-financials">
             <Route index element={<AnnualBudget />} />
             <Route path="annual-budget" element={<AnnualBudget />} />

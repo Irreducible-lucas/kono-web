@@ -7,7 +7,7 @@ const SupportedProgramCard = ({ title, image }: SupportedProgram) => {
       <div className="p-2">
         <img
           src={image}
-          className="object-contain object-center w-full rounded-md mb-3"
+          className="object-contain bg-white shadow p-1 object-center w-full rounded-md mb-3"
         />
         <h2
           className={`${styles.paragraph} text-center lg:text-left text-black font-bold uppercase`}

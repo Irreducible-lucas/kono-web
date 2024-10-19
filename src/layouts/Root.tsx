@@ -1,12 +1,33 @@
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import styles from "../style";
+import { motion } from "framer-motion";
+import { Outlet } from "react-router-dom";
+import { Footer, Nav, NavDisplay } from "../components";
 
-const Root = () => {
-  return (
-    <main className="bg-lightgrey h-screen">
-      <ScrollRestoration />
+const Root = () => (
+  <motion.div
+    transition={{
+      when: "beforeChildren",
+      staggerChildren: 2,
+    }}
+    className="w-full overflow-hidden"
+  >
+    <div className={` ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}>
+        <NavDisplay />
+        <Nav />
+      </div>
+    </div>
+
+    <div className={``}>
       <Outlet />
-    </main>
-  );
-};
+    </div>
+
+    <div className={`bg-[#FFFAF4] ${styles.flexCenter} mt-10`}>
+      <div className={`${styles.boxWidth}`}>
+        <Footer />
+      </div>
+    </div>
+  </motion.div>
+);
 
 export default Root;

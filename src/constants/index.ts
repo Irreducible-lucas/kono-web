@@ -46,7 +46,10 @@ export const links: Link[] = [
     id: 1,
     text: "Home",
     url: "/home",
+<<<<<<< HEAD
     child: null,
+=======
+>>>>>>> c4b49469eff7a76e6ca50b12cf7243f30287b628
   },
   {
     id: 2,
@@ -60,7 +63,12 @@ export const links: Link[] = [
       },
       { id: 2, text: "Council Structure", url: "/aboutus/council-structure" },
       { id: 3, text: "Vision and Mission", url: "/aboutus/vision&mission" },
+<<<<<<< HEAD
       { id: 4, text: "Officials and Chiefdoms", url: "/aboutus/officials" },
+=======
+      { id: 4, text: "Profiles and Pictures", url: "/aboutus/profiles" },
+      { id: 5, text: "Officials and Chiefdoms", url: "/aboutus/officials" },
+>>>>>>> c4b49469eff7a76e6ca50b12cf7243f30287b628
     ],
   },
 
@@ -78,7 +86,11 @@ export const links: Link[] = [
       {
         id: 3,
         text: "Agriculture and Livelihood",
+<<<<<<< HEAD
         url: "/council-services/agriculture-livelihood",
+=======
+        url: "/council-services/agriculture",
+>>>>>>> c4b49469eff7a76e6ca50b12cf7243f30287b628
       },
       {
         id: 4,
@@ -88,7 +100,11 @@ export const links: Link[] = [
       {
         id: 5,
         text: "Environmental Services",
+<<<<<<< HEAD
         url: "/council-services/environmental-services",
+=======
+        url: "/council-services/environmental",
+>>>>>>> c4b49469eff7a76e6ca50b12cf7243f30287b628
       },
     ],
   },
@@ -572,6 +588,7 @@ export const Education: EducationalPolicy[] = [
     url: "#",
   },
 ];
+<<<<<<< HEAD
 
 export const Agricultural: AgriculturalResource[] = [
   {
@@ -853,3 +870,5 @@ export const DepartmentContacts: DepartmentalContact[] = [
    
   },
 ];
+=======
+>>>>>>> c4b49469eff7a76e6ca50b12cf7243f30287b628

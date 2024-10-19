@@ -7,7 +7,13 @@ export { default as CouncilServices } from "./CouncilServices";
 export { default as DevelopmentProject } from "./DevelopmentProject";
 export { default as Report } from "./Report";
 export { default as GovernancePolicies } from "./Governance";
+export { default as HistoryBody } from "./HistoryBody";
+export { default as Introduction } from "./Introduction";
 export { default as Contact } from "./Contact";
-
-
-
+export { default as Council } from "./Council";
+export { default as Vision } from "./Vision";
+export { default as Home } from "./Home";
+export { default as Carousal } from "./Carousal";
+export { default as Hero } from "./Hero";
+export { default as Profiles } from "./Profiles";
+export { default as Officials } from "./Officials";
