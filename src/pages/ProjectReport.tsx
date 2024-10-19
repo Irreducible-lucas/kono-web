@@ -1,8 +1,8 @@
-import { AboutCarousal, Footer, Header } from ".";
+import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
-import styles, { layout } from "../styles";
-import BudgetCard from "./BudgetCard";
+import styles from "../styles";
+import BudgetCard from "../components/BudgetCard";
 
 const ProjectReport = () => {
   return (

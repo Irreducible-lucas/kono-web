@@ -1,8 +1,6 @@
 import {
   AboutCarousal,
   Electricity,
-  Footer,
-  Header,
   RoadConstructions,
   Sanitation,
 } from "../components";

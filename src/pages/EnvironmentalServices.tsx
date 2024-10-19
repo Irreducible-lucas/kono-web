@@ -1,11 +1,9 @@
-import { AboutCarousal, Footer, Header, YouthDevelopment } from "../components";
+import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
 import styles from "../styles";
-import EducationalPolicies from "./EducationalPolicies";
-import SchoolList from "./SchoolList";
-
-const Education = () => {
+import EnvironmentalServicesCard from "../components/EnvironmentalServicesCard";
+const EnvironmentalServices = () => {
   return (
     <motion.div
       id="home"
@@ -20,20 +18,16 @@ const Education = () => {
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
             image={hero2}
-            title={"Education"}
+            title={"Environmental Services"}
             content={
-              "List of Schools and educational Programs, support for youth development, and update on education policies."
+              "Waste Mangement initiatives, clean-up campaignes, and environmental conservation efforts"
             }
           />
         </div>
       </div>
-      <div>
-        <SchoolList />
-        <YouthDevelopment />
-        <EducationalPolicies />
-      </div>
+      <EnvironmentalServicesCard />
     </motion.div>
   );
 };
 
-export default Education;
+export default EnvironmentalServices;

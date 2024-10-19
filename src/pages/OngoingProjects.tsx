@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import AboutCarousal from "./AboutCarousal";
+import AboutCarousal from "../components/AboutCarousal";
 import styles from "../styles";
 
 interface Project {

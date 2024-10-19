@@ -1,8 +1,8 @@
-import { AboutCarousal, Footer, Header } from "../components";
+import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
-import styles, { layout } from "../styles";
-import ExpenditureCard from "./ExpenditureCard";
+import styles from "../styles";
+import ExpenditureCard from "../components/ExpenditureCard";
 
 const PublicExpenditure = () => {
   return (

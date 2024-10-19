@@ -1,8 +1,8 @@
-import { AboutCarousal, Footer, Header } from "../components";
+import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
 import styles, { layout } from "../styles";
-import ByLawCard from "./ByLawCard";
+import ByLawCard from "../components/ByLawCard";
 import { Laws } from "../constants";
 
 const ByLaws = () => {

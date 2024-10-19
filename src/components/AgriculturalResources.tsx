@@ -1,4 +1,4 @@
-import { ManualImage4, Women } from "../assets";
+import { ManualImage4 } from "../assets";
 import { Agricultural } from "../constants";
 import styles, { layout } from "../styles";
 import AgriculturalResourcesCard from "./AgriculturalResourcesCard";

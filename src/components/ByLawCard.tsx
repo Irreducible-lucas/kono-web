@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles, { layout } from "../styles";
+import styles from "../styles";
 import { BylawProps } from "../types";
 
 const ByLawCard = ({ image, title, description }: BylawProps) => {

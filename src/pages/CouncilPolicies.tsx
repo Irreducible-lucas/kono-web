@@ -1,8 +1,8 @@
-import { AboutCarousal, Footer, Header } from "../components";
+import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
 import styles, { layout } from "../styles";
-import CouncilPoliciesCard from "./CouncilPoliciesCard";
+import CouncilPoliciesCard from "../components/CouncilPoliciesCard";
 import { PolicyCard } from "../constants";
 const CouncilPolicies = () => {
   return (

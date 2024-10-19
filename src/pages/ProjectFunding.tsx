@@ -1,12 +1,10 @@
-import { AboutCarousal, Footer, Header } from "../components";
+import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
-import styles, { layout } from "../styles";
-import BudgetCard from "./BudgetCard";
-import AnnualProject from "./AnnualProject";
-import AnnualBudgetCard from "./AnnualBudgetCard";
+import styles from "../styles";
+import ProjectFundingCard from "../components/ProjectFundingCard";
 
-const AnnualBudget = () => {
+const ProjectFunding = () => {
   return (
     <motion.div
       id="home"
@@ -21,16 +19,17 @@ const AnnualBudget = () => {
         <div className={`${styles.boxWidth}`}>
           <AboutCarousal
             image={hero2}
-            title={"Annual Budget"}
+            title={"Project Funding"}
             content={
               "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur, cumque debitis eum recusandae quam! Molestias natus laudantium dolorem et consequatur quae voluptas magnam, quis quo similique provident illum cumque."
             }
           />
         </div>
       </div>
-      <AnnualBudgetCard />
+
+      <ProjectFundingCard />
     </motion.div>
   );
 };
 
-export default AnnualBudget;
+export default ProjectFunding;

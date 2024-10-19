@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import styles from "../styles";
 import { AgriculturalResource } from "../types";
 
 const AgriculturalResourcesCard = ({
