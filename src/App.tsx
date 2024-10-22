@@ -11,7 +11,6 @@ import {
   CouncilServices,
   Contact,
   Vision,
-  Home,
   Officials,
   HistoryBody,
   HealthCare,
@@ -29,6 +28,7 @@ import {
   CouncilPolicies,
   ByLaws,
   Council,
+  Home,
 } from "./pages";
 
 import SignUp from "./pages/SignUp";
@@ -39,11 +39,10 @@ const App = () => {
       <Route path="/" errorElement={<ErrorPage />}>
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
-          <Route path="home" element={<Home />} />
           <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="home" element={<LandingPage />} />
+          <Route path="home" element={<Home />} />
           <Route path="aboutus">
             <Route index element={<HistoryBody />} />
             <Route path="history" element={<HistoryBody />} />

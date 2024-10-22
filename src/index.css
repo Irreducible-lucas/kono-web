@@ -128,3 +128,20 @@
 .by-law-card:nth-child(even) img {
   order: 2;
 }
+@keyframes rotate-on-hover {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-on-hover {
+  transition: transform 0.2s ease-in-out;
+}
+
+.rotate-on-hover:hover .rotate {
+  animation: rotate-on-hover 0.5s forwards;
+}
+

@@ -6,9 +6,13 @@ const Welcome = () => {
     <section
       className={`${layout.section} flex flex-col lg:flex-row items-center gap-5`}
     >
-      <img src={Alice} className="mt-20 w-full h-full lg:w-[50%] rounded-lg " />
-      <div>
-        <h1 className={`${styles.heading1} text-center mb-10 `}>
+      <img
+        src={Alice}
+        alt="District Chairman Alice"
+        className="mt-20 w-full h-full lg:w-[50%] rounded-lg transition-transform duration-300 hover:scale-105"
+      />
+      <div className="flex flex-col items-center">
+        <h1 className={`${styles.heading1} text-center mb-10`}>
           Message From the District Chairman
         </h1>
         <p className={`${styles.paragraph2} text-slate-600`}>

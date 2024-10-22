@@ -1,9 +1,4 @@
-import {
-  AboutCarousal,
-  AgriculturalResources,
-  Footer,
-  Header,
-} from "../components";
+import { AboutCarousal, AgriculturalResources } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
 import styles from "../styles";

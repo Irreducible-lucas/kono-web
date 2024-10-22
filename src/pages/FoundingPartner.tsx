@@ -1,4 +1,3 @@
-import React from "react";
 import { irishaid, sendserial } from "../assets";
 import styles from "../style";
 

@@ -4,7 +4,7 @@ import ContactUsform from "./ContactUsForm";
 
 const ContactUs = () => {
   return (
-    <section className="bg-primary pb-[40px] px-4 lg:px-[80px] relative">
+    <section className="bg-blue-700 pb-[40px] px-4 lg:px-[80px] relative">
       <img
         src={ContactUsArt}
         className="absolute top-0 left-0 z-0 h-full"
