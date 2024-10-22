@@ -46,6 +46,7 @@ const App = () => {
           <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="aboutus" element={<AboutUs />} />
           <Route path="aboutus/history" element={<AboutUs />} />
           <Route path="aboutus/council-structure" element={<Council />} />
           <Route path="aboutus/vision&mission" element={<Vision />} />

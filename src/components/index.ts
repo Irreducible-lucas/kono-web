@@ -24,6 +24,7 @@ export { default as AgriculturalResources } from "./AgriculturalResources";
 export { default as OngoingProjects } from "./OngoingProjects";
 export { default as CompletdProjects } from "./CompletedProjects";
 export { default as UpcomingProjects } from "./UpcomingProjects";
+export { default as AboutKono } from "./AboutKono";
 export { default as AnnualBudget } from "./AnnualBudget";
 export { default as ProjectReport } from "./ProjectUpdate";
 export { default as ProjectFunding } from "./ProjectFunding";

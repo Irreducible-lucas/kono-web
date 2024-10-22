@@ -51,6 +51,32 @@
   /* text-fill-color: transparent; */
 }
 
+.text-cyan {
+  background: linear-gradient(149.02deg, #e6ff42 6.56%, #008a61 85.32%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+}
+
+.gradient__postion {
+  position: absolute;
+  width: 90%;
+  height: 327px;
+  left: 20px;
+  top: 325px;
+  /* overflow: hidden; */
+}
+
+.orange__gradient {
+  background: linear-gradient(
+    278.85deg,
+    rgba(255, 152, 16, 0.3) 46.97%,
+    rgba(0, 138, 97, 0.3) 56.04%
+  );
+  filter: blur(200px);
+}
+
 #custom-tab-panel {
   padding: 20px;
   border: 1px solid #ccc;
