@@ -13,10 +13,8 @@ export { default as News } from "./News";
 export { default as AboutCarousal } from "./AboutCarousal";
 export { default as SupportedProgram } from "./SupportedProgram";
 export { default as YouthDevelopment } from "./YouthDevelopment";
-export {default as AgriculturalResources} from "./AgriculturalResources"
+export { default as AgriculturalResources } from "./AgriculturalResources";
+export { default as AboutKono } from "./AboutKono";
 export {default as Electricity} from "./Electricity"
 export {default as RoadConstructions} from "./RoadConstruction"
 export {default as Sanitation} from "./Sanitation"
-
-
-

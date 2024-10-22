@@ -28,6 +28,8 @@ import {
   CouncilPolicies,
   ByLaws,
   Council,
+  AboutUs,
+  Profiles,
   Home,
 } from "./pages";
 
@@ -42,7 +44,14 @@ const App = () => {
           <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="home" element={<Home />} />
+          <Route path="aboutus" element={<AboutUs />} />
+          <Route path="aboutus/history" element={<AboutUs />} />
+          <Route path="aboutus/council-structure" element={<Council />} />
+          <Route path="aboutus/vision&mission" element={<Vision />} />
+          <Route path="aboutus/profiles" element={<Profiles />} />
+          <Route path="aboutus/officials" element={<Officials />} />
+
+          <Route path="home" element={<LandingPage />} />
           <Route path="aboutus">
             <Route index element={<HistoryBody />} />
             <Route path="history" element={<HistoryBody />} />
