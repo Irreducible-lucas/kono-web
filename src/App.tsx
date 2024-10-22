@@ -8,34 +8,33 @@ import {
   ErrorPage,
   LandingPage,
   Login,
+  CouncilServices,
   Contact,
-  AboutUs,
-  Council,
   Vision,
   Home,
-  Profiles,
   Officials,
+  HistoryBody,
+  HealthCare,
+  Education,
+  Agriculture,
+  Infrastructure,
+  EnvironmentalServices,
+  OngoingProject,
+  CompletdProject,
+  UpcomingProject,
+  AnnualBudget,
+  ProjectReport,
+  ProjectFunding,
+  PublicExpenditure,
+  CouncilPolicies,
+  ByLaws,
+  Council,
+  AboutUs,
+  Profiles,
 } from "./pages";
 
 import SignUp from "./pages/SignUp";
 import Root from "./layouts/Root";
-import {
-  Agriculture,
-  AnnualBudget,
-  ByLaws,
-  CompletdProjects,
-  CouncilPolicies,
-  Education,
-  EnvironmentalServices,
-  HealthCare,
-  Infrastructure,
-  OngoingProjects,
-  ProjectFunding,
-  ProjectReport,
-  PublicExpenditure,
-  UpcomingProjects,
-} from "./components";
-
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -53,10 +52,20 @@ const App = () => {
           <Route path="aboutus/profiles" element={<Profiles />} />
           <Route path="aboutus/officials" element={<Officials />} />
 
+          <Route path="home" element={<LandingPage />} />
+          <Route path="aboutus">
+            <Route index element={<HistoryBody />} />
+            <Route path="history" element={<HistoryBody />} />
+            <Route path="council-structure" element={<Council />} />
+            <Route path="vision&mission" element={<Vision />} />
+            <Route path="officials" element={<Officials />} />
+          </Route>
+          <Route path="council-services" element={<CouncilServices />} />
+
           <Route path="council-services/healthcare" element={<HealthCare />} />
           <Route path="council-services/education" element={<Education />} />
           <Route
-            path="council-services/agriculture"
+            path="council-services/agriculture-livelihood"
             element={<Agriculture />}
           />
           <Route
@@ -64,20 +73,20 @@ const App = () => {
             element={<Infrastructure />}
           />
           <Route
-            path="council-services/environmental"
+            path="council-services/environmental-services"
             element={<EnvironmentalServices />}
           />
           <Route
             path="development-projects/ongoing-project"
-            element={<OngoingProjects />}
+            element={<OngoingProject />}
           />
           <Route
             path="development-projects/completed-project"
-            element={<CompletdProjects />}
+            element={<CompletdProject />}
           />
           <Route
             path="development-projects/upcoming-project"
-            element={<UpcomingProjects />}
+            element={<UpcomingProject />}
           />
           <Route path="reports-financials">
             <Route index element={<AnnualBudget />} />

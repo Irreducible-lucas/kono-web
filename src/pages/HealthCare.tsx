@@ -1,7 +1,7 @@
 import { AboutCarousal, SupportedProgram } from "../components";
 import { motion } from "framer-motion";
 import { hero2, Women } from "../assets";
-import CouncilServicesCard from "./CouncilServicesCard";
+import CouncilServicesCard from "../components/CouncilServicesCard";
 import styles from "../styles";
 
 const HealthCare = () => {

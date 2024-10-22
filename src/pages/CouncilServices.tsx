@@ -1,4 +1,4 @@
-import { AboutCarousal, Footer, Header } from "../components";
+import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { hero2 } from "../assets";

@@ -1,10 +1,10 @@
-import TalkToUs from "../components/TalkToUs";
 import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
-import styles from "../styles";
 import { hero2 } from "../assets";
+import styles from "../styles";
+import ProjectFundingCard from "../components/ProjectFundingCard";
 
-const Contact = () => {
+const ProjectFunding = () => {
   return (
     <motion.div
       id="home"
@@ -16,19 +16,20 @@ const Contact = () => {
     >
       {/* carousal */}
       <div className={` ${styles.flexStart}`}>
-        <div className={`${styles.boxWidth} `}>
+        <div className={`${styles.boxWidth}`}>
           <AboutCarousal
             image={hero2}
-            title={"Contact Us"}
+            title={"Project Funding"}
             content={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero explicabo quae architecto voluptates, vel pariatur, nemo, nesciunt cupiditate quo quidem eaque beatae distinctio odit laborum aspernatur a facere quas sit."
+              "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur, cumque debitis eum recusandae quam! Molestias natus laudantium dolorem et consequatur quae voluptas magnam, quis quo similique provident illum cumque."
             }
           />
         </div>
       </div>
-      <TalkToUs />
+
+      <ProjectFundingCard />
     </motion.div>
   );
 };
 
-export default Contact;
+export default ProjectFunding;

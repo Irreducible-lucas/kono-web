@@ -42,7 +42,7 @@ export const styles = {
 };
 
 export const layout = {
-  section: `mx-2 lg:mx-10 py-[40px] px-5 lg:px-6 lg:py-3 my-5 `,
+  section: `py-[40px] px-4 md:px-[40px] lg:px-[80px] lg:py-[80px]`,
   sectionReverse: `flex md:flex-row flex-col-reverse ${styles.paddingY}`,
 
   sectionImgReverse: `flex-1 flex ${styles.flexCenter} md:mr-10 mr-0 md:mt-0 mt-10 relative`,

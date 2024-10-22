@@ -29,6 +29,15 @@ import {
   SupportedProgram,
   YouthDevelopment,
   EducationalPolicy,
+  AgriculturalResource,
+  CouncilPolicy,
+  LawCard,
+  ByLaw,
+  BudgetProject,
+  ExpenditureProject,
+  ProjectFunding,
+  AnnualBudget,
+  DepartmentalContact,
 } from "../types";
 import { CareLogo } from "../assets/logos";
 
@@ -37,6 +46,7 @@ export const links: Link[] = [
     id: 1,
     text: "Home",
     url: "/home",
+    child: null,
   },
   {
     id: 2,
@@ -50,8 +60,7 @@ export const links: Link[] = [
       },
       { id: 2, text: "Council Structure", url: "/aboutus/council-structure" },
       { id: 3, text: "Vision and Mission", url: "/aboutus/vision&mission" },
-      { id: 4, text: "Profiles and Pictures", url: "/aboutus/profiles" },
-      { id: 5, text: "Officials and Chiefdoms", url: "/aboutus/officials" },
+      { id: 4, text: "Officials and Chiefdoms", url: "/aboutus/officials" },
     ],
   },
 
@@ -69,7 +78,7 @@ export const links: Link[] = [
       {
         id: 3,
         text: "Agriculture and Livelihood",
-        url: "/council-services/agriculture",
+        url: "/council-services/agriculture-livelihood",
       },
       {
         id: 4,
@@ -79,7 +88,7 @@ export const links: Link[] = [
       {
         id: 5,
         text: "Environmental Services",
-        url: "/council-services/environmental",
+        url: "/council-services/environmental-services",
       },
     ],
   },
@@ -477,6 +486,7 @@ export const SupportedPrograms: SupportedProgram[] = [
     title: "Supported Program",
   },
 ];
+
 export const YouthDevelopments: YouthDevelopment[] = [
   {
     id: 1,
@@ -560,5 +570,286 @@ export const Education: EducationalPolicy[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia alias, earum maxime suscipit atque dicta? Quod id quisquam ex, quaerat, sit non praesentium voluptatem nobis quam similique, soluta distinctio magnam.",
     url: "#",
+  },
+];
+
+export const Agricultural: AgriculturalResource[] = [
+  {
+    id: 1,
+    image: NewsImage6,
+    url: "#",
+    title: "Acess to Agricultural Input",
+    description: "Acess to Seed, fertilizers,tools, and machinery",
+  },
+  {
+    id: 2,
+    image: NewsImage6,
+    url: "#",
+    title: "Acess to Agricultural Input",
+    description: "Acess to Seed, fertilizers,tools, and machinery",
+  },
+  {
+    id: 3,
+    image: NewsImage6,
+    url: "#",
+    title: "Acess to Agricultural Input",
+    description: "Acess to Seed, fertilizers,tools, and machinery",
+  },
+  {
+    id: 4,
+    image: NewsImage6,
+    url: "#",
+    title: "Acess to Agricultural Input",
+    description: "Acess to Seed, fertilizers,tools, and machinery",
+  },
+];
+
+export const PolicyCard: CouncilPolicy[] = [
+  {
+    id: 1,
+    image: SustainableGrowthImage,
+  },
+  {
+    id: 2,
+    image: HealthImage,
+  },
+  {
+    id: 3,
+    image: SustainableGrowthImage,
+  },
+  {
+    id: 4,
+    image: GenderEqualityImage,
+  },
+  {
+    id: 5,
+    image: ClimateImage,
+  },
+  {
+    id: 6,
+    image: ClimateImage,
+  },
+];
+
+export const LawCards: LawCard[] = [
+  {
+    id: 1,
+    title: "Rule 1",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: SustainableGrowthImage,
+  },
+  {
+    id: 2,
+    title: "Rule 2",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: HealthImage,
+  },
+  {
+    id: 3,
+    title: "Rule 3",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: SustainableGrowthImage,
+  },
+  {
+    id: 4,
+    title: "Rule 4",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: GenderEqualityImage,
+  },
+  {
+    id: 5,
+    title: "Rule 5",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: ClimateImage,
+  },
+  {
+    id: 6,
+    title: "Rule 6",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+    image: ClimateImage,
+  },
+];
+export const Laws: ByLaw[] = [
+  {
+    id: 1,
+    image: NewsImage6,
+    title: "Laws",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+  },
+  {
+    id: 2,
+    image: NewsImage6,
+    title: "Laws",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+  },
+  {
+    id: 3,
+    image: NewsImage6,
+    title: "Laws",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+  },
+  {
+    id: 4,
+    image: NewsImage6,
+    title: "Laws",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi ad quasi aspernatur quo dignissimos laudantium obcaecati velit accusamus eius, quam commodi odio? Provident deleniti ea mollitia numquam voluptates soluta dolores!",
+  },
+];
+
+
+export const BudgetProjects: BudgetProject[] = [
+  {
+    id: 1,
+    title: "Project 01",
+    text: "CITIZEN DRIVEN CLIMATE SENSITIVE WASH MANAGEMENT PROJECT",
+    link_url: "/program-areas/climate/1",
+    status: "completed",
+  },
+  {
+    id: 2,
+    title: "Project 02",
+    text: "ENHANCING CLIMATE RESILIENCE IN RURAL SIERRA LEONE PROJECT",
+    link_url: "/program-areas/climate/2",
+    status: "completed",
+     },
+  {
+    id: 3,
+    title: "Project 03",
+    text: "STRENGTHENING WOMEN AND YOUTH-LED BUSINESS FOR LOCAL ECONOMIC DEVELOPMENT PROJECT",
+    link_url: "/program-areas/climate/3",
+    status: "completed",
+    },
+  {
+    id: 4,
+    title: "Project 04",
+    text: "IMPROVED ACCESS TO SUSTAINABLY MANAGED MICRO-FINANCE AND WaSH SYSTEMS – WaSH SELF SUPPLY PROJECT",
+    link_url: "/program-areas/climate/4",
+    status: "completed",
+  },
+];
+export const ExpenditureProjects: ExpenditureProject[] = [
+  {
+    id: 1,
+    title: "Expenditure 01",
+    text: "CITIZEN DRIVEN CLIMATE SENSITIVE WASH MANAGEMENT PROJECT",
+    link_url: "/program-areas/climate/1",
+    status: "completed",
+  },
+  {
+    id: 2,
+    title: "Expenditure 02",
+    text: "ENHANCING CLIMATE RESILIENCE IN RURAL SIERRA LEONE PROJECT",
+    link_url: "/program-areas/climate/2",
+    status: "completed",
+     },
+  {
+    id: 3,
+    title: "Expenditure 03",
+    text: "STRENGTHENING WOMEN AND YOUTH-LED BUSINESS FOR LOCAL ECONOMIC DEVELOPMENT PROJECT",
+    link_url: "/program-areas/climate/3",
+    status: "completed",
+    },
+  {
+    id: 4,
+    title: "Expenditure 04",
+    text: "IMPROVED ACCESS TO SUSTAINABLY MANAGED MICRO-FINANCE AND WaSH SYSTEMS – WaSH SELF SUPPLY PROJECT",
+    link_url: "/program-areas/climate/4",
+    status: "completed",
+  },
+];
+
+export const ProjectFundings: ProjectFunding[] = [
+  {
+    id: 1,
+    title: "Project 01",
+    text: "CITIZEN DRIVEN CLIMATE SENSITIVE WASH MANAGEMENT PROJECT",
+    link_url: "/program-areas/climate/1",
+    status: "completed",
+  },
+  {
+    id: 2,
+    title: "Project 02",
+    text: "ENHANCING CLIMATE RESILIENCE IN RURAL SIERRA LEONE PROJECT",
+    link_url: "/program-areas/climate/2",
+    status: "completed",
+     },
+  {
+    id: 3,
+    title: "Project 03",
+    text: "STRENGTHENING WOMEN AND YOUTH-LED BUSINESS FOR LOCAL ECONOMIC DEVELOPMENT PROJECT",
+    link_url: "/program-areas/climate/3",
+    status: "completed",
+    },
+  {
+    id: 4,
+    title: "Project 04",
+    text: "IMPROVED ACCESS TO SUSTAINABLY MANAGED MICRO-FINANCE AND WaSH SYSTEMS – WaSH SELF SUPPLY PROJECT",
+    link_url: "/program-areas/climate/4",
+    status: "completed",
+  },
+];
+
+export const AnnualBudgets: AnnualBudget[] = [
+  {
+    id: 1,
+    title: "Budget 01",
+    text: "CITIZEN DRIVEN CLIMATE SENSITIVE WASH MANAGEMENT PROJECT",
+    link_url: "/program-areas/climate/1",
+  
+  },
+  {
+    id: 2,
+    title: "Budget 02",
+    text: "ENHANCING CLIMATE RESILIENCE IN RURAL SIERRA LEONE PROJECT",
+    link_url: "/program-areas/climate/2",
+
+     },
+  {
+    id: 3,
+    title: "Budget 03",
+    text: "STRENGTHENING WOMEN AND YOUTH-LED BUSINESS FOR LOCAL ECONOMIC DEVELOPMENT PROJECT",
+    link_url: "/program-areas/climate/3",
+
+    },
+  {
+    id: 4,
+    title: "Budget 04",
+    text: "IMPROVED ACCESS TO SUSTAINABLY MANAGED MICRO-FINANCE AND WaSH SYSTEMS – WaSH SELF SUPPLY PROJECT",
+    link_url: "/program-areas/climate/4",
+  
+  },
+];
+export const DepartmentContacts: DepartmentalContact[] = [
+  {
+    id: 1,
+    department: "Health Department",
+    phone: "555-555-555",
+    email: "info@konowebsite",
+   
+  
+  },
+  {
+    id: 2,
+    department: "Educational Department",
+    phone: "555-555-555",
+    email: "info@konowebsite",
+   
+     },
+  {
+    id: 3,
+    department: "Finance Department",
+    phone: "555-555-555",
+    email: "info@konowebsite",
+   
   },
 ];

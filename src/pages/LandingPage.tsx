@@ -1,7 +1,6 @@
 import {
   ContactUs,
   FeaturedDevelopment,
-  Footer,
   HeroSection,
   News,
   Testimonial,
@@ -20,7 +19,6 @@ const LandingPage = () => {
         <News />
         <Testimonial />
         <ContactUs />
-        <Footer />
       </div>
     </div>
   );

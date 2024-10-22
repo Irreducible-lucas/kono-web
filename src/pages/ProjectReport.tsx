@@ -1,11 +1,10 @@
-import { AboutCarousal, Footer, Header, YouthDevelopment } from "../components";
+import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
 import styles from "../styles";
-import EducationalPolicies from "./EducationalPolicies";
-import SchoolList from "./SchoolList";
+import BudgetCard from "../components/BudgetCard";
 
-const Education = () => {
+const ProjectReport = () => {
   return (
     <motion.div
       id="home"
@@ -17,23 +16,21 @@ const Education = () => {
     >
       {/* carousal */}
       <div className={` ${styles.flexStart}`}>
-        <div className={`${styles.boxWidth} `}>
+        <div className={`${styles.boxWidth}`}>
           <AboutCarousal
             image={hero2}
-            title={"Education"}
+            title={"Project Report and Update"}
             content={
-              "List of Schools and educational Programs, support for youth development, and update on education policies."
+              "   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste accusamus sit minima similique tenetur placeat ut, pariatur, molestias, deserunt animi autem. Ipsa eveniet cum quis quidem veritatis recusandae perferendis laudantium."
             }
           />
         </div>
       </div>
       <div>
-        <SchoolList />
-        <YouthDevelopment />
-        <EducationalPolicies />
+        <BudgetCard />
       </div>
     </motion.div>
   );
 };
 
-export default Education;
+export default ProjectReport;

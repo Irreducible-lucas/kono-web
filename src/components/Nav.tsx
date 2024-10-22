@@ -1,4 +1,3 @@
-// src/components/Nav.tsx
 import { useState } from "react";
 import {
   Menubar,
@@ -137,9 +136,9 @@ const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
         <div className="flex items-center justify-between">
           {links.map((link, index) => (
             <MenubarMenu key={index}>
-              {/* <NavLink to={link.url}> */}
-              <MenubarTrigger>{link.text}</MenubarTrigger>
-              {/* </NavLink> */}
+              <MenubarTrigger>
+                <NavLink to={link.child ? "#" : link.url}>{link.text}</NavLink>
+              </MenubarTrigger>
 
               {link.child && (
                 <MenubarContent>

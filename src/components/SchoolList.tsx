@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -13,7 +12,7 @@ const SchoolList = () => {
   return (
     <div className={`${layout.section} `}>
       <h2
-        className={`${styles.heading1} lg:text-4xl  text-center text-black font-bold uppercase mt-8`}
+        className={`${styles.heading1} lg:text-3xl text-center text-black font-bold uppercase mt-8`}
       >
         List of Schools and Educational Program
       </h2>
