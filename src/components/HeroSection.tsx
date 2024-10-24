@@ -14,7 +14,7 @@ const HeroSection = () => {
             <br className="sm:block hidden" /> District Council
           </h1>
           <YellowDivider />
-          <p className={`${styles.paragraph}`}>
+          <p className={`${styles.paragraph} mb-10`}>
             Working Together for a Stronger, Brighter Future for Kono
           </p>
         </div>
