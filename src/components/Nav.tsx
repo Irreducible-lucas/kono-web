@@ -13,9 +13,18 @@ import { SabiLogo } from "../assets";
 const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openSubmenuIndex, setOpenSubmenuIndex] = useState<number | null>(null); // Track the open submenu
 
   const handleToggleSubmenu = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const handleSubmenuToggle = (index: number) => {
+    setOpenSubmenuIndex(openSubmenuIndex === index ? null : index);
+  };
+
+  const closeSubmenu = () => {
+    setOpenSubmenuIndex(null); // Close submenu on item click
   };
 
   return (
@@ -136,46 +145,28 @@ const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
         <div className="flex items-center justify-between">
           {links.map((link, index) => (
             <MenubarMenu key={index}>
-              <MenubarTrigger>
+              <MenubarTrigger onClick={() => handleSubmenuToggle(index)}>
                 <NavLink to={link.child ? "#" : link.url}>{link.text}</NavLink>
               </MenubarTrigger>
 
-              {link.child && (
+              {link.child && openSubmenuIndex === index && (
                 <MenubarContent>
                   {link.child.map((child, childIndex) => (
                     <MenubarItem key={childIndex}>
-                      <NavLink to={child.url}>{child.text}</NavLink>
+                      <NavLink
+                        to={child.url}
+                        onClick={() => {
+                          closeSubmenu(); // Close submenu on item click
+                        }}
+                      >
+                        {child.text}
+                      </NavLink>
                     </MenubarItem>
                   ))}
                 </MenubarContent>
               )}
             </MenubarMenu>
           ))}
-          <NavLink to="/search">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={`${
-                fill ? "stroke-black" : "black"
-              } hidden lg:flex ml-5`}
-            >
-              <path
-                d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M22 22L20 20"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </NavLink>
         </div>
       </Menubar>
     </div>
