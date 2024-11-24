@@ -46,7 +46,7 @@ const OfficialChiefdom = (props: Props) => {
       whileInView={{ opacity: 1 }}
       transition={{ delay: 0.5, when: "beforeChildren" }}
       id="product"
-      className={` grid grid-cols-1 md:grid-cols-2 gap-8 items-start`}
+      className={` grid grid-cols-1 md:grid-cols-2 lg:gap-8 items-start`}
     >
       <motion.div
         initial={{ x: "-100vw" }}
@@ -58,7 +58,7 @@ const OfficialChiefdom = (props: Props) => {
           <img
             src={image ? image : Alice}
             alt={title}
-            className="h-full object-contain mb-8"
+            className="h-full object-contain lg:mb-8"
           />
           {showMoreInfo && (
             <div className="">
