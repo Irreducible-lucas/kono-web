@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     /* To support @ alias */
+    "types": ["node"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"],

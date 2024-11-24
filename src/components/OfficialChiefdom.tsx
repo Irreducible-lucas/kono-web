@@ -124,7 +124,7 @@ const OfficialChiefdom = (props: Props) => {
 
         {showButton && (
           <Button
-            onclick={() => {
+            onClick={() => {
               if (onclick) onclick();
             }}
             styles={

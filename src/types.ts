@@ -33,7 +33,7 @@ export interface ServicesCardsProps {
   link_url: string;
 }
 export interface FeaturedsDevelopment {
-  id: number;
+  id?: number;
   title: string;
   image: string;
   url: string;
@@ -44,7 +44,7 @@ export interface FeaturedTypes {
   url: string;
 };
 export interface News {
-  id: number;
+  id?: number;
   title: string;
   image: string;
   url: string;
@@ -86,14 +86,14 @@ export interface YouthDevelopment {
   description: string;
 };
 export interface EducationalPolicy {
-  id: number;
+  id?: number;
   title: string;
   image: string;
   url: string;
   description: string;
 };
 export interface AgriculturalResource {
-  id: number;
+  id?: number;
   image: string;
   url: string
   title: string,

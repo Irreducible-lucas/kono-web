@@ -1,4 +1,4 @@
-import { BudgetProjects, ExpenditureProjects } from "../constants";
+import { ExpenditureProjects } from "../constants";
 import { styles, layout } from "../styles";
 import BudgetProject from "./BudgetProject";
 

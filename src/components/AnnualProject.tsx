@@ -1,4 +1,4 @@
-import { Ledger, Zainab } from "../assets";
+import { Zainab } from "../assets";
 import styles from "../styles";
 import { Link } from "react-router-dom";
 

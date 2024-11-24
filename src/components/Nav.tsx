@@ -6,11 +6,13 @@ import { SabiLogo } from "../assets";
 
 const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  // Use the correct timeout type, either NodeJS.Timeout or ReturnType<typeof setTimeout>
+  const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = (index: number) => {
     if (hoverTimeout.current) {
-      clearTimeout(hoverTimeout.current); // Clear any pending timeout
+      clearTimeout(hoverTimeout.current);
     }
     setOpenIndex(index);
   };
@@ -18,7 +20,7 @@ const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
   const handleMouseLeave = () => {
     hoverTimeout.current = setTimeout(() => {
       setOpenIndex(null);
-    }, 150); // Delay to avoid simultaneous display
+    }, 150);
   };
 
   return (
@@ -62,7 +64,7 @@ const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
                       <li
                         key={childIndex}
                         className="px-4 py-2 hover:bg-gray-100"
-                        onClick={() => setOpenIndex(null)} // Close dropdown on click
+                        onClick={() => setOpenIndex(null)}
                       >
                         <NavLink
                           to={child.url}
