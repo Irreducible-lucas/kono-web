@@ -1,5 +1,4 @@
 import {
-  Crown,
   Calendar,
   MapPin,
   Phone,
@@ -10,12 +9,36 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-const Profiles = () => {
-  const [selectedProfile, setSelectedProfile] = useState(null);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+interface Contact {
+  office: string;
+  phone: string;
+  email: string;
+}
 
-  const profiles = [
+interface Profile {
+  id: number;
+  name: string;
+  title: string;
+  region: string;
+  yearsOfService: string;
+  achievements: string[];
+  biography: string;
+  expertise: string[];
+  contact: Contact;
+  imageUrl: string;
+}
+
+interface GalleryImage {
+  url: string;
+  caption: string;
+}
+
+const Profiles = () => {
+  const [selectedProfile, setSelectedProfile] = useState<Profile | null>(null);
+  const [isGalleryOpen, setIsGalleryOpen] = useState<boolean>(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+
+  const profiles: Profile[] = [
     {
       id: 1,
       name: "Chief Kwame Adinkra",
@@ -96,7 +119,7 @@ const Profiles = () => {
     },
   ];
 
-  const galleryImages = [
+  const galleryImages: GalleryImage[] = [
     {
       url: "/api/placeholder/800/600",
       caption: "Annual Durbar Celebration",
@@ -123,7 +146,7 @@ const Profiles = () => {
     },
   ];
 
-  const ProfileCard = ({ profile }) => (
+  const ProfileCard = ({ profile }: { profile: Profile }) => (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
       <div className="relative h-64">
         <img
@@ -157,7 +180,13 @@ const Profiles = () => {
     </div>
   );
 
-  const ProfileModal = ({ profile, onClose }) => {
+  const ProfileModal = ({
+    profile,
+    onClose,
+  }: {
+    profile: Profile | null;
+    onClose: () => void;
+  }) => {
     if (!profile) return null;
 
     return (
@@ -244,6 +273,12 @@ const Profiles = () => {
                   </div>
                 </div>
               </div>
+              <button
+                onClick={() => setIsGalleryOpen(true)}
+                className="w-full mt-6 bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors"
+              >
+                View Gallery
+              </button>
             </div>
           </div>
         </div>
@@ -251,128 +286,79 @@ const Profiles = () => {
     );
   };
 
-  const Gallery = () => (
-    <div className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Ceremonial Gallery
-          </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Capturing our rich traditions and ceremonial moments
-          </p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {galleryImages.map((image, index) => (
-            <div
-              key={index}
-              className="relative cursor-pointer group"
-              onClick={() => {
-                setCurrentImageIndex(index);
-                setIsGalleryOpen(true);
-              }}
-            >
-              <img
-                src={image.url}
-                alt={image.caption}
-                className="w-full h-64 object-cover rounded-lg"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity rounded-lg flex items-center justify-center">
-                <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-center p-4">
-                  {image.caption}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  const GalleryModal = () => {
+  const GalleryModal = ({
+    images,
+    onClose,
+  }: {
+    images: GalleryImage[];
+    onClose: () => void;
+  }) => {
     if (!isGalleryOpen) return null;
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
-        <button
-          onClick={() => setIsGalleryOpen(false)}
-          className="absolute top-4 right-4 text-white"
-        >
-          <X className="h-6 w-6" />
-        </button>
-        <button
-          onClick={() =>
-            setCurrentImageIndex((prev) =>
-              prev === 0 ? galleryImages.length - 1 : prev - 1
-            )
-          }
-          className="absolute left-4 text-white hover:text-gray-300"
-        >
-          <ChevronLeft className="h-8 w-8" />
-        </button>
-        <button
-          onClick={() =>
-            setCurrentImageIndex((prev) =>
-              prev === galleryImages.length - 1 ? 0 : prev + 1
-            )
-          }
-          className="absolute right-4 text-white hover:text-gray-300"
-        >
-          <ChevronRight className="h-8 w-8" />
-        </button>
-        <div className="max-w-4xl w-full p-4">
-          <img
-            src={galleryImages[currentImageIndex].url}
-            alt={galleryImages[currentImageIndex].caption}
-            className="w-full h-[70vh] object-contain"
-          />
-          <p className="text-white text-center mt-4 text-lg">
-            {galleryImages[currentImageIndex].caption}
-          </p>
+      <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
+          <div className="relative">
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+          <div className="relative">
+            <img
+              src={images[currentImageIndex].url}
+              alt={images[currentImageIndex].caption}
+              className="w-full h-full object-cover rounded-t-xl"
+            />
+            <p className="absolute bottom-4 left-4 text-white bg-black bg-opacity-60 p-2 text-lg rounded-lg">
+              {images[currentImageIndex].caption}
+            </p>
+          </div>
+          <div className="flex justify-between p-4">
+            <button
+              onClick={() => {
+                setCurrentImageIndex(
+                  (prevIndex) => (prevIndex - 1 + images.length) % images.length
+                );
+              }}
+              className="text-purple-600 hover:text-purple-700"
+            >
+              <ChevronLeft className="h-8 w-8" />
+            </button>
+            <button
+              onClick={() => {
+                setCurrentImageIndex(
+                  (prevIndex) => (prevIndex + 1) % images.length
+                );
+              }}
+              className="text-purple-600 hover:text-purple-700"
+            >
+              <ChevronRight className="h-8 w-8" />
+            </button>
+          </div>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Profiles Section */}
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center rounded-full bg-purple-100 px-4 py-1 mb-4">
-              <Crown className="mr-2 h-5 w-5 text-purple-600" />
-              <span className="text-sm font-medium text-purple-600">
-                Leadership Profiles
-              </span>
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900">
-              Our Traditional Leaders
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Meet the distinguished leaders preserving our heritage and guiding
-              our future
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {profiles.map((profile) => (
-              <ProfileCard key={profile.id} profile={profile} />
-            ))}
-          </div>
-        </div>
+    <div className="p-8 space-y-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {profiles.map((profile) => (
+          <ProfileCard key={profile.id} profile={profile} />
+        ))}
       </div>
 
-      {/* Gallery Section */}
-      <Gallery />
-
-      {/* Modals */}
-      {selectedProfile && (
-        <ProfileModal
-          profile={selectedProfile}
-          onClose={() => setSelectedProfile(null)}
-        />
-      )}
-      <GalleryModal />
+      <ProfileModal
+        profile={selectedProfile}
+        onClose={() => setSelectedProfile(null)}
+      />
+      <GalleryModal
+        images={galleryImages}
+        onClose={() => setIsGalleryOpen(false)}
+      />
     </div>
   );
 };

@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-const ImageButton = ({ image, onClick }) => (
+
+interface ImageButtonProps {
+  image: string;
+  onClick: () => void;
+}
+
+const ImageButton: React.FC<ImageButtonProps> = ({ image, onClick }) => (
   <motion.img
     onClick={() => {
       onClick();

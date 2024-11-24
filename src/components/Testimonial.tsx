@@ -1,33 +1,8 @@
-import Carousel, { ArrowProps, ResponsiveType } from "react-multi-carousel";
+import Carousel, { ResponsiveType } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { reviews } from "../constants";
 import TestimonialCard from "./TestimonialCard";
 import styles from "../styles";
-import { ChevronLeft, ChevronRight } from "../assets";
-
-// const CustomLeftArrow = ({ onClick }: ArrowProps) => {
-//   return (
-//     <button
-//       className="absolute left-0 top-1/2 transform -translate-y-1/2  p-3  z-10 "
-//       onClick={onClick}
-//       aria-label="Previous Slide"
-//     >
-//       <img src={ChevronLeft} width={50} height={50} />
-//     </button>
-//   );
-// };
-
-// const CustomRightArrow = ({ onClick }: ArrowProps) => {
-//   return (
-//     <button
-//       className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10"
-//       onClick={onClick}
-//       aria-label="Next Slide"
-//     >
-//       <img src={ChevronRight} width={50} height={50} />
-//     </button>
-//   );
-// };
 
 const Testimonial = () => {
   const responsive: ResponsiveType = {

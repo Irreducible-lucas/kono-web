@@ -70,16 +70,16 @@ export interface BylawProps {
   description: string;
 }
 export interface SupportedProgram {
-  id: number;
+  id?: number;
   title: string;
   image: string;
 };
 export interface CouncilPolicy {
-  id: number;
+  id?: number;
   image: string;
 };
 export interface YouthDevelopment {
-  id: number;
+  id?: number;
   title: string;
   image: string;
   url: string;

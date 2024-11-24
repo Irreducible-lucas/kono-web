@@ -14,7 +14,7 @@ const Officials = () => {
       className="bg-white w-full overflow-hidden"
     >
       {/* carousal */}
-      <div className={` ${styles.flexStart}`}>
+      <div className={`${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <AboutCarousal
             image={hero2}
@@ -26,7 +26,7 @@ const Officials = () => {
         </div>
       </div>
       <div className={`${layout.section}`}>
-        <OfficialChiefdom />
+        <OfficialChiefdom showButton={true} />
       </div>
     </motion.div>
   );

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { AboutCarousal, ServiceCard } from "../components";
 import { hero2 } from "../assets";
 import { useNavigate } from "react-router-dom";
-import { aboutus, reportFinancials } from "../constants";
+import { reportFinancials } from "../constants";
 
 const Report = () => {
   let navigate = useNavigate();

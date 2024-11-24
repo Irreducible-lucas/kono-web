@@ -171,3 +171,5 @@ export { default as Support } from "../assets/icons/support.webp";
 export { default as Partnership } from "../assets/partnership.png";
 export { default as konoMap } from "../assets/kono map.png";
 export { default as OrganisationStructure } from "../assets/organization structure.jpg";
+export { default as irishaid } from "../assets/irish-aid-logo.png";
+export { default as sendserial } from "../assets/tity.jpeg";
