@@ -114,7 +114,8 @@ const App = () => {
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Route>
-    )
+    ),
+    { basename: "/kono-web" }
   );
 
   return <RouterProvider router={router} />;

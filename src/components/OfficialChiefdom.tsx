@@ -61,7 +61,7 @@ const OfficialChiefdom = (props: Props) => {
             className="h-full object-contain mb-8"
           />
           {showMoreInfo && (
-            <div className="hidden sm:block">
+            <div className="">
               {oddChiefdoms.map((item) => (
                 <div key={item.id} className="mb-8">
                   <h1 className={` ${styles.heading2} `}>{item.title}</h1>

@@ -1,4 +1,3 @@
-import styles from "../style";
 import { motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
 import { Footer, Nav, NavDisplay } from "../components";
@@ -11,22 +10,14 @@ const Root = () => (
     }}
     className="w-full overflow-hidden"
   >
-    <div className={` ${styles.flexCenter}`}>
-      <div className={`${styles.boxWidth}`}>
-        <NavDisplay />
-        <Nav />
-      </div>
-    </div>
+    <NavDisplay />
+    <Nav />
 
     <div className={``}>
       <Outlet />
     </div>
 
-    <div className={`bg-[#FFFAF4] ${styles.flexCenter} `}>
-      <div className={`${styles.boxWidth}`}>
-        <Footer />
-      </div>
-    </div>
+    <Footer />
   </motion.div>
 );
 

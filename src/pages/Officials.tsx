@@ -26,7 +26,7 @@ const Officials = () => {
         </div>
       </div>
       <div className={`${layout.section}`}>
-        <OfficialChiefdom showButton={true} />
+        <OfficialChiefdom showButton={false} />
       </div>
     </motion.div>
   );

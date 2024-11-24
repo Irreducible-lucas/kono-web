@@ -21,7 +21,7 @@ const Contact = () => {
             image={hero2}
             title={"Contact Us"}
             content={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero explicabo quae architecto voluptates, vel pariatur, nemo, nesciunt cupiditate quo quidem eaque beatae distinctio odit laborum aspernatur a facere quas sit."
+              "Need assistance or have feedback? We’re here to help! Reach out anytime via the form, email, or phone—we’d love to hear from you."
             }
           />
         </div>
