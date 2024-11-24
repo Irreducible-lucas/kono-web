@@ -169,3 +169,5 @@ export { default as ChevronRight } from "../assets/icons/chevron-right.png";
 export { default as AboutHero } from "./AboutHero.jpg";
 export { default as Support } from "../assets/icons/support.webp";
 export { default as Partnership } from "../assets/partnership.png";
+export { default as konoMap } from "../assets/kono map.png";
+export { default as OrganisationStructure } from "../assets/organization structure.jpg";

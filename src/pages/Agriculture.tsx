@@ -20,7 +20,7 @@ const Agriculture = () => {
             image={hero2}
             title={"Agriculture"}
             content={
-              "Resources for farmers, programs to support local agriculture, and opportunities for rural development"
+              "Explore agriculture and livelihood programs in Kono District, focusing on sustainable farming, community empowerment, and council-supported initiatives to boost economic resilience."
             }
           />
         </div>

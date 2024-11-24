@@ -21,7 +21,7 @@ const ProjectReport = () => {
             image={hero2}
             title={"Project Report and Update"}
             content={
-              "   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste accusamus sit minima similique tenetur placeat ut, pariatur, molestias, deserunt animi autem. Ipsa eveniet cum quis quidem veritatis recusandae perferendis laudantium."
+              "  View project reports and updates from Kono District Council, offering detailed insights into the progress, outcomes, and future steps of ongoing and completed initiatives across various sectors."
             }
           />
         </div>

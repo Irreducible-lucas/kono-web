@@ -22,7 +22,7 @@ const Root = () => (
       <Outlet />
     </div>
 
-    <div className={`bg-[#FFFAF4] ${styles.flexCenter} mt-10`}>
+    <div className={`bg-[#FFFAF4] ${styles.flexCenter} `}>
       <div className={`${styles.boxWidth}`}>
         <Footer />
       </div>

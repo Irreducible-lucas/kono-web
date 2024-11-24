@@ -25,7 +25,7 @@ const Infrastructure = () => {
             image={hero2}
             title={"Infrastructure"}
             content={
-              "Information on road construction, water supply, electricity, and sanitation in Kono"
+              "Discover infrastructure development in Kono District, including council-led projects to improve roads, utilities, public buildings, and community facilities for sustainable growth."
             }
           />
         </div>

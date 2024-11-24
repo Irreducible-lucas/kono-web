@@ -22,7 +22,7 @@ const Education = () => {
             image={hero2}
             title={"Education"}
             content={
-              "List of Schools and educational Programs, support for youth development, and update on education policies."
+              "Learn about education in Kono District, including schools, youth development programs, and council-supported initiatives to enhance learning opportunities and promote academic growth."
             }
           />
         </div>

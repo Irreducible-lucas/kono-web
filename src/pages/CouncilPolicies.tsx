@@ -21,7 +21,7 @@ const CouncilPolicies = () => {
             image={hero2}
             title={"Council Policies"}
             content={
-              "Showcase key policy document related to governance, procurement,landuse, and community Development"
+              "Learn about the policies of Kono District Council, detailing the guidelines and strategies that shape the council's approach to governance, community development, public services, and sustainable growth."
             }
           />
         </div>

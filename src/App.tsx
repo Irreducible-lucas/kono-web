@@ -28,9 +28,13 @@ import {
   CouncilPolicies,
   ByLaws,
   Council,
-  AboutUs,
   Profiles,
   Home,
+  DevelopmentProject,
+  Report,
+  GovernancePolicies,
+  AboutUsPage,
+  History,
 } from "./pages";
 
 import SignUp from "./pages/SignUp";
@@ -44,8 +48,8 @@ const App = () => {
           <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="aboutus" element={<AboutUs />} />
-          <Route path="aboutus/history" element={<AboutUs />} />
+          <Route path="aboutus" element={<AboutUsPage />} />
+          <Route path="aboutus/history" element={<History />} />
           <Route path="aboutus/council-structure" element={<Council />} />
           <Route path="aboutus/vision&mission" element={<Vision />} />
           <Route path="aboutus/profiles" element={<Profiles />} />
@@ -53,14 +57,26 @@ const App = () => {
 
           <Route path="home" element={<LandingPage />} />
           <Route path="aboutus">
-            <Route index element={<HistoryBody />} />
+            <Route index element={<AboutUsPage />} />
             <Route path="history" element={<HistoryBody />} />
             <Route path="council-structure" element={<Council />} />
             <Route path="vision&mission" element={<Vision />} />
             <Route path="officials" element={<Officials />} />
           </Route>
-          <Route path="council-services" element={<CouncilServices />} />
+          <Route
+            path="officials/chiefdom/:chiefdomId"
+            element={<Officials />}
+          />
 
+          <Route path="council-services">
+            <Route index element={<CouncilServices />} />
+            <Route path="history" element={<HistoryBody />} />
+            <Route path="council-structure" element={<Council />} />
+            <Route path="vision&mission" element={<Vision />} />
+            <Route path="officials" element={<Officials />} />
+          </Route>
+
+          <Route path="council-services" element={<CouncilServices />} />
           <Route path="council-services/healthcare" element={<HealthCare />} />
           <Route path="council-services/education" element={<Education />} />
           <Route
@@ -75,27 +91,21 @@ const App = () => {
             path="council-services/environmental-services"
             element={<EnvironmentalServices />}
           />
-          <Route
-            path="development-projects/ongoing-project"
-            element={<OngoingProject />}
-          />
-          <Route
-            path="development-projects/completed-project"
-            element={<CompletdProject />}
-          />
-          <Route
-            path="development-projects/upcoming-project"
-            element={<UpcomingProject />}
-          />
+          <Route path="development-projects">
+            <Route index element={<DevelopmentProject />} />
+            <Route path="ongoing-project" element={<OngoingProject />} />
+            <Route path="completed-project" element={<CompletdProject />} />
+            <Route path="upcoming-project" element={<UpcomingProject />} />
+          </Route>
           <Route path="reports-financials">
-            <Route index element={<AnnualBudget />} />
+            <Route index element={<Report />} />
             <Route path="annual-budget" element={<AnnualBudget />} />
             <Route path="projects-report" element={<ProjectReport />} />
             <Route path="project-funding" element={<ProjectFunding />} />
             <Route path="public-expenditure" element={<PublicExpenditure />} />
           </Route>
           <Route path="governance-policies">
-            <Route index element={<CouncilPolicies />} />
+            <Route index element={<GovernancePolicies />} />
             <Route path="council-policies" element={<CouncilPolicies />} />
             <Route path="bylaws-ordiances" element={<ByLaws />} />
           </Route>

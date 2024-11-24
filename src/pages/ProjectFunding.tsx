@@ -21,7 +21,7 @@ const ProjectFunding = () => {
             image={hero2}
             title={"Project Funding"}
             content={
-              "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur, cumque debitis eum recusandae quam! Molestias natus laudantium dolorem et consequatur quae voluptas magnam, quis quo similique provident illum cumque."
+              "Learn about the funding for projects in Kono District, including sources of financial support, investments in development initiatives, and how the council allocates resources to drive community growth and infrastructure improvement."
             }
           />
         </div>

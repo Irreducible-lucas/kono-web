@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import AboutCarousal from "../components/AboutCarousal";
-import styles from "../styles";
+import styles, { layout } from "../styles";
+import { hero2 } from "../assets";
 
 interface Project {
   id: number;
@@ -69,23 +70,27 @@ const itemVariants = {
 const UpcomingProjects: React.FC = () => {
   return (
     <motion.div
-      initial="hidden"
-      animate="visible"
+      id="home"
       variants={containerVariants}
-      className="container mx-auto px-4 py-8"
+      transition={{
+        when: "beforeChildren",
+        staggerChildren: 2,
+      }}
+      className="bg-white w-full overflow-hidden"
     >
+      {/* carousal */}
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={`https://assets.nobroker.in/media/building/8a9f85c38d17068b018d1749658928c1/images/8a9f85c38d17068b018d1749658928c1_project_image_WIKKiw3lfz1712228126294_10117_iris_original.jpg`}
+            image={hero2}
             title={"Upcoming Projects"}
             content={
-              "Provide insight into future plans, budget allocations, and how the public can get involved in project development."
+              "Learn about the upcoming projects in Kono District, focusing on future council-led initiatives aimed at driving further development in infrastructure, education, healthcare, and community services."
             }
           />
         </div>
       </div>
-      <div className={`${styles.marginY} grid grid-cols-1 gap-8`}>
+      <div className={`${layout.section} grid grid-cols-1 gap-8`}>
         {upcomingProjects.map((project) => (
           <motion.div
             key={project.id}
@@ -121,37 +126,38 @@ const UpcomingProjects: React.FC = () => {
             />
           </motion.div>
         ))}
-      </div>
 
-      <motion.div
-        className="mt-12 bg-gray-100 p-6 rounded-lg"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <h3 className="text-2xl font-semibold mb-4">Get Involved</h3>
-        <p className="mb-4">
-          We welcome community participation in our upcoming projects. Here's
-          how you can get involved:
-        </p>
-        <ul className="list-disc list-inside mb-4">
-          <li>Attend public consultations and town hall meetings</li>
-          <li>Provide feedback on proposed project plans</li>
-          <li>Volunteer for community-based aspects of projects</li>
-          <li>Propose ideas for future development initiatives</li>
-        </ul>
-        <p>
-          For more information on any of our upcoming projects or to learn how
-          you can contribute, please contact our Project Coordination Office at{" "}
-          <a
-            href="mailto:projects@konodistrict.gov.sl"
-            className="text-blue-500 hover:underline"
-          >
-            projects@konodistrict.gov.sl
-          </a>{" "}
-          or call +232 xx xxx xxxx.
-        </p>
-      </motion.div>
+        <motion.div
+          className="mt-12 bg-gray-100 p-6 rounded-lg"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <h3 className="text-2xl font-semibold mb-4">Get Involved</h3>
+          <p className="mb-4">
+            We welcome community participation in our upcoming projects. Here's
+            how you can get involved:
+          </p>
+          <ul className="list-disc list-inside mb-4">
+            <li>Attend public consultations and town hall meetings</li>
+            <li>Provide feedback on proposed project plans</li>
+            <li>Volunteer for community-based aspects of projects</li>
+            <li>Propose ideas for future development initiatives</li>
+          </ul>
+          <p>
+            For more information on any of our upcoming projects or to learn how
+            you can contribute, please contact our Project Coordination Office
+            at{" "}
+            <a
+              href="mailto:projects@konodistrict.gov.sl"
+              className="text-blue-500 hover:underline"
+            >
+              projects@konodistrict.gov.sl
+            </a>{" "}
+            or call +232 xx xxx xxxx.
+          </p>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };

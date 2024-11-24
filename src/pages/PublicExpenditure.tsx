@@ -21,7 +21,7 @@ const PublicExpenditure = () => {
             image={hero2}
             title={"Public Expenditure"}
             content={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur, cumque debitis eum recusandae quam! Molestias natus laudantium dolorem et consequatur quae voluptas magnam, quis quo similique provident illum cumque."
+              "Access the project expenditure report for Kono District, providing detailed information on how funds are allocated and spent on various development initiatives, ensuring transparency and accountability in council-led projects."
             }
           />
         </div>

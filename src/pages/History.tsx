@@ -2,9 +2,9 @@ import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
 import styles from "../styles";
-import AnnualBudgetCard from "../components/AnnualBudgetCard";
+import HistoryBody from "./HistoryBody";
 
-const AnnualBudget = () => {
+const History = () => {
   return (
     <motion.div
       id="home"
@@ -16,19 +16,18 @@ const AnnualBudget = () => {
     >
       {/* carousal */}
       <div className={` ${styles.flexStart}`}>
-        <div className={`${styles.boxWidth}`}>
+        <div className={`${styles.boxWidth} `}>
           <AboutCarousal
             image={hero2}
-            title={"Annual Budget"}
+            title={"History"}
             content={
-              " Explore Kono District Council's annual budget, detailing the allocation of funds for key development areas, including infrastructure, education, healthcare, and community services to support the district's growth and sustainability."
+              "Discover the rich heritage of Kono District, from its cultural roots to its evolution as a key economic and social hub in Sierra Leone."
             }
           />
         </div>
       </div>
-      <AnnualBudgetCard />
+      <HistoryBody />
     </motion.div>
   );
 };
-
-export default AnnualBudget;
+export default History;

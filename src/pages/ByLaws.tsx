@@ -22,7 +22,7 @@ const ByLaws = () => {
             image={hero2}
             title={"ByLaws and Ordinances"}
             content={
-              "Details on the rules and regulations governing local communities in Kono"
+              "Explore the bylaws and ordinances of Kono District Council, which provide the legal framework for governing the district, regulating public conduct, and ensuring the orderly development and management of community resources and services."
             }
           />
         </div>

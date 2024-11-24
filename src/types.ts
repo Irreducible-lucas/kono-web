@@ -150,3 +150,33 @@ export interface DepartmentalContact{
   phone: string,
   email: string,
 }
+export interface ServicesProps {
+  id: number;
+  img: string;
+  title: string;
+  content: string
+  url: string
+}
+export type GeneralListModel = {
+  id: string;
+  title?: string;
+  subtitle?: string;
+  subheading?: string;
+  content?: string;
+  buttonText?: string;
+  img?: string;
+  mainImage?: string;
+  createdAt?: string;
+  description?: string;
+  notes?: string;
+  plans?: GeneralListModel[];
+  reason?: GeneralListModel[];
+  subservice?: GeneralListModel[];
+};
+export type ChiefdomProps = {
+  id: number;
+  name: string;
+  title: string;
+  content: string;
+  summary?: string;
+}

@@ -18,3 +18,7 @@ export { default as AboutKono } from "./AboutKono";
 export {default as Electricity} from "./Electricity"
 export {default as RoadConstructions} from "./RoadConstruction"
 export {default as Sanitation} from "./Sanitation"
+export {default as ServiceCard} from "./ServiceCard"
+export {default as OfficialChiefdom} from "./OfficialChiefdom"
+export {default as OurStructure} from "./OurStructure"
+export {default as OurProject} from "./OurProject"

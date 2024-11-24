@@ -21,7 +21,7 @@ const HealthCare = () => {
             image={hero2}
             title={"Health Care"}
             content={
-              "Information on local healthcare facilities public health initiative, and programs supported by the council"
+              "Discover healthcare services in Kono District, including local facilities, public health initiatives, and council-supported programs aimed at improving community wellbeing."
             }
           />
         </div>

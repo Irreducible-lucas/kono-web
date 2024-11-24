@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import AboutCarousal from "../components/AboutCarousal";
-import styles from "../styles";
+import styles, { layout } from "../styles";
+import { hero2 } from "../assets";
 
 interface Project {
   id: number;
@@ -70,23 +71,27 @@ const itemVariants = {
 const CompletedProjects: React.FC = () => {
   return (
     <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="container mx-auto px-4 py-8"
+      id="home"
+      transition={{
+        when: "beforeChildren",
+        staggerChildren: 2,
+      }}
+      className="bg-white w-full overflow-hidden"
     >
+      {/* carousal */}
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={`https://i0.wp.com/www.mosanokunolalcda.lg.gov.ng/wp-content/uploads/2024/01/m5-e1705597295305.jpeg?fit=1024%2C768&ssl=1`}
+            image={hero2}
             title={"Completed Projects"}
             content={
-              "Showcasing our past achievements of the council, and highlighting success stories with photos and testimonials from the community."
+              "Explore the completed projects in Kono District, highlighting the successful council-led initiatives that have enhanced infrastructure, public services, and community development, contributing to the district's growth and progress"
             }
           />
         </div>
       </div>
-      <div className={`${styles.marginY} space-y-8`}>
+
+      <div className={`${layout.section} space-y-8`}>
         {completedProjects.map((project) => (
           <motion.div
             key={project.id}

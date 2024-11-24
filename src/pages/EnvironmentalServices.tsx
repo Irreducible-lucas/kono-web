@@ -20,7 +20,7 @@ const EnvironmentalServices = () => {
             image={hero2}
             title={"Environmental Services"}
             content={
-              "Waste Mangement initiatives, clean-up campaignes, and environmental conservation efforts"
+              "Learn about environmental services in Kono District, focusing on conservation efforts, waste management, and council-supported initiatives aimed at preserving the district’s natural resources and promoting sustainable practices."
             }
           />
         </div>

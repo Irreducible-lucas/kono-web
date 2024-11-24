@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import AboutCarousal from "../components/AboutCarousal";
-import styles from "../styles";
+import styles, { layout } from "../styles";
+import { hero2 } from "../assets";
 
 interface Project {
   id: number;
@@ -45,16 +46,6 @@ const ongoingProjects: Project[] = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -70,24 +61,28 @@ const itemVariants = {
 const OngoingProjects: React.FC = () => {
   return (
     <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="container mx-auto px-4 py-8"
+      id="home"
+      transition={{
+        when: "beforeChildren",
+        staggerChildren: 2,
+      }}
+      className="bg-white w-full overflow-hidden"
     >
+      {/* carousal */}
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={`https://i0.wp.com/feedbackoysg.com/wp-content/uploads/2021/04/Local-Government-Buildings-14-1-scaled.jpg?fit=768%2C512&ssl=1`}
+            image={hero2}
             title={"Ongoing Projects"}
             content={
-              "A page dedicated to projects that are currently being implemented, such as road construction, healthcare improvements, or education initiatives."
+              "Discover the ongoing projects in Kono District, focusing on current council-led initiatives that aim to improve infrastructure, education, healthcare, and economic development for the betterment of the community."
             }
           />
         </div>
       </div>
+
       <div
-        className={`${styles.marginY} grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6`}
+        className={`${layout.section} grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6`}
       >
         {ongoingProjects.map((project) => (
           <motion.div
