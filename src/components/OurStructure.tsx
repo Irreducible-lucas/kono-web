@@ -12,8 +12,8 @@ const OurStructure = () => {
         Deputy Chairperson, plus 24 Councilors and an employee of 14 core staff
         headed by the Chief Administrator.{" "}
       </p>
-      <div className="flex items-center justify-center">
-        <img src={OrganisationStructure} />
+      <div className="flex items-center justify-center mt-5 lg:mt-8">
+        <img src={OrganisationStructure} className="w-full h-1/2" />
       </div>
     </div>
   );

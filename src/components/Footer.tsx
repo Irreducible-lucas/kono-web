@@ -5,13 +5,11 @@ const Footer = () => {
     <div className="bg-slate-700 flex flex-col lg:flex-row items-center justify-between px-3 py-10 lg:py-3 text-center text-slate-200 text-sm ">
       <div className="">
         <p className="px-3">
-          © Copyright 2024, All Rights Reserved I ❤ Lagos State Government
+          © Copyright 2024, All Rights Reserved I ❤ Kono District Council
         </p>
       </div>
       <div className="lg:flex items-center justify-center flex-row-reverse gap-3">
-        <p className="mt-3">
-          Powered by Lagos State Ministry of Science and Technology .
-        </p>
+        <p className="mt-3">Powered by Official Kono District Council .</p>
         <div className="flex items-center justify-center gap-4 lg:gap-0 mt-5">
           <div className=" h-[30px] w-[30px] flex justify-center items-center rounded-full">
             <svg
