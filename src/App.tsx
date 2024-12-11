@@ -35,6 +35,7 @@ import {
   GovernancePolicies,
   AboutUsPage,
   History,
+  SocialWelfare,
 } from "./pages";
 
 import SignUp from "./pages/SignUp";
@@ -90,6 +91,11 @@ const App = () => {
           <Route
             path="council-services/environmental-services"
             element={<EnvironmentalServices />}
+          />
+
+          <Route
+            path="council-services/social-welfare"
+            element={<SocialWelfare />}
           />
           <Route path="development-projects">
             <Route index element={<DevelopmentProject />} />

@@ -19,6 +19,12 @@ import {
   EducationImage,
   NewsImage12,
   event4,
+  Health,
+  Learn,
+  Agricultiure,
+  Infrastructure2,
+  EnvironmentalService,
+  Welfare,
 } from "../assets";
 import {
   Link,
@@ -92,6 +98,11 @@ export const links: Link[] = [
         id: 5,
         text: "Environmental Services",
         url: "/council-services/environmental-services",
+      },
+      {
+        id: 6,
+        text: "Social Welfare ",
+        url: "/council-services/social-welfare",
       },
     ],
   },
@@ -895,7 +906,7 @@ export const aboutus: ServicesProps[] = [
 ]
 export const councilsevices: ServicesProps[] = [
   {
-    img: event4,
+    img: Health,
     id: 1,
     title: "Healthcare",
     url: "healthcare",
@@ -905,7 +916,7 @@ export const councilsevices: ServicesProps[] = [
 
   {
     id: 2,
-    img: event4,
+    img: Learn,
     title: "Education",
     url: "education",
     content:
@@ -914,7 +925,7 @@ export const councilsevices: ServicesProps[] = [
 
   {
     id: 3,
-    img: event4,
+    img: Agricultiure,
     title: "Agriculture and Livelihood",
     url: "agriculture-livelihood",
     content: "Explore agriculture and livelihood programs in Kono District, focusing on sustainable farming, community empowerment, and council-supported initiatives to boost economic resilience.",
@@ -922,17 +933,24 @@ export const councilsevices: ServicesProps[] = [
 
   {
     id: 4,
-    img: event4,
+    img: Infrastructure2,
     title: "Infrastructure",
     url: "infrastructure",
     content: "Discover infrastructure development in Kono District, including council-led projects to improve roads, utilities, public buildings, and community facilities for sustainable growth.",
   },
   {
     id: 5,
-    img: event4,
+    img: EnvironmentalService,
     title: "Environmental Services",
     url: "environmental-services",
     content: "Learn about environmental services in Kono District, focusing on conservation efforts, waste management, and council-supported initiatives aimed at preserving the district’s natural resources and promoting sustainable practices.",
+  },
+  {
+    id: 6,
+    img: Welfare ,
+    title: "Social Welfare",
+    url: "social-welfare",
+    content: "Explore social welfare initiatives in Kono District, focusing on improving community well-being through support programs for vulnerable populations, youth empowerment, healthcare access, and council-led projects aimed at fostering equity and social development.",
   },
 ]
 

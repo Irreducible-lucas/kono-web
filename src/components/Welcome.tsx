@@ -1,40 +1,83 @@
-import { konoMap } from "../assets";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Alice } from "../assets";
 import YellowDivider from "../pages/YellowDivider";
 import styles, { layout } from "../styles";
 import Button from "./Button";
 
 const Welcome = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  const handleToggle = () => {
+    setShowAll((prevState) => !prevState);
+  };
+
+  const paragraphs = [
+    "The role of Kono District Council is to support our communities to grow, develop and take advantage of the significant benefits our district has to offer including its vast natural resources, fertile land for commercial agriculture, natural landscape for tourism and hospitality and a promising economy.",
+    "By working in partnership with the central Government, our paramount chiefs, businesses and communities, the Council aims to coordinate and support endeavours that build an integrated district economy, fostering growth, and transform our communities into vibrant places to live, work, grow and prosper.",
+    "This Strategic Plan is aligned with the Central Government’s Big Five Game Changers which include, Feed Salone, Youth Employment, Human Capital Development, Revamping of Public Sector Architecture and Tech and Infrastructure.",
+    "The Plan is also aligned with specific sectors which guide the national development agenda.",
+    "This plan sets out our strategic direction for the period 2024-28, including our values, vision, mission and strategic priorities.",
+  ];
+
+  const animationVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  // Title animation variant
+  const titleAnimation = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <section
-      className={`${layout.section} flex flex-col lg:flex-row items-center gap-8`}
+      className={`${layout.section} grid grid-cols-1 lg:grid-cols-2 items-center gap-5`}
     >
       <img
-        src={konoMap}
-        alt="Kono Map"
-        className="mt-1 w-full h-full lg:w-[50%] rounded-lg transition-transform duration-300 hover:scale-105"
+        src={Alice}
+        alt="chairman"
+        className="mt-1 w-full h-full rounded-lg transition-transform duration-300 hover:scale-105"
       />
       <div className="flex flex-col items-start">
         <YellowDivider />
-        <h1 className={`${styles.heading1} text-center mb-8`}>Our District</h1>
-        <p className={`${styles.paragraph2} text-justify`}>
-          Founded between the Fifteenth and Sixteenth centuries by Mali-Guinean
-          descendants, Kono District is one of three districts in the Eastern
-          region of Sierra Leone; sitting 360 kilometers away from the nation’s
-          Capital, Freetown. Our District is renowned for its huge deposits of
-          precious natural resources and cash crops such as: diamonds, gold,
-          iron ore, clay, limestone, granite, hardwood, cocoa, coffee, rice,
-          etc. However, our District became a self-administered territory in
-          1927, when the colonial administrative headquarter was moved to
-          Sefadu. Before that, the district was administered from Panguma.
-        </p>
-        <p className={`${styles.paragraph2} my-5 text-justify`}>
-          Our district’s geography includes ancient mountain ranges that spring
-          from Liberia through Kenema and stretches way beyond Soa Chiefdom,
-          deep forests, highly productive farmlands, and breathtaking green
-          scenery.
-        </p>
-
-        <Button text="Read More" isLink={true} location="/aboutus/history" />
+        {/* Title Animation */}
+        <motion.h1
+          className={`${styles.heading1} lg:text-[2rem] text-center mb-8`}
+          variants={titleAnimation}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+        >
+          MESSAGE FROM THE CHAIRMAN
+        </motion.h1>
+        {/* Paragraphs Animation (sequential) */}
+        {paragraphs
+          .slice(0, showAll ? paragraphs.length : 2)
+          .map((text, index) => (
+            <motion.p
+              key={index}
+              className={`${styles.paragraph2} my-4 text-justify`}
+              variants={animationVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                duration: 0.6,
+                ease: "easeInOut",
+                delay: (index + 1) * 0.6, // Sequential delay (each paragraph animates after the previous one)
+              }}
+            >
+              {text}
+            </motion.p>
+          ))}
+        {/* Toggle Button */}
+        <Button
+          text={showAll ? "Show Less" : "Read More"}
+          isLink={false}
+          location="#"
+          onClick={handleToggle}
+        />
       </div>
     </section>
   );

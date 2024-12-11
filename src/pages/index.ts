@@ -32,3 +32,4 @@ export { default as Education } from "./Education";
 export { default as Agriculture } from "./Agriculture";
 export { default as Infrastructure } from "./Infrastructure";
 export { default as EnvironmentalServices } from "./EnvironmentalServices";
+export { default as SocialWelfare } from "./SocialWelfare";

@@ -1,3 +1,44 @@
+export { default as Logo } from "./logos/logo.png";
+export { default as Health } from "./healthcare.png";
+export { default as Medical } from "./medical.jpg";
+export { default as WaterAvailability } from "./water.jpg";
+export { default as WasteManagement } from "./waste-management.jpg";
+export { default as ToiletFacilities } from "./Toilet.jpg";
+export { default as Agricultiure } from "./agriculture.jpg";
+export { default as AgricultiureDevelopment } from "./Agriculture-Development.jpg";
+export { default as Bridge } from "./bridge.jpg";
+export { default as EducationBuilding } from "./Education-buildings.jpg";
+export { default as Education } from "./eductation.jpg"
+export { default as EnvironmentalService } from "./environmentalservices.jpg";
+export { default as EnvironmentalService2 } from "./environmental services2.jpg";
+export { default as Infrastructure2 } from "./infrastructure.jpg";
+export { default as Learn } from "./learn.jpg";
+export { default as RoadInfrastructure } from "./road infrastructure.jpg";
+export { default as SafeWater } from "./safe water.jpg";
+export { default as ScholarshipFunding } from "./scholarship-funding.jpg";
+export { default as Study } from "./study.jpg";
+export { default as Welfare } from "./Welfare.jpg";
+export { default as Classroom } from "./eductation.jpg";
+export { default as Agriculture2 } from "./agriculture2.jpg";
+export { default as AgedWoman } from "./agedwoman.jpg";
+export { default as Dietary } from "./dietary.jpg";
+export { default as DisabledChiild} from "./disable child.jpg";
+export { default as Drug } from "./drug.jpg";
+export { default as Orphans } from "./orphans.jpg";
+export { default as Psycho } from "./psycho.jpg";
+export { default as PWD } from "./pwd.jpg";
+export { default as Sensitization } from "./sensitization.jpg";
+export { default as Welfares} from "./Socialwelfare.jpg";
+export { default as DayReport } from "./day-report (1).jpg";
+export { default as ChildrenDatabase } from "./children-database.jpg";
+export { default as Legal } from "./legal.jpg";
+export { default as WomenYouth } from "./womenYouth.jpg";
+export { default as WomeninAgriculture } from "./womeninAgriculture.jpg";
+
+
+
+
+
 export { default as HeroImage } from "./hero-image.png";
 export { default as hero2 } from "./hero2.png";
 export { default as hero3 } from "./hero3.png";

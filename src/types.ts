@@ -63,6 +63,9 @@ export interface CouncilServiceCard {
   image: string;
   title: string;
   description: string;
+  description2?: string;
+  description3?: string;
+  commitment: string;
 }
 export interface BylawProps {
   image: string;
@@ -179,4 +182,29 @@ export type ChiefdomProps = {
   title: string;
   content: string;
   summary?: string;
+}
+export interface CouncilServiceCard {
+  image: string;
+  title: string;
+  description: string;
+  commitment: string;
+}
+export interface WeWillProps {
+  icon: string;
+  title: string;
+  description: string;
+  initiative: string;
+}
+export interface ImplementationGistProps {
+  heading: string;
+  subheading1?: string;
+  subheading2?: string;
+  subheading3?: string;
+}
+export interface PIData {
+  title: string;
+  description: string;
+  progress: number;
+  color: string;
+  image: string;
 }

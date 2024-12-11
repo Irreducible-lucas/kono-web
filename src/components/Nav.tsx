@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { links } from "../constants";
-import { SabiLogo } from "../assets";
+import { Logo, SabiLogo } from "../assets";
 
 const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,14 +29,17 @@ const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
   return (
     <div>
       {/* Mobile Navbar */}
-      <div className="lg:hidden flex items-center justify-between px-3 z-50">
-        <NavLink to={"/"} className="hover:cursor-pointer">
-          <img src={SabiLogo} className="py-5" alt="Sabi Logo" />
+      <div className="lg:hidden flex items-center justify-between pr-4 py-3 z-50 ">
+        {/* Logo */}
+        <NavLink to={"/"} className="hover:cursor-pointer flex mr-auto">
+          <img src={Logo} className="h-20 w-auto" alt="logo" />
         </NavLink>
+
+        {/* Hamburger Menu */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
-          className={`w-8 h-8 hover:cursor-pointer ${
+          className={`h-8 w-8 hover:cursor-pointer ${
             fill ? "fill-black" : "fill-white"
           }`}
           onClick={() => setIsOpen(!isOpen)}
@@ -112,13 +115,9 @@ const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
       </div>
 
       {/* Desktop Navbar */}
-      <div className="hidden lg:flex items-center justify-between px-8 py-4 bg-white ">
-        <NavLink to="/" className="flex items-center">
-          <img
-            src={SabiLogo}
-            alt="Sabi Logo"
-            className="h-14 lg:mr-20 xl:mr-0 "
-          />
+      <div className="hidden lg:flex items-center justify-between pr-5  bg-white ">
+        <NavLink to="/" className="flex items-center mr-auto">
+          <img src={Logo} alt="Sabi Logo" className="h-28 w-full  " />
         </NavLink>
         <ul className="flex space-x-5 relative">
           {links.map((link, index) => (
