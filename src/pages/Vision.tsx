@@ -1,6 +1,15 @@
 import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
-import { Globe2, Target, Users, BarChart3, Shield } from "lucide-react";
+import {
+  faHandshake,
+  faEye,
+  faUserTie,
+  faCheckCircle,
+  faBalanceScale,
+  faLightbulb,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Globe2, Target } from "lucide-react";
 import styles, { layout } from "../styles";
 import { hero2 } from "../assets";
 import OurRole from "../components/OurRole";
@@ -8,38 +17,54 @@ import OurRole from "../components/OurRole";
 const Vision = () => {
   const values = [
     {
-      icon: <Shield className="h-8 w-8 text-blue-600" />,
+      icon: (
+        <FontAwesomeIcon icon={faHandshake} className="h-8 w-8 text-blue-600" />
+      ), // Participation
       title: "Participation",
       description: "We work side by side with all relevant stakeholders.",
     },
     {
-      icon: <Users className="h-8 w-8 text-blue-600" />,
+      icon: <FontAwesomeIcon icon={faEye} className="h-8 w-8 text-blue-600" />, // Transparency
       title: "Transparency",
       description:
         "We provide our stakeholders with the understanding of how we operate, and are always open to public inquiry.",
     },
     {
-      icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
+      icon: (
+        <FontAwesomeIcon icon={faUserTie} className="h-8 w-8 text-blue-600" />
+      ), // Professionalism
       title: "Professionalism",
       description:
         "We approach our work with the requisite skills and competencies.",
     },
     {
-      icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
+      icon: (
+        <FontAwesomeIcon
+          icon={faCheckCircle}
+          className="h-8 w-8 text-blue-600"
+        />
+      ), // Integrity
       title: "Integrity",
       description:
-        "We are honest, transparent, and accountable for our actions",
+        "We are honest, transparent, and accountable for our actions.",
     },
     {
-      icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
+      icon: (
+        <FontAwesomeIcon
+          icon={faBalanceScale}
+          className="h-8 w-8 text-blue-600"
+        />
+      ), // Accountability
       title: "Accountability",
       description: "We take responsibility for our actions and inactions.",
     },
     {
-      icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
+      icon: (
+        <FontAwesomeIcon icon={faLightbulb} className="h-8 w-8 text-blue-600" />
+      ), // Innovation
       title: "Innovation",
       description:
-        "We encourage creative solutions and continuous  improvement in service delivery.",
+        "We encourage creative solutions and continuous improvement in service delivery.",
     },
   ];
 
