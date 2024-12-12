@@ -8,11 +8,9 @@ import { motion } from "framer-motion";
 import {
   EnvironmentalService,
   EnvironmentalService2,
-  hero2,
   SafeWater,
   ToiletFacilities,
   WasteManagement,
-  Women,
 } from "../assets";
 import styles, { layout } from "../styles";
 import { PIData } from "../types";
@@ -48,7 +46,7 @@ const initiatives = [
         icon={faPumpMedical}
         className="h-10 w-10 text-green-500"
       />
-    ), // Updated to faPumpMedical
+    ),
   },
   {
     title: "Gravity Water Systems",
@@ -182,9 +180,9 @@ const EnvironmentalServices = () => {
 
         {/* Performance Indicators Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {performanceIndicatorData.map((data, index) => (
+          {performanceIndicatorData.map((data) => (
             <PerformanceIndicator
-              key={data.title} // Using a unique key for better performance
+              key={data.title}
               data={data}
               className="bg-white shadow-lg"
               imageSize="w-40 h-40"

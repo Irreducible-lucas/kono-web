@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { links } from "../constants";
-import { Logo, SabiLogo } from "../assets";
+import { Logo } from "../assets";
 
 const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
 
   const handleMouseEnter = (index: number) => {
     if (hoverTimeout.current) {
-      clearTimeout(hoverTimeout.current); // Clear any pending timeout
+      clearTimeout(hoverTimeout.current);
     }
     setOpenIndex(index);
   };
@@ -19,7 +19,7 @@ const Nav: React.FC<{ fill?: boolean }> = ({ fill = true }) => {
   const handleMouseLeave = () => {
     hoverTimeout.current = setTimeout(() => {
       setOpenIndex(null);
-    }, 150); // Delay to avoid simultaneous display
+    }, 150);
   };
 
   const handleSubmenuClick = (index: number) => {

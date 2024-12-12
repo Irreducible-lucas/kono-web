@@ -1,8 +1,7 @@
-import { AboutCarousal } from "../components";
+import { AboutCarousal, BudgetTable } from "../components";
 import { motion } from "framer-motion";
 import { hero2 } from "../assets";
 import styles from "../styles";
-import AnnualBudgetCard from "../components/AnnualBudgetCard";
 
 const AnnualBudget = () => {
   return (
@@ -26,7 +25,8 @@ const AnnualBudget = () => {
           />
         </div>
       </div>
-      <AnnualBudgetCard />
+
+      <BudgetTable />
     </motion.div>
   );
 };

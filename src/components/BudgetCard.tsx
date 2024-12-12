@@ -4,7 +4,7 @@ import BudgetProject from "./BudgetProject";
 const BudgetCard = () => {
   return (
     <section
-      className={`${layout.section} bg-[url("/src/assets/report-on-projects-art.png")] bg-no-repeat bg-white bg-top`}
+      className={`${layout.section} bg-[url("/src/assets/report-on-projects-art.png")] bg-no-repeat bg-white bg-cover`}
     >
       <div className={`grid gap-4`}>
         <div>
@@ -17,8 +17,8 @@ const BudgetCard = () => {
         <p
           className={`w-full md:w-3/4 lg:w-2/4 text-center mx-auto text-black ${styles.paragraph2}`}
         >
-          The ethos and commitment of SEND sierra Leone is to improve the
-          quality of lives throughout the country.
+          Dedicated to improving lives, Kono District Council fosters growth and
+          sustainable progress for the community
         </p>
       </div>
 

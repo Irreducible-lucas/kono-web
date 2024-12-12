@@ -21,7 +21,7 @@ const BudgetProject = ({
       </div>
       <img src={Ledger} className="h-[50px] w-[50px]" alt="" />
       <div>
-        <h2 className={`uppercase ${styles.heading3} mb-1`}>{title}</h2>
+        <h2 className={`uppercase ${styles.heading3} mb-1 h-14`}>{title}</h2>
         <p className="w-full h-[100px]">
           {text.substring(0, 50)} {text.length > 50 ? "..." : ""}
         </p>

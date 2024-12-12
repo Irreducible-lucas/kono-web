@@ -31,7 +31,7 @@ const PerformanceIndicator: React.FC<{
       </div>
 
       {/* Title and Description */}
-      <h3 className="text-2xl font-bold text-gray-800 mb-3 text-center">
+      <h3 className="text-2xl font-bold text-gray-800 mb-3 text-center lg:h-16">
         {data.title}
       </h3>
       <p className="text-gray-600 mb-3 text-center">{data.description}</p>

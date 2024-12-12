@@ -5,13 +5,7 @@ import {
   WeWill,
 } from "../components";
 import { motion } from "framer-motion";
-import {
-  Bridge,
-  hero2,
-  Infrastructure2,
-  RoadInfrastructure,
-  Women,
-} from "../assets";
+import { Bridge, Infrastructure2, RoadInfrastructure } from "../assets";
 import CouncilServicesCard from "../components/CouncilServicesCard";
 import styles, { layout } from "../styles";
 import { PIData } from "../types";

@@ -12,7 +12,6 @@ import {
   Dietary,
   DisabledChiild,
   Drug,
-  hero2,
   Legal,
   Orphans,
   Psycho,
@@ -20,7 +19,6 @@ import {
   Sensitization,
   Welfare,
   Welfares,
-  Women,
   WomeninAgriculture,
   WomenYouth,
 } from "../assets";
@@ -191,7 +189,7 @@ const performanceIndicatorData: PIData[] = [
     title: "Disability Sensitization Reports",
     description: "Reports on quarterly sensitizations on disability.",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-green-500",
     image: Sensitization,
   },
   {
@@ -199,7 +197,7 @@ const performanceIndicatorData: PIData[] = [
     description:
       "Reports on the commemoration of the International Day of People with Disability",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-red-500",
     image: DayReport,
   },
   {
@@ -215,7 +213,7 @@ const performanceIndicatorData: PIData[] = [
     description:
       "Reports on the ratio of people provided with diets to compliment livelihood.",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-green-500",
     image: Dietary,
   },
   {
@@ -223,7 +221,7 @@ const performanceIndicatorData: PIData[] = [
     description:
       "Reports on the no of community awareness raising activities conducted on the harmful effects of drug abuse and its related incidences.",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-red-500",
     image: Drug,
   },
   {
@@ -239,7 +237,7 @@ const performanceIndicatorData: PIData[] = [
     title: "Children Database",
     description: "A database on children and adolescent issues",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-green-500",
     image: ChildrenDatabase,
   },
   {
@@ -247,7 +245,7 @@ const performanceIndicatorData: PIData[] = [
     description:
       "Evidence of the constructed psych-social centers as well as those rehabilitated.",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-red-500",
     image: Psycho,
   },
   {
@@ -263,14 +261,14 @@ const performanceIndicatorData: PIData[] = [
     description:
       "No of Aged People receiving livelihood support as well as the ratio of people with special needs on support systems.",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-green-500",
     image: DisabledChiild,
   },
   {
     title: "Women’s Agriculture Yields",
     description: "Yield of the produce of women in Agriculture.",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-red-500",
     image: WomeninAgriculture,
   },
   {
@@ -286,7 +284,7 @@ const performanceIndicatorData: PIData[] = [
     description:
       "Evidence of women's centers maintained as well as the skill training centers and youth centers constructed.",
     progress: 100,
-    color: "bg-blue-500",
+    color: "bg-green-500",
     image: WomenYouth,
   },
 ];
