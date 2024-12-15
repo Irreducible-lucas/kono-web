@@ -1,6 +1,4 @@
-export { default as Header } from "./Header";
 export { default as Nav } from "./Nav";
-export { default as NavDisplay } from "./NavDisplay";
 export { default as HeroSection } from "./HeroSection";
 export { default as Welcome } from "./Welcome";
 export { default as Project } from "./Project";

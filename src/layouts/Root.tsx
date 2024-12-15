@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Outlet } from "react-router-dom";
-import { Footer, Nav, NavDisplay } from "../components";
+import { Footer, Nav } from "../components";
 
 const Root = () => (
   <motion.div
@@ -10,7 +10,6 @@ const Root = () => (
     }}
     className="w-full overflow-hidden"
   >
-    <NavDisplay />
     <Nav />
 
     <div className={``}>
