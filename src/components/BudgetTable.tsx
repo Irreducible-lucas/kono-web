@@ -1,5 +1,3 @@
-// Import necessary libraries
-import React from "react";
 import styles, { layout } from "../styles";
 
 type BudgetData = {
@@ -10,7 +8,6 @@ type BudgetData = {
   devPartners: number;
 };
 
-// Complete Data from the Image
 const budgetData: BudgetData[] = [
   {
     sector: "Roads",
@@ -111,7 +108,7 @@ const BudgetTable: React.FC = () => {
       className={`${layout.section} p-4 bg-[url("/src/assets/report-on-projects-art.png")] bg-no-repeat bg-white bg-cover `}
     >
       <h1
-        className={`${styles.heading1} mb-3 text-center  text-blue-700  tracking-wide`}
+        className={`${styles.heading1} mb-3 text-center text-blue-700 tracking-wide`}
       >
         Summary of Our Sector Financial Plan
       </h1>
@@ -128,16 +125,16 @@ const BudgetTable: React.FC = () => {
             <th className="border border-gray-300 px-4 py-2 text-left">
               Sectors
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-right">
+            <th className="border border-gray-300 px-4 py-2 text-center">
               Programme Cost (NLe)
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-right">
+            <th className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
               GoSL (NLe)
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-right">
+            <th className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
               IGR (NLe)
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-right">
+            <th className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
               Dev. Partners (NLe)
             </th>
           </tr>
@@ -152,13 +149,13 @@ const BudgetTable: React.FC = () => {
               <td className="border border-gray-300 px-4 py-2 text-right">
                 {row.programmeCost.toLocaleString()}
               </td>
-              <td className="border border-gray-300 px-4 py-2 text-right">
+              <td className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
                 {row.gosl.toLocaleString()}
               </td>
-              <td className="border border-gray-300 px-4 py-2 text-right">
+              <td className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
                 {row.igr.toLocaleString()}
               </td>
-              <td className="border border-gray-300 px-4 py-2 text-right">
+              <td className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
                 {row.devPartners.toLocaleString()}
               </td>
             </tr>
@@ -174,17 +171,17 @@ const BudgetTable: React.FC = () => {
                 .reduce((acc, row) => acc + row.programmeCost, 0)
                 .toLocaleString()}
             </td>
-            <td className="border border-gray-300 px-4 py-2 text-right">
+            <td className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
               {budgetData
                 .reduce((acc, row) => acc + row.gosl, 0)
                 .toLocaleString()}
             </td>
-            <td className="border border-gray-300 px-4 py-2 text-right">
+            <td className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
               {budgetData
                 .reduce((acc, row) => acc + row.igr, 0)
                 .toLocaleString()}
             </td>
-            <td className="border border-gray-300 px-4 py-2 text-right">
+            <td className="hidden sm:table-cell border border-gray-300 px-4 py-2 text-right">
               {budgetData
                 .reduce((acc, row) => acc + row.devPartners, 0)
                 .toLocaleString()}

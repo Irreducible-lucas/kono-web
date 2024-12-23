@@ -208,3 +208,10 @@ export interface PIData {
   color: string;
   image: string;
 }
+export interface Overview {
+  name: string;
+  value: string;
+  imgURL: string;
+  number: string;
+  color: string;
+}

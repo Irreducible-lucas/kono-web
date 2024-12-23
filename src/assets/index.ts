@@ -34,6 +34,7 @@ export { default as ChildrenDatabase } from "./children-database.jpg";
 export { default as Legal } from "./legal.jpg";
 export { default as WomenYouth } from "./womenYouth.jpg";
 export { default as WomeninAgriculture } from "./womeninAgriculture.jpg";
+export { default as home } from "./Homepage.jpg";
 
 
 
@@ -90,7 +91,6 @@ export { default as plus } from "../assets/icons/plus.png";
 export { default as search } from "../assets/icons/search.png";
 export { default as sort } from "../assets/icons/sort.png";
 export { default as gallery } from "../assets/icons/gallery.png";
-export { default as home } from "./homepage.png";
 export { default as event1 } from "./event1.png";
 export { default as event2 } from "./event2.png";
 export { default as event3 } from "./event3.png";
@@ -204,13 +204,13 @@ export { default as Edward } from "./edward-gborie.jpeg";
 export { default as Ruth } from "./ruth-kumba-yokie.jpeg";
 export { default as CommunicationStrategy } from "./communication_strategy.jpg";
 export { default as OrganizationalProfile } from "./organisational_profile.jpg";
-export { default as stars } from "../assets/icons/star.svg";
-export { default as ChevronLeft } from "../assets/icons/chevron-left.png";
-export { default as ChevronRight } from "../assets/icons/chevron-right.png";
+export { default as stars } from "./icons/star.svg";
+export { default as ChevronLeft } from "./icons/chevron-left.png";
+export { default as ChevronRight } from "./icons/chevron-right.png";
 export { default as AboutHero } from "./AboutHero.jpg";
-export { default as Support } from "../assets/icons/support.webp";
-export { default as Partnership } from "../assets/partnership.png";
-export { default as konoMap } from "../assets/kono map.png";
+export { default as Support } from "./icons/support.webp";
+export { default as Partnership } from "./partnership.png";
+export { default as konoMap } from "./kono map.png";
 export { default as OrganisationStructure } from "../assets/organization structure.jpg";
-export { default as irishaid } from "../assets/irish-aid-logo.png";
-export { default as sendserial } from "../assets/tity.jpeg";
+export { default as irishaid } from "./irish-aid-logo.png";
+export { default as sendserial } from "./tity.jpeg";

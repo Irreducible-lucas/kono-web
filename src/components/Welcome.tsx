@@ -65,7 +65,7 @@ const Welcome = () => {
               transition={{
                 duration: 0.6,
                 ease: "easeInOut",
-                delay: (index + 1) * 0.6, // Sequential delay (each paragraph animates after the previous one)
+                delay: (index - 1) * 0.2,
               }}
             >
               {text}

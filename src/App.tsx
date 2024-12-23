@@ -40,6 +40,15 @@ import {
 
 import SignUp from "./pages/SignUp";
 import Root from "./layouts/Root";
+import {
+  AdminHome,
+  AdminNews,
+  DashBoard,
+  News,
+  Project,
+  Testimonial,
+} from "./pages/Admin";
+import DashboardRoot from "./layouts/DashboardRoot";
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -117,6 +126,22 @@ const App = () => {
           </Route>
 
           <Route path="contact" element={<Contact />} />
+        </Route>
+        {/* Admin Dashboard */}
+        <Route path="dashboard" element={<DashboardRoot />}>
+          <Route index element={<DashBoard />} />
+          <Route path="home" element={<AdminHome />} />
+          <Route path="project" element={<Project />} />
+          <Route path="news" element={<AdminNews />} />
+          <Route path="testimonial" element={<Testimonial />} />
+          {/* <Route path="team" element={<Team />} />
+          <Route path="program" element={<Program />} />
+          <Route path="report" element={<Report />} />
+          <Route path="event" element={<Event />} />
+          <Route path="recruitment" element={<Recruitment />} />
+          <Route path="testimonial" element={<Testimonial />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="donate" element={<DonateAdmin />} /> */}
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Route>

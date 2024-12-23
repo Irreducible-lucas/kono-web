@@ -1,0 +1,8 @@
+export {default as NewsCard} from "./NewsCard"
+export {default as SelectNews} from "./SelectNews"
+export {default as AddNews} from "./AddNews"
+export {default as AddTestimonials} from "./AddTestimonials"
+export {default as TestimonialCard} from "./TestimonialCard"
+export {default as AddProject} from "./AddProject"
+export {default as ProjectCard} from "./ProjectCard"
+export {default as WhatOurChairman} from "./WhatOurChairman"

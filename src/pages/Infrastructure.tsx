@@ -35,7 +35,7 @@ const initiatives = [
     ),
   },
   {
-    title: "Bridge & Culvert Construction for Road Protection",
+    title: "Bridge & Culvert Work for Road Safety",
     description:
       "Construct 90 or more bridges, 560 or more culverts to protect our roads from rain-fed erosion and other climatic conditions.",
     icon: (

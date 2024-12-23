@@ -11,7 +11,7 @@ const HeroSection = () => {
             <span className="text-gradient font-bold md:text-[60px]">
               OFFICIAL KONO
             </span>
-            <br className="sm:block hidden" /> District Council
+            <br className="sm:block hidden " /> District Council
           </h1>
           <YellowDivider />
           <p className={`${styles.paragraph} mb-10`}>

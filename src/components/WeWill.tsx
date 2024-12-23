@@ -26,7 +26,7 @@ const WeWill = ({ initiatives, heading, className }: WeWillProps) => {
             className="bg-white shadow-md rounded-lg p-4 border border-gray-200 flex flex-col items-center"
           >
             {item.icon}
-            <h2 className="text-xl font-medium mt-4 mb-2 text-center h-16 ">
+            <h2 className="text-lg md:text-xl font-medium mt-4 mb-2 text-center h-[84px] md:h-16 ">
               {item.title}
             </h2>
             <p className="text-gray-600 text-center">{item.description}</p>
