@@ -44,7 +44,6 @@ import {
   AdminHome,
   AdminNews,
   DashBoard,
-  News,
   Project,
   Testimonial,
 } from "./pages/Admin";
