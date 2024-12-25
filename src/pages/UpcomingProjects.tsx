@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import AboutCarousal from "../components/AboutCarousal";
 import styles, { layout } from "../styles";
-import { hero2 } from "../assets";
+import { Upcoming } from "../assets";
 
 interface Project {
   id: number;
@@ -82,7 +82,7 @@ const UpcomingProjects: React.FC = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={hero2}
+            image={Upcoming}
             title={"Upcoming Projects"}
             content={
               "Learn about the upcoming projects in Kono District, focusing on future council-led initiatives aimed at driving further development in infrastructure, education, healthcare, and community services."

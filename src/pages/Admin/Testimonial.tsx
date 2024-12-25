@@ -1,14 +1,10 @@
 import { notif, ProfilePic, search, sort } from "@/src/assets";
 import {
   AddTestimonials,
-  SelectNews,
+  SelectGallery,
   TestimonialCard,
 } from "@/src/components/Admin";
-// import {
-//   AddTestimonial,
-//   SelectGallery,
-//   TestimonialCard,
-// } from "@/src/components";
+
 import styles from "@/src/styles";
 
 const Testimonial = () => {
@@ -72,7 +68,7 @@ const Testimonial = () => {
               <TestimonialCard />
             </div>
           </div>
-          <SelectNews />
+          <SelectGallery />
         </div>
       </div>
     </div>

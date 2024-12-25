@@ -1,8 +1,13 @@
 import { notif, ProfilePic, search, sort } from "@/src/assets";
-import { AddNews, NewsCard, SelectGallery } from "@/src/components/Admin";
+import {
+  AddCouncilServices,
+  Implementation,
+  Initiative,
+} from "@/src/components/Admin";
+
 import styles from "@/src/styles";
 
-const News = () => {
+const CouncilServices = () => {
   return (
     <div className="w-full bg-[#FAFAFA] h-full grid grid-rows-[240px_1fr] lg:grid-rows-[180px_1fr]">
       <div className="p-3 lg:px-8 lg:py-4 bg-white mb-5">
@@ -11,7 +16,7 @@ const News = () => {
             <h1
               className={`${styles.heading3} leading-normal font-semibold tracking-wide font-nunito`}
             >
-              News
+              Council Services
             </h1>
           </div>
           <div className="flex items-center gap-2 lg:gap-3">
@@ -35,14 +40,14 @@ const News = () => {
           <div className="flex items-center border-[1px] py-3 px-5 bg-[#D8DDE4] justify-between rounded-xl">
             <input
               type="text"
-              placeholder="Search for News"
+              placeholder="Search Council Services"
               className={`${styles.paragraph4} text-[#849299] bg-transparent outline-0 flex-1`}
             />
             <img src={search} className="w-5 h-5" />
           </div>
 
           <div className="grid grid-cols-2  gap-3 mt-5 lg:mt-0">
-            <AddNews />
+            <AddCouncilServices />
             <button className="flex items-center gap-2 py-3 px-7 border-[1px] rounded-xl border-[#D8DDE4]">
               <img src={sort} className="w-6 h-6" />
               <p className="text-sm font-semibold text-[#849299]">
@@ -52,25 +57,13 @@ const News = () => {
           </div>
         </div>
       </div>
-
-      <div className="p-3 lg:px-8 lg:py-4 overflow-y-scroll">
-        <div className="grid  lg:grid-cols-4 gap-3 ">
-          <div className="  lg:col-span-3 ">
-            <div className=" grid grid-cols-2 p-5 lg:grid-cols-3 gap-5 bg-white ">
-              <NewsCard title="News" subtitle="Kono District distribute..." />
-              <NewsCard title="News" subtitle="Kono District distribute..." />
-              <NewsCard title="News" subtitle="Kono District distribute..." />
-              <NewsCard title="News" subtitle="Kono District distribute..." />
-              <NewsCard title="News" subtitle="Kono District distribute..." />
-              <NewsCard title="News" subtitle="Kono District distribute..." />
-            </div>
-          </div>
-
-          <SelectGallery />
-        </div>
+      {/*  */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-5 bg-white">
+        <Initiative />
+        <Implementation />
       </div>
     </div>
   );
 };
 
-export default News;
+export default CouncilServices;

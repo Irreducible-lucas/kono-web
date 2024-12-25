@@ -1,6 +1,6 @@
 import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
-import { hero2 } from "../assets";
+import { ByLawOrdiance } from "../assets";
 import styles, { layout } from "../styles";
 import ByLawCard from "../components/ByLawCard";
 import { Laws } from "../constants";
@@ -19,7 +19,7 @@ const ByLaws = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <AboutCarousal
-            image={hero2}
+            image={ByLawOrdiance}
             title={"ByLaws and Ordinances"}
             content={
               "Explore the bylaws and ordinances of Kono District Council, which provide the legal framework for governing the district, regulating public conduct, and ensuring the orderly development and management of community resources and services."

@@ -1,8 +1,9 @@
 import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
-import { hero2 } from "../assets";
+
 import styles from "../styles";
 import BudgetCard from "../components/BudgetCard";
+import { Report } from "../assets";
 
 const ProjectReport = () => {
   return (
@@ -18,7 +19,7 @@ const ProjectReport = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <AboutCarousal
-            image={hero2}
+            image={Report}
             title={"Project Report and Update"}
             content={
               "  View project reports and updates from Kono District Council, offering detailed insights into the progress, outcomes, and future steps of ongoing and completed initiatives across various sectors."

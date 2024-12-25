@@ -1,6 +1,6 @@
 import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
-import { hero2 } from "../assets";
+import { Funding } from "../assets";
 import styles from "../styles";
 import ProjectFundingCard from "../components/ProjectFundingCard";
 
@@ -18,7 +18,7 @@ const ProjectFunding = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <AboutCarousal
-            image={hero2}
+            image={Funding}
             title={"Project Funding"}
             content={
               "Learn about the funding for projects in Kono District, including sources of financial support, investments in development initiatives, and how the council allocates resources to drive community growth and infrastructure improvement."

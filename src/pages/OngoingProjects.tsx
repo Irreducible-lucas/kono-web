@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import AboutCarousal from "../components/AboutCarousal";
 import styles, { layout } from "../styles";
-import { hero2 } from "../assets";
+import { OngoingProject } from "../assets";
 
 interface Project {
   id: number;
@@ -72,7 +72,7 @@ const OngoingProjects: React.FC = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={hero2}
+            image={OngoingProject}
             title={"Ongoing Projects"}
             content={
               "Discover the ongoing projects in Kono District, focusing on current council-led initiatives that aim to improve infrastructure, education, healthcare, and economic development for the betterment of the community."

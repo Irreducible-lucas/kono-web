@@ -18,13 +18,25 @@ import {
   SustainableGrowthImage,
   EducationImage,
   NewsImage12,
-  event4,
   Health,
   Learn,
   Agricultiure,
   Infrastructure2,
   EnvironmentalService,
   Welfare,
+  Structure,
+  OngoingProject,
+  Upcoming,
+  Budget,
+  Expenditure,
+  Funding,
+  Policy,
+  ByLawOrdiance,
+  HistoryImage,
+  VisionMission,
+  Official,
+  CompleteProject,
+  Report,
 } from "../assets";
 import {
   Link,
@@ -42,10 +54,11 @@ import {
   ByLaw,
   BudgetProject,
   ExpenditureProject,
-  ProjectFunding,
+
   DepartmentalContact,
   ServicesProps,
   ChiefdomProps,
+  ProjectFunding,
 } from "../types";
 import { CareLogo } from "../assets/logos";
 
@@ -894,7 +907,7 @@ export const ExpenditureProjects: ExpenditureProject[] = [
 ];
 
 export const ProjectFundings: ProjectFunding[] = [
-  {
+{
     id: 1,
     title: "Road Infrastructural Development",
     text: "2,261,750,000 ",
@@ -1009,7 +1022,7 @@ export const DepartmentContacts: DepartmentalContact[] = [
 
 export const aboutus: ServicesProps[] = [
   {
-    img: event4,
+    img:HistoryImage ,
     id: 1,
     title: "History of Kono",
     url: "history",
@@ -1019,7 +1032,7 @@ export const aboutus: ServicesProps[] = [
 
   {
     id: 2,
-    img: event4,
+    img: Structure,
     title: "Council Structure",
     url: "council-structure",
     content:
@@ -1028,7 +1041,7 @@ export const aboutus: ServicesProps[] = [
 
   {
     id: 3,
-    img: event4,
+    img: VisionMission,
     title: "Vision and Mission",
     url: "vision&mission",
     content: "Discover Kono District Council's vision for a prosperous future and its mission to empower communities through sustainable development and innovative initiatives.",
@@ -1036,7 +1049,7 @@ export const aboutus: ServicesProps[] = [
 
   {
     id: 4,
-    img: event4,
+    img: Official,
     title: "Officials and Chiefdoms",
     url: "officials",
     content: "Learn about the officials and traditional leaders of Kono District, including council representatives and the paramount chiefs who guide and support the district's governance and development.",
@@ -1094,7 +1107,7 @@ export const councilsevices: ServicesProps[] = [
 
 export const developmentProject: ServicesProps[] = [
   {
-    img: event4,
+    img: OngoingProject,
     id: 1,
     title: "Ongoing Projects",
     url: "ongoing-project",
@@ -1104,7 +1117,7 @@ export const developmentProject: ServicesProps[] = [
 
   {
     id: 2,
-    img: event4,
+    img: CompleteProject,
     title: "Completed Projects",
     url: "completed-project",
     content:
@@ -1113,7 +1126,7 @@ export const developmentProject: ServicesProps[] = [
 
   {
     id: 3,
-    img: event4,
+    img: Upcoming,
     title: "Upcoming Projects",
     url: "upcoming-project",
     content: "Learn about the upcoming projects in Kono District, focusing on future council-led initiatives aimed at driving further development in infrastructure, education, healthcare, and community services.",
@@ -1122,7 +1135,7 @@ export const developmentProject: ServicesProps[] = [
 ]
 export const reportFinancials: ServicesProps[] = [
   {
-    img: event4,
+    img: Budget,
     id: 1,
     title: "Annual Budget",
     url: "annual-budget",
@@ -1132,7 +1145,7 @@ export const reportFinancials: ServicesProps[] = [
 
   {
     id: 2,
-    img: event4,
+    img: Report,
     title: "Report and Update",
     url: "projects-report",
     content:
@@ -1141,7 +1154,7 @@ export const reportFinancials: ServicesProps[] = [
 
   {
     id: 3,
-    img: event4,
+    img: Funding,
     title: "Project Funding",
     url: "project-funding",
     content: "Learn about the funding for projects in Kono District, including sources of financial support, investments in development initiatives, and how the council allocates resources to drive community growth and infrastructure improvement.",
@@ -1149,7 +1162,7 @@ export const reportFinancials: ServicesProps[] = [
 
   {
     id: 4,
-    img: event4,
+    img: Expenditure,
     title: "Public Expenditure Report",
     url: "public-expenditure",
     content: "Access the project expenditure report for Kono District, providing detailed information on how funds are allocated and spent on various development initiatives, ensuring transparency and accountability in council-led projects.",
@@ -1157,7 +1170,7 @@ export const reportFinancials: ServicesProps[] = [
 ]
 export const governance: ServicesProps[] = [
   {
-    img: event4,
+    img: Policy,
     id: 1,
     title: "Council Policies",
     url: "council-policies",
@@ -1167,7 +1180,7 @@ export const governance: ServicesProps[] = [
 
   {
     id: 2,
-    img: event4,
+    img: ByLawOrdiance,
     title: "bylaws-ordiances",
     url: "Bylaws and Ordiances",
     content:

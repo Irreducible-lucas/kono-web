@@ -1,5 +1,5 @@
 import { notif, ProfilePic, search, sort } from "@/src/assets";
-import { AddProject, ProjectCard, SelectNews } from "@/src/components/Admin";
+import { AddProject, ProjectCard, SelectGallery } from "@/src/components/Admin";
 import styles from "@/src/styles";
 
 const projectData = [
@@ -20,7 +20,7 @@ const Project = () => {
           <h1
             className={`${styles.heading3} leading-normal font-semibold tracking-wide`}
           >
-            Program
+            Project
           </h1>
           <div className="flex items-center gap-2 lg:gap-3">
             <div className="border rounded-full flex items-center p-1">
@@ -72,7 +72,7 @@ const Project = () => {
               ))}
             </div>
           </div>
-          <SelectNews />
+          <SelectGallery />
         </div>
       </div>
     </div>

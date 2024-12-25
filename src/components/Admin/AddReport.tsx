@@ -8,25 +8,26 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/dialog";
-import { image, plus } from "@/src/assets";
+import { add_file, plus } from "@/src/assets";
 import { Label } from "@/components/label";
 import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import styles from "@/src/styles";
-import SelectNews from "./SelectGallery";
 
-const AddNews = () => {
+const AddReport = () => {
   return (
     <Dialog>
       <DialogTrigger className="flex items-center bg-[#1B43C6] py-3 px-7 gap-5 rounded-md">
         <img src={plus} className="w-6 h-6" />
-        <p className="text-xs font-semibold font-nunito text-white">Add News</p>
+        <p className="text-xs font-semibold font-nunito text-white">
+          Add Report
+        </p>
       </DialogTrigger>
 
-      <DialogContent className="overflow-y-auto w-full h-full">
+      <DialogContent className="overflow-y-auto w-full h-full ">
         <DialogHeader>
           <DialogTitle className="text-center font-nunito text-lg font-semibold">
-            Add News
+            Add Report
           </DialogTitle>
           <DialogDescription className="text-center">
             All fields are required unless otherwise indicated.
@@ -35,39 +36,35 @@ const AddNews = () => {
 
         <div className="grid gap-4 my-2">
           <div className="grid w-full items-center gap-1.5">
-            <Label htmlFor="title">Title</Label>
-            <Input type="text" id="title" placeholder="Enter news title" />
+            <Label htmlFor="report">Title Report</Label>
+            <Input type="text" id="title" placeholder="enter title report" />
           </div>
           <div className="grid w-full items-center gap-1.5">
-            <Label htmlFor="date">Date</Label>
-            <div
-              className={`${styles.paragraph4}  border-[1px] mt-1 p-2 rounded-md  outline-none text-[#849299] flex items-center justify-between `}
-              contentEditable="true"
+            <Label htmlFor="report">Description</Label>
+            <Input
+              type="text"
+              id="title"
+              placeholder="enter report description"
+            />
+          </div>
+          <div className="grid w-full items-center gap-1.5">
+            <Label htmlFor="payment">Report Type</Label>
+            <select
+              className={`${styles.paragraph4} border py-3 px-2 rounded-md text-[#849299]`}
             >
-              <p>News date</p>
-              <input type="date" />
-            </div>
+              <option>Select Report Type</option>
+              <option>Project Report & Update</option>
+              <option>Project Funding</option>
+              <option>Project Expenditure Report</option>
+            </select>
           </div>
           <div className="grid w-full items-center gap-1.5">
-            <Label htmlFor="cover">News Cover</Label>
+            <Label htmlFor="cover">Photo</Label>
             <div className="w-full h-40 rounded-md border-[1px] bg-[#F4F7FC] border-[#D8DDE4] flex items-center justify-center flex-col">
-              <img src={image} className="w-6 h-6" />
+              <img src={add_file} className="w-6 h-6" />
               <p className={`${styles.paragraph4} text-[#849299] mt-1`}>
-                Drag News Cover Here
+                Drag Files Here
               </p>
-            </div>
-            <p className={`${styles.paragraph4} text-xs text-[#1B43C6]`}>
-              Max File Size: 5 MB (jpg, pdf, png)
-            </p>
-          </div>
-          <div className="grid w-full items-center mt-2 lg:gap-3 ">
-            <Label htmlFor="news">News</Label>
-            <div className="grid grid-cols-5 gap-2n">
-              <SelectNews />
-              <SelectNews />
-              <SelectNews />
-              <SelectNews />
-              <SelectNews />
             </div>
             <p className={`${styles.paragraph4} text-xs text-[#1B43C6]`}>
               Max File Size: 5 MB (jpg, pdf, png)
@@ -97,4 +94,4 @@ const AddNews = () => {
   );
 };
 
-export default AddNews;
+export default AddReport;

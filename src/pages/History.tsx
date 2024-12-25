@@ -1,6 +1,6 @@
 import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
-import { hero2 } from "../assets";
+import { HistoryImage } from "../assets";
 import styles from "../styles";
 import HistoryBody from "./HistoryBody";
 
@@ -18,7 +18,7 @@ const History = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={hero2}
+            image={HistoryImage}
             title={"History"}
             content={
               "Discover the rich heritage of Kono District, from its cultural roots to its evolution as a key economic and social hub in Sierra Leone."

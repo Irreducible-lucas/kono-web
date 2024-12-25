@@ -50,6 +50,17 @@ const AddProject = () => {
             ></textarea>
           </div>
           <div className="grid w-full items-center gap-1.5">
+            <Label htmlFor="payment">Project Type</Label>
+            <select
+              className={`${styles.paragraph4} border py-3 px-2 rounded-md text-[#849299]`}
+            >
+              <option>Select Project Type </option>
+              <option>Ongoing Project</option>
+              <option>Completed Project</option>
+              <option>Upcoming Project</option>
+            </select>
+          </div>
+          <div className="grid w-full items-center gap-1.5">
             <Label htmlFor="cover">Photo</Label>
 
             <div className="w-full h-40 rounded-md border-[1px] bg-[#F4F7FC] border-[#D8DDE4] flex items-center justify-center flex-col">
@@ -63,7 +74,6 @@ const AddProject = () => {
             </p>
           </div>
         </div>
-
         <DialogFooter className="sm:justify-start ">
           <DialogClose asChild>
             <Button

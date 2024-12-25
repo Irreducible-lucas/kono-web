@@ -1,6 +1,6 @@
 import { AboutCarousal, OurStructure } from "../components";
 import { motion } from "framer-motion";
-import { Alice, hero2 } from "../assets";
+import { Alice, Structure } from "../assets";
 import styles, { layout } from "../styles";
 import YellowDivider from "./YellowDivider";
 
@@ -18,7 +18,7 @@ const Council = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={hero2}
+            image={Structure}
             title={"Council Structure"}
             content={
               "Explore the structure of Kono District Council, from its leadership to its operational teams, driving strategic initiatives and community development across the district."

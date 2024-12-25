@@ -215,3 +215,9 @@ export interface Overview {
   number: string;
   color: string;
 }
+export interface Button3 {
+  white?: boolean;
+  name: string;
+  py: number;
+  px: number;
+}

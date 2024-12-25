@@ -1,7 +1,7 @@
 import styles from "../style";
 import { motion } from "framer-motion";
 import { AboutCarousal, ServiceCard } from "../components";
-import { hero2 } from "../assets";
+import { VisionMission } from "../assets";
 import { useNavigate } from "react-router-dom";
 import { aboutus } from "../constants";
 import AboutUs from "../components/AboutUs";
@@ -23,7 +23,7 @@ const AboutUsPage = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={hero2}
+            image={VisionMission}
             title={"About Us"}
             content={
               "Kono District Council supports education, youth development, and sustainable growth through community projects and policy advocacy."

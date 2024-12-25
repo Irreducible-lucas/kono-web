@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { FaPlane } from "react-icons/fa"; // Importing the airplane icon
 import styles from "../styles";
 import { FeaturedsDevelopment } from "../types";
-import { corporate_identity, Christiana } from "../assets";
 
 const FeaturedDevelopmentCard = ({
   title,
@@ -12,7 +12,7 @@ const FeaturedDevelopmentCard = ({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className={`w-full relative bg-white overflow-hidden`}>
+    <div className="w-full relative bg-white overflow-hidden">
       <div className="p-2">
         <div
           className="relative"
@@ -20,7 +20,6 @@ const FeaturedDevelopmentCard = ({
           onMouseLeave={() => setIsHovered(false)}
         >
           <div className="overflow-hidden relative">
-            {" "}
             <img
               src={image}
               className={`object-contain object-center w-full rounded-md mb-3 transition-opacity duration-300`}
@@ -32,10 +31,15 @@ const FeaturedDevelopmentCard = ({
               }}
             />
           </div>
-          <div className="absolute bottom-8 left-0 bg-red-400 z-10">
-            <img
-              src={isHovered ? Christiana : corporate_identity}
-              className="w-28"
+          {/* Airplane Icon Container */}
+          <div
+            className="absolute bottom-1 -left-8 z-10 flex items-center justify-center w-16 h-16 bg-black "
+            style={{ transform: "translateX(50%)" }}
+          >
+            <FaPlane
+              className={`transition-transform duration-300 text-white text-4xl ${
+                isHovered ? "-rotate-90" : "rotate-0"
+              }`}
             />
           </div>
         </div>

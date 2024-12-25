@@ -1,6 +1,6 @@
 import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
-import { hero2 } from "../assets";
+import { Policy } from "../assets";
 import styles, { layout } from "../styles";
 import CouncilPoliciesCard from "../components/CouncilPoliciesCard";
 import { PolicyCard } from "../constants";
@@ -18,7 +18,7 @@ const CouncilPolicies = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={hero2}
+            image={Policy}
             title={"Council Policies"}
             content={
               "Learn about the policies of Kono District Council, detailing the guidelines and strategies that shape the council's approach to governance, community development, public services, and sustainable growth."

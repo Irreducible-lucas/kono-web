@@ -11,7 +11,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Globe2, Target } from "lucide-react";
 import styles, { layout } from "../styles";
-import { hero2 } from "../assets";
+import { VisionMission } from "../assets";
 import OurRole from "../components/OurRole";
 
 const Vision = () => {
@@ -81,7 +81,7 @@ const Vision = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth} `}>
           <AboutCarousal
-            image={hero2}
+            image={VisionMission}
             title={"Vision and Mission"}
             content={
               "Discover Kono District Council's vision for a prosperous future and its mission to empower communities through sustainable development and innovative initiatives."

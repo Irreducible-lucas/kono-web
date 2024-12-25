@@ -1,8 +1,9 @@
 import { AboutCarousal } from "../components";
 import { motion } from "framer-motion";
-import { hero2 } from "../assets";
+
 import styles from "../styles";
 import ExpenditureCard from "../components/ExpenditureCard";
+import { Expenditure } from "../assets";
 
 const PublicExpenditure = () => {
   return (
@@ -18,7 +19,7 @@ const PublicExpenditure = () => {
       <div className={` ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <AboutCarousal
-            image={hero2}
+            image={Expenditure}
             title={"Public Expenditure"}
             content={
               "Access the project expenditure report for Kono District, providing detailed information on how funds are allocated and spent on various development initiatives, ensuring transparency and accountability in council-led projects."

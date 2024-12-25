@@ -35,6 +35,19 @@ export { default as Legal } from "./legal.jpg";
 export { default as WomenYouth } from "./womenYouth.jpg";
 export { default as WomeninAgriculture } from "./womeninAgriculture.jpg";
 export { default as home } from "./Homepage.jpg";
+export { default as Budget } from "./budget.jpg";
+export { default as ByLawOrdiance } from "./ByLaw.jpg";
+export { default as CompleteProject } from "./complete.jpg";
+export { default as Expenditure } from "./expenditure.jpg";
+export { default as HistoryImage } from "./history.jpg";
+export { default as Official } from "./officials.jpg";
+export { default as OngoingProject } from "./Ongoing project.jpg";
+export { default as Policy } from "./policy.jpg";
+export { default as Funding } from "./Project-funding.jpeg";
+export { default as Report } from "./Project-report-1024x534.jpg";
+export { default as Structure } from "./structure.jpg";
+export { default as Upcoming } from "./upcoming.jpg";
+export { default as VisionMission } from "./vision.png";
 
 
 
