@@ -22,8 +22,8 @@ const SideNav = () => {
           <rect x="10" y="30" width="14" height="3" rx="1.5" fill="#9490AE" />
         </svg>
       </div>
-      <div className="overflow-y-scroll">
-        <div className="grid place-items-center py-8 gap-1">
+      <div className="overflow-y-scroll py-4">
+        {/* <div className="grid place-items-center py-8 gap-1">
           <img
             src={ProfilePic}
             alt="user profile picture"
@@ -33,7 +33,7 @@ const SideNav = () => {
             Hello <span className="font-bold">Yuke</span>
           </h2>
           <p className="text-darkgrey font-nunito text-sm">yuke123@mail.com</p>
-        </div>
+        </div> */}
         <SideNavLinks />
       </div>
     </div>

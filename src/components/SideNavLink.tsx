@@ -15,12 +15,12 @@ import { useState } from "react";
 
 // Links with Font Awesome icons
 export const links = [
-  {
-    id: 1,
-    text: "Dashboard",
-    icon: faChartPie,
-    url: "/dashboard",
-  },
+  // {
+  //   id: 1,
+  //   text: "Dashboard",
+  //   icon: faChartPie,
+  //   url: "/dashboard",
+  // },
   {
     id: 2,
     text: "Homepage",
