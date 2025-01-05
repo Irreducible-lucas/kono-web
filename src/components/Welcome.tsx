@@ -4,6 +4,8 @@ import { Alice } from "../assets";
 import YellowDivider from "../pages/YellowDivider";
 import styles, { layout } from "../styles";
 import Button from "./Button";
+import { useQuery } from "@tanstack/react-query";
+import { fetchChairmanMessage } from "../api";
 
 const Welcome = () => {
   const [showAll, setShowAll] = useState(false);
@@ -11,14 +13,6 @@ const Welcome = () => {
   const handleToggle = () => {
     setShowAll((prevState) => !prevState);
   };
-
-  const paragraphs = [
-    "The role of Kono District Council is to support our communities to grow, develop and take advantage of the significant benefits our district has to offer including its vast natural resources, fertile land for commercial agriculture, natural landscape for tourism and hospitality and a promising economy.",
-    "By working in partnership with the central Government, our paramount chiefs, businesses and communities, the Council aims to coordinate and support endeavours that build an integrated district economy, fostering growth, and transform our communities into vibrant places to live, work, grow and prosper.",
-    "This Strategic Plan is aligned with the Central Government’s Big Five Game Changers which include, Feed Salone, Youth Employment, Human Capital Development, Revamping of Public Sector Architecture and Tech and Infrastructure.",
-    "The Plan is also aligned with specific sectors which guide the national development agenda.",
-    "This plan sets out our strategic direction for the period 2024-28, including our values, vision, mission and strategic priorities.",
-  ];
 
   const animationVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -30,6 +24,26 @@ const Welcome = () => {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 },
   };
+
+  const { data }: any = useQuery({
+    queryKey: ["chairman message", ""],
+    queryFn: () => fetchChairmanMessage(),
+  });
+
+  const paragraphs = data?.message
+    ? data?.message
+        .split("., ")
+        .map(
+          (paragraph: any) =>
+            paragraph.trim() + (paragraph.endsWith(".") ? "" : ".")
+        )
+    : [
+        "The role of Kono District Council is to support our communities to grow, develop and take advantage of the significant benefits our district has to offer including its vast natural resources, fertile land for commercial agriculture, natural landscape for tourism and hospitality and a promising economy.",
+        "By working in partnership with the central Government, our paramount chiefs, businesses and communities, the Council aims to coordinate and support endeavours that build an integrated district economy, fostering growth, and transform our communities into vibrant places to live, work, grow and prosper.",
+        "This Strategic Plan is aligned with the Central Government’s Big Five Game Changers which include, Feed Salone, Youth Employment, Human Capital Development, Revamping of Public Sector Architecture and Tech and Infrastructure.",
+        "The Plan is also aligned with specific sectors which guide the national development agenda.",
+        "This plan sets out our strategic direction for the period 2024-28, including our values, vision, mission and strategic priorities.",
+      ];
 
   return (
     <section
@@ -50,12 +64,12 @@ const Welcome = () => {
           animate="visible"
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-          MESSAGE FROM THE CHAIRMAN
+          {data?.title ? data?.title : `MESSAGE FROM THE CHAIRMAN`}{" "}
         </motion.h1>
         {/* Paragraphs Animation (sequential) */}
         {paragraphs
           .slice(0, showAll ? paragraphs.length : 2)
-          .map((text, index) => (
+          .map((text: string, index: number) => (
             <motion.p
               key={index}
               className={`${styles.paragraph2} my-4 text-justify`}

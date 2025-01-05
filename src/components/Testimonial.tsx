@@ -3,6 +3,8 @@ import "react-multi-carousel/lib/styles.css";
 import { reviews } from "../constants";
 import TestimonialCard from "./TestimonialCard";
 import styles from "../styles";
+import { useQuery } from "@tanstack/react-query";
+import { fetchTestimonials } from "../api";
 
 const Testimonial = () => {
   const responsive: ResponsiveType = {
@@ -19,6 +21,11 @@ const Testimonial = () => {
       items: 1,
     },
   };
+
+  const { data }: any = useQuery({
+    queryKey: ["Testimonial", ""],
+    queryFn: () => fetchTestimonials(),
+  });
 
   return (
     <div className="py-[2rem] text-center px-10" id="client">
@@ -45,15 +52,18 @@ const Testimonial = () => {
           // customLeftArrow={<CustomLeftArrow />}
           // customRightArrow={<CustomRightArrow />}
         >
-          {reviews.map((review, index) => (
-            <TestimonialCard
-              key={index}
-              image={review.image}
-              name={review.name}
-              rating={review.rating}
-              feedback={review.feedback}
-            />
-          ))}
+          {data &&
+            data.map((review, index) => (
+              <TestimonialCard
+                key={index}
+                image={
+                  review.image ? review.image : "https://picsum.photos/200"
+                }
+                name={review.name}
+                rating={review.rating}
+                feedback={review.text}
+              />
+            ))}
         </Carousel>
       </div>
     </div>
