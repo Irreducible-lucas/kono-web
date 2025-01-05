@@ -8,7 +8,7 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/dialog";
-import { image, plus } from "@/src/assets";
+import { image } from "@/src/assets";
 import { Label } from "@/components/label";
 import { Input } from "@/components/input";
 import { Button } from "@/components/button";
@@ -21,6 +21,8 @@ import {
   SelectValue,
 } from "@/components/select";
 import { FormEvent, useRef, useState, ChangeEvent, useEffect } from "react";
+import { AxiosResponse, AxiosError } from "axios";
+import axios from "../../axios/index";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
@@ -29,33 +31,46 @@ import {
   ProjectType,
 } from "../../types";
 import { ProjectCategory, ProjectStatus } from "@/src/constants";
+import { format } from "date-fns";
 import { Slider } from "@/components/ui/slider";
 import DatePicker from "../DatePicker";
-import { format } from "date-fns";
-import { AxiosError, AxiosResponse } from "axios";
-import axios from "@/src/axios";
 
-const AddProject = () => {
+const EditProject = ({
+  item,
+  setSelectedItem,
+}: {
+  item: ProjectType;
+  setSelectedItem: any;
+}) => {
   const [open, setIsOpen] = useState(false);
   const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
+  const [changeReport, setChangeReport] = useState<Boolean>(false);
   const [startingDate, setStartingDate] = useState<Date>();
   const [dateCompleted, setDateCompleted] = useState<Date>();
   const [completionRate, setCompletionRate] = useState<any>(0);
 
   const imageInputRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState<ProjectType>({
-    title: "",
-    description: "",
-    image: null,
-    report: null,
-    category: "",
-    completion_rate: "",
-    budget: "",
-    starting_date: "",
-    date_completed: "",
-    status: "",
+    title: item.title,
+    image: item.image,
+    report: item.report,
+    category: item.category,
+    description: item.description,
+    completion_rate: item.completion_rate,
+    budget: item.budget,
+    starting_date: item.starting_date,
+    date_completed: item.date_completed,
+    status: item.status,
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (item.image) {
+      setImagePreview(item.image);
+    }
+  }, [item]);
 
   useEffect(() => {
     if (startingDate) {
@@ -78,26 +93,24 @@ const AddProject = () => {
     }));
   }, [startingDate, dateCompleted, completionRate]);
 
-  const navigate = useNavigate();
-
   const handleFormClose = () => {
     if (saving) {
-      toast.warning("Please wait, project saving to the database.");
+      toast.warning("Please wait, updating project.");
       return;
     }
     setIsOpen(!open);
-    setImagePreview(null);
+    setImagePreview(item.image);
     setFormData({
-      title: "",
-      description: "",
-      image: null,
-      report: null,
-      category: "",
-      completion_rate: "",
-      budget: "",
-      starting_date: "",
-      date_completed: "",
-      status: "",
+      title: item.title,
+      image: item.image,
+      report: item.report,
+      category: item.category,
+      description: item.description,
+      completion_rate: item.completion_rate,
+      budget: item.budget,
+      starting_date: item.starting_date,
+      date_completed: item.date_completed,
+      status: item.status,
     });
     setStartingDate(undefined);
     setDateCompleted(undefined);
@@ -143,14 +156,14 @@ const AddProject = () => {
 
   const handleImageInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
-    const file = files?.[0];
+    const file: any = files?.[0];
     const maxSize = 5 * 1024 * 1024;
 
     if (file && file.size > maxSize) {
       toast.warning("File size exceeds 5mb");
       return;
     } else {
-      setImagePreview(file);
+      setImagePreview(URL.createObjectURL(file));
       setFormData((prevState) => ({ ...prevState, image: file || null }));
     }
   };
@@ -161,7 +174,6 @@ const AddProject = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Data to be saved:", typeof formData.budget);
 
     // Get the authentication token
     // const user = auth.currentUser;
@@ -173,24 +185,31 @@ const AddProject = () => {
     // }
 
     const submitData = new FormData();
-
-    if (!formData.report) {
+    if (formData.report) {
+      submitData.append("report", formData.report);
+    } else {
       toast.warning("Please upload report");
       return;
     }
 
-    if (!formData.category) {
+    submitData.append("title", formData.title);
+
+    if (formData.category) {
+      submitData.append("category", formData.category);
+    } else {
       toast.warning("Please select category");
+      return;
+    }
+
+    if (formData.image) {
+      submitData.append("image", formData.image);
+    } else {
+      toast.warning("Please upload image");
       return;
     }
 
     if (!formData.status) {
       toast.warning("Please select project status");
-      return;
-    }
-
-    if (!formData.image) {
-      toast.warning("Please upload image");
       return;
     }
 
@@ -205,13 +224,8 @@ const AddProject = () => {
       submitData.append("completion_rate", formData.completion_rate);
     }
 
-    submitData.append("title", formData.title);
     submitData.append("description", formData.description);
-    submitData.append("image", formData.image);
-    submitData.append("category", formData.category);
-    submitData.append("report", formData.report);
     submitData.append("budget", formData.budget);
-    
     submitData.append("starting_date", formData.starting_date);
     submitData.append("date_completed", formData.date_completed);
     submitData.append("status", formData.status);
@@ -219,8 +233,8 @@ const AddProject = () => {
     // Submit Data to the Server
     try {
       setIsSaving(true);
-      const response: AxiosResponse = await axios.post(
-        "/projects",
+      const response: AxiosResponse = await axios.put(
+        `/projects/${item.id}`,
         submitData,
         {
           headers: {
@@ -230,13 +244,14 @@ const AddProject = () => {
         }
       );
       if (response.data) {
-        toast.success("Project created successfully!!!");
+        toast.success("Project updated successfully!!!");
         setIsSaving(false);
         setIsOpen(false);
+        setSelectedItem(null);
         navigate("/dashboard/project");
       }
     } catch (error) {
-      toast.error("error occurred while creating project");
+      toast.error("error occurred while updating project");
       setIsSaving(false);
       console.error("Error:", error as AxiosError);
     }
@@ -244,16 +259,15 @@ const AddProject = () => {
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
       <DialogTrigger className="flex items-center bg-[#1B43C6] py-3 px-7 gap-5 rounded-md">
-        <img src={plus} className="w-6 h-6" />
         <p className="text-xs font-semibold font-nunito text-white">
-          Add Project
+          Edit Project
         </p>
       </DialogTrigger>
 
       <DialogContent className="overflow-y-auto w-full h-4/5">
         <DialogHeader>
           <DialogTitle className="text-center font-nunito text-lg font-semibold">
-            Add Project
+            Edit Project
           </DialogTitle>
           <DialogDescription className="text-center">
             All fields are required unless otherwise indicated.
@@ -264,7 +278,7 @@ const AddProject = () => {
           <div className="grid gap-8 my-2">
             <div>
               <Label htmlFor="category">Project Category</Label>
-              <Select onValueChange={handleSelect}>
+              <Select onValueChange={handleSelect} value={formData.category}>
                 <SelectTrigger id="category" className="w-full">
                   <SelectValue placeholder="Select Project Category" />
                 </SelectTrigger>
@@ -278,7 +292,7 @@ const AddProject = () => {
               </Select>
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
+            <div className="grid w-full items-center gap-2">
               <Label htmlFor="title">Title</Label>
               <Input
                 type="text"
@@ -286,16 +300,18 @@ const AddProject = () => {
                 placeholder="Enter title"
                 name="title"
                 onChange={handleInputChange}
+                value={formData.title}
               />
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
+            <div className="grid w-full items-center gap-2">
               <Label htmlFor="description">Description</Label>
               <textarea
                 id="description"
                 name="description"
                 onChange={handleTextAreaChange}
                 placeholder="Enter project description"
+                value={formData.description}
                 required
                 rows={5}
                 cols={50}
@@ -303,7 +319,7 @@ const AddProject = () => {
               ></textarea>
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
+            <div className="grid w-full items-center gap-2">
               <Label>Image</Label>
               <input
                 type="file"
@@ -316,7 +332,7 @@ const AddProject = () => {
               {imagePreview ? (
                 <div className="flex items-center gap-4">
                   <img
-                    src={URL.createObjectURL(imagePreview)}
+                    src={imagePreview}
                     className="h-40 w-40 object-cover object-center"
                   />
                   <button
@@ -343,53 +359,99 @@ const AddProject = () => {
               </p>
             </div>
 
-            <div className="grid w-full max-w-sm items-center gap-1.5">
+            <div className="grid w-full max-w-sm items-center gap-2">
               <Label htmlFor="document">Report</Label>
-              <Input
-                id="document"
-                name="report"
-                type="file"
-                accept="application/pdf"
-                onChange={handleInputChange}
-              />
-              <p className={`${styles.paragraph4} text-xs text-[#1B43C6]`}>
-                Max File Size: 20 MB (pdf)
-              </p>
+              {formData.report && !changeReport ? (
+                <div className="flex items-center gap-8">
+                  <p className="text-xs">document uploaded</p>
+                  <p
+                    onClick={() => setChangeReport(true)}
+                    className="text-blue-600 font-light text-sm bg-gray-200 p-2"
+                  >
+                    Change report
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <Input
+                    id="document"
+                    name="report"
+                    type="file"
+                    accept="application/pdf"
+                    onChange={handleInputChange}
+                  />
+                  <p className={`${styles.paragraph4} text-xs text-[#1B43C6]`}>
+                    Max File Size: 20 MB (pdf)
+                  </p>
+                </div>
+              )}
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
-              <Label>Completion Rate {completionRate}</Label>
-              <Slider
-                value={[completionRate]}
-                onValueChange={(val) => setCompletionRate(val)}
-                max={100}
-                step={1}
-              />
+            <div className="grid w-full items-center gap-2">
+              <Label>Completion Rate</Label>
+              <div className="flex gap-4 py-2 items-center">
+                <Slider
+                  value={[completionRate]}
+                  onValueChange={(val) => setCompletionRate(val)}
+                  max={100}
+                  step={1}
+                />
+                <div className="font-bold text-xl font-manrope text-blue-700">
+                  {completionRate}%
+                </div>
+              </div>
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
+            <div className="grid w-full items-center gap-2">
               <Label htmlFor="budget">Budget</Label>
               <Input
                 type="text"
                 id="budget"
                 placeholder="Enter amount"
                 name="budget"
+                value={formData.budget}
                 onChange={handleInputChange}
               />
             </div>
-            <div className="grid w-full items-center gap-1.5">
+            <div className="grid w-full items-center gap-2">
               <Label htmlFor="starting_date">Starting Date</Label>
-              <DatePicker date={startingDate} setDate={setStartingDate} />
+              {formData?.starting_date ? (
+                <Input
+                  type="text"
+                  id="starting_date"
+                  placeholder="Enter project starting date"
+                  name="starting_date"
+                  value={formData?.starting_date}
+                  onChange={handleInputChange}
+                />
+              ) : (
+                <DatePicker date={startingDate} setDate={setStartingDate} />
+              )}
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
+            <div className="grid w-full items-center gap-2">
               <Label htmlFor="date_completed">Date Completed</Label>
-              <DatePicker date={dateCompleted} setDate={setDateCompleted} />
+              {formData?.date_completed ? (
+                <Input
+                  type="text"
+                  id="date_completed"
+                  placeholder="Enter project completion date"
+                  name="date_completed"
+                  value={formData?.date_completed}
+                  onChange={handleInputChange}
+                />
+              ) : (
+                <DatePicker date={dateCompleted} setDate={setDateCompleted} />
+              )}
             </div>
 
             <div>
               <Label htmlFor="status">Status</Label>
-              <Select name="status" onValueChange={handleStatusSelect}>
+              <Select
+                name="status"
+                onValueChange={handleStatusSelect}
+                value={formData?.status}
+              >
                 <SelectTrigger id="status" className="w-full">
                   <SelectValue placeholder="Select Project Status" />
                 </SelectTrigger>
@@ -428,4 +490,4 @@ const AddProject = () => {
   );
 };
 
-export default AddProject;
+export default EditProject;

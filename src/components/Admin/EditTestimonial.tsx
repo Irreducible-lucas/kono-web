@@ -8,12 +8,12 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/dialog";
-import { image, plus } from "@/src/assets";
+import { image } from "@/src/assets";
 import { Label } from "@/components/label";
 import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import styles from "@/src/styles";
-import { FormEvent, useRef, useState, ChangeEvent } from "react";
+import { FormEvent, useRef, useState, ChangeEvent, useEffect } from "react";
 import { AxiosResponse, AxiosError } from "axios";
 import axios from "../../axios/index";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +21,13 @@ import { toast } from "react-toastify";
 import { TestimonialType } from "../../types";
 import Rating from "../Rating";
 
-const AddTestimonial = () => {
+const EditTestimonial = ({
+  item,
+  setSelectedItem,
+}: {
+  item: TestimonialType;
+  setSelectedItem: any;
+}) => {
   const [open, setIsOpen] = useState(false);
   const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
@@ -29,23 +35,42 @@ const AddTestimonial = () => {
 
   const imageInputRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState<TestimonialType>({
-    name: "",
-    text: "",
-    image: null,
-    rating: "0.0",
+    name: item.name,
+    image: item.image,
+    text: item.text,
+    rating: item.rating,
   });
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (item.image) {
+      setImagePreview(item.image);
+    }
+
+    if (item.rating) {
+      setStars(Number(item.rating));
+    }
+  }, [item]);
+
   const handleFormClose = () => {
     if (saving) {
-      toast.warning("Please wait, testimonial saving to the database.");
+      toast.warning("Please wait, updating testimonial.");
       return;
     }
     setIsOpen(!open);
-    setImagePreview(null);
-    setStars(0);
-    setFormData({ name: "", text: "", image: null, rating: "0.0" });
+    setImagePreview(item.image);
+    setFormData({
+      name: item.name,
+      image: item.image,
+      text: item.text,
+      rating: item.rating,
+    });
+  };
+
+  const handleTextAreaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -56,21 +81,16 @@ const AddTestimonial = () => {
     }));
   };
 
-  const handleTextAreaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    const { name, value } = event.target;
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
-  };
-
   const handleImageInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
-    const file = files?.[0];
+    const file: any = files?.[0];
     const maxSize = 5 * 1024 * 1024;
 
     if (file && file.size > maxSize) {
       toast.warning("File size exceeds 5mb");
       return;
     } else {
-      setImagePreview(file);
+      setImagePreview(URL.createObjectURL(file));
       setFormData((prevState) => ({ ...prevState, image: file || null }));
     }
   };
@@ -113,8 +133,8 @@ const AddTestimonial = () => {
     // Submit Data to the Server
     try {
       setIsSaving(true);
-      const response: AxiosResponse = await axios.post(
-        "/testimonials",
+      const response: AxiosResponse = await axios.put(
+        `/testimonials/${item.id}`,
         submitData,
         {
           headers: {
@@ -124,14 +144,14 @@ const AddTestimonial = () => {
         }
       );
       if (response.data) {
-        toast.success("Testimonial created successfully!!!");
+        toast.success("Testimonial updated successfully!!!");
         setIsSaving(false);
         setIsOpen(false);
-        setStars(0);
+        setSelectedItem(null);
         navigate("/dashboard/testimonial");
       }
     } catch (error) {
-      toast.error("error occurred while creating testimonial");
+      toast.error("error occurred while updating Testimonial");
       setIsSaving(false);
       console.error("Error:", error as AxiosError);
     }
@@ -139,16 +159,15 @@ const AddTestimonial = () => {
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
       <DialogTrigger className="flex items-center bg-[#1B43C6] py-3 px-7 gap-5 rounded-md">
-        <img src={plus} className="w-6 h-6" />
         <p className="text-xs font-semibold font-nunito text-white">
-          Add Testimonial
+          Edit Project
         </p>
       </DialogTrigger>
 
       <DialogContent className="overflow-y-auto w-full h-4/5">
         <DialogHeader>
           <DialogTitle className="text-center font-nunito text-lg font-semibold">
-            Add Testimonial
+            Edit Project
           </DialogTitle>
           <DialogDescription className="text-center">
             All fields are required unless otherwise indicated.
@@ -165,6 +184,7 @@ const AddTestimonial = () => {
                 placeholder="Enter name"
                 name="name"
                 onChange={handleInputChange}
+                value={formData.name}
               />
             </div>
 
@@ -181,7 +201,7 @@ const AddTestimonial = () => {
               {imagePreview ? (
                 <div className="flex items-center gap-4">
                   <img
-                    src={URL.createObjectURL(imagePreview)}
+                    src={imagePreview}
                     className="h-40 w-40 object-cover object-center"
                   />
                   <button
@@ -213,8 +233,9 @@ const AddTestimonial = () => {
               <textarea
                 id="text"
                 name="text"
+                placeholder="enter description"
                 onChange={handleTextAreaChange}
-                placeholder="enter feedback"
+                value={formData.text}
                 required
                 rows={5}
                 cols={50}
@@ -222,8 +243,8 @@ const AddTestimonial = () => {
               ></textarea>
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="name">Rating</Label>
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="document">Rating</Label>
               <Rating stars={stars} setStars={setStars} />
             </div>
           </div>
@@ -252,4 +273,4 @@ const AddTestimonial = () => {
   );
 };
 
-export default AddTestimonial;
+export default EditTestimonial;

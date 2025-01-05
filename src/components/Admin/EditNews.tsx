@@ -8,52 +8,59 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/dialog";
-import { image, plus } from "@/src/assets";
+import { image } from "@/src/assets";
 import { Label } from "@/components/label";
 import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import styles from "@/src/styles";
-import { FormEvent, useRef, useState, ChangeEvent } from "react";
+import { FormEvent, useRef, useState, ChangeEvent, useEffect } from "react";
 import { AxiosResponse, AxiosError } from "axios";
 import axios from "../../axios/index";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { TestimonialType } from "../../types";
-import Rating from "../Rating";
+import { NewsType } from "../../types";
 
-const AddTestimonial = () => {
+const EditNews = ({
+  item,
+  setSelectedItem,
+}: {
+  item: NewsType;
+  setSelectedItem: any;
+}) => {
   const [open, setIsOpen] = useState(false);
   const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
-  const [stars, setStars] = useState<number>(0);
+  const [changeReport, setChangeReport] = useState<Boolean>(false);
 
   const imageInputRef = useRef<HTMLInputElement>(null);
-  const [formData, setFormData] = useState<TestimonialType>({
-    name: "",
-    text: "",
-    image: null,
-    rating: "0.0",
+  const [formData, setFormData] = useState<NewsType>({
+    title: item.title,
+    image: item.image,
+    report: item.report,
+    description: item.description,
   });
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (item.image) {
+      setImagePreview(item.image);
+    }
+  }, [item]);
+
   const handleFormClose = () => {
     if (saving) {
-      toast.warning("Please wait, testimonial saving to the database.");
+      toast.warning("Please wait, updating news.");
       return;
     }
     setIsOpen(!open);
-    setImagePreview(null);
-    setStars(0);
-    setFormData({ name: "", text: "", image: null, rating: "0.0" });
-  };
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setImagePreview(item.image);
+    setFormData({
+      title: item.title,
+      image: item.image,
+      report: item.report,
+      description: item.description,
+    });
   };
 
   const handleTextAreaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -61,16 +68,36 @@ const AddTestimonial = () => {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value, files } = event.target;
+    const file = files?.[0];
+    const maxSize = 20 * 1024 * 1024;
+
+    if (file && file.size > maxSize) {
+      toast.warning("File size exceeds 20mb");
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: name === "report" ? null : value,
+      }));
+      return;
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: name === "report" ? file || null : value,
+      }));
+    }
+  };
+
   const handleImageInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
-    const file = files?.[0];
+    const file: any = files?.[0];
     const maxSize = 5 * 1024 * 1024;
 
     if (file && file.size > maxSize) {
       toast.warning("File size exceeds 5mb");
       return;
     } else {
-      setImagePreview(file);
+      setImagePreview(URL.createObjectURL(file));
       setFormData((prevState) => ({ ...prevState, image: file || null }));
     }
   };
@@ -91,30 +118,29 @@ const AddTestimonial = () => {
     //   return;
     // }
 
-    if (!formData.image) {
+    const submitData = new FormData();
+    if (formData.report) {
+      submitData.append("report", formData.report);
+    } else {
+      toast.warning("Please upload report");
+      return;
+    }
+
+    submitData.append("title", formData.title);
+    submitData.append("description", formData.description);
+
+    if (formData.image) {
+      submitData.append("image", formData.image);
+    } else {
       toast.warning("Please upload image");
       return;
     }
 
-    if (stars === 0) {
-      toast.warning("Please click the stars to rate");
-      return;
-    }
-
-    let rating = "";
-    rating = stars + ".0";
-
-    const submitData = new FormData();
-    submitData.append("name", formData.name);
-    submitData.append("text", formData.text);
-    submitData.append("rating", rating);
-    submitData.append("image", formData.image);
-
     // Submit Data to the Server
     try {
       setIsSaving(true);
-      const response: AxiosResponse = await axios.post(
-        "/testimonials",
+      const response: AxiosResponse = await axios.put(
+        `/news/${item.id}`,
         submitData,
         {
           headers: {
@@ -124,14 +150,14 @@ const AddTestimonial = () => {
         }
       );
       if (response.data) {
-        toast.success("Testimonial created successfully!!!");
+        toast.success("News updated successfully!!!");
         setIsSaving(false);
         setIsOpen(false);
-        setStars(0);
-        navigate("/dashboard/testimonial");
+        setSelectedItem(null);
+        navigate("/dashboard/news");
       }
     } catch (error) {
-      toast.error("error occurred while creating testimonial");
+      toast.error("error occurred while updating news");
       setIsSaving(false);
       console.error("Error:", error as AxiosError);
     }
@@ -139,16 +165,15 @@ const AddTestimonial = () => {
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
       <DialogTrigger className="flex items-center bg-[#1B43C6] py-3 px-7 gap-5 rounded-md">
-        <img src={plus} className="w-6 h-6" />
         <p className="text-xs font-semibold font-nunito text-white">
-          Add Testimonial
+          Edit Project
         </p>
       </DialogTrigger>
 
       <DialogContent className="overflow-y-auto w-full h-4/5">
         <DialogHeader>
           <DialogTitle className="text-center font-nunito text-lg font-semibold">
-            Add Testimonial
+            Edit Project
           </DialogTitle>
           <DialogDescription className="text-center">
             All fields are required unless otherwise indicated.
@@ -158,13 +183,14 @@ const AddTestimonial = () => {
         <form onSubmit={handleSubmit}>
           <div className="grid gap-8 my-2">
             <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="title">Title</Label>
               <Input
                 type="text"
-                id="name"
-                placeholder="Enter name"
-                name="name"
+                id="title"
+                placeholder="Enter title"
+                name="title"
                 onChange={handleInputChange}
+                value={formData.title}
               />
             </div>
 
@@ -181,7 +207,7 @@ const AddTestimonial = () => {
               {imagePreview ? (
                 <div className="flex items-center gap-4">
                   <img
-                    src={URL.createObjectURL(imagePreview)}
+                    src={imagePreview}
                     className="h-40 w-40 object-cover object-center"
                   />
                   <button
@@ -209,22 +235,46 @@ const AddTestimonial = () => {
             </div>
 
             <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="text">Feedback</Label>
+              <Label htmlFor="description">Description</Label>
               <textarea
-                id="text"
-                name="text"
+                id="description"
+                name="description"
+                placeholder="enter description"
                 onChange={handleTextAreaChange}
-                placeholder="enter feedback"
+                value={formData.description}
                 required
-                rows={5}
+                rows={10}
                 cols={50}
                 className={`${styles.paragraph4} p-4  border-[1px] mt-1 rounded-xl  outline-none  `}
               ></textarea>
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="name">Rating</Label>
-              <Rating stars={stars} setStars={setStars} />
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="document">Report</Label>
+              {formData.report && !changeReport ? (
+                <div className="flex items-center gap-8">
+                  <p className="text-xs">document uploaded</p>
+                  <p
+                    onClick={() => setChangeReport(true)}
+                    className="text-blue-600 font-light text-sm bg-gray-200 p-2"
+                  >
+                    Change report
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <Input
+                    id="document"
+                    name="report"
+                    type="file"
+                    accept="application/pdf"
+                    onChange={handleInputChange}
+                  />
+                  <p className={`${styles.paragraph4} text-xs text-[#1B43C6]`}>
+                    Max File Size: 20 MB (pdf)
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -252,4 +302,4 @@ const AddTestimonial = () => {
   );
 };
 
-export default AddTestimonial;
+export default EditNews;

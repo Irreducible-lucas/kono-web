@@ -1,74 +1,81 @@
-import { notif, ProfilePic, search, sort } from "@/src/assets";
+import { fetchTestimonials } from "@/src/api";
+import { search } from "@/src/assets";
 import {
-  AddTestimonials,
-  SelectGallery,
+  NavHeader,
+  AddNews,
   TestimonialCard,
+  TestimonialPreview,
+  AddTestimonials,
 } from "@/src/components/Admin";
-
 import styles from "@/src/styles";
+import { TestimonialType } from "@/src/types";
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+
+export async function loader() {
+  const testimonials = await fetchTestimonials();
+  return { testimonials };
+}
 
 const Testimonial = () => {
+  const { testimonials }: any = useLoaderData();
+  console.log("Testimonials:", testimonials);
+  const [searchText, setSearchText] = useState("");
+  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [filteredTestimonials, setFilteredTestimonials] = useState([]);
+
+  useEffect(() => {
+    const filtered = testimonials?.filter((testimonial: TestimonialType) =>
+      testimonial.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredTestimonials(filtered);
+  }, [searchText, testimonials]);
   return (
     <div className="w-full bg-[#FAFAFA] h-full grid grid-rows-[240px_1fr] lg:grid-rows-[180px_1fr]">
-      <div className="p-3 lg:px-8 lg:py-4 bg-white mb-5">
-        <div className=" flex items-center justify-between ">
-          <div>
-            <h1
-              className={`${styles.heading3} leading-normal font-semibold tracking-wide font-nunito`}
-            >
-              Testimonial
-            </h1>
-          </div>
-          <div className="flex items-center gap-2 lg:gap-3">
-            <div className="border-[1px] rounded-full -left-10 flex items-center p-1">
-              <img
-                src={notif}
-                alt="notification icon"
-                className="w-[15px] h-[15px] rounded-full"
-              />
-            </div>
-            <div>
-              <img
-                src={ProfilePic}
-                alt="user profile picture"
-                className="w-[35px] h-[35px] rounded-full"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 mt-10">
-          <div className="flex items-center border-[1px] py-3 px-5 bg-[#D8DDE4] justify-between rounded-xl">
+      <div className="p-3 lg:px-8 lg:py-4 bg-white">
+        <NavHeader title="Testimonials" />
+        <div className="flex gap-8 py-6">
+          <div className="flex items-center border-[1px] py-3 px-5 bg-[#D8DDE4] justify-between rounded-xl w-1/2">
             <input
               type="text"
-              placeholder="Search Testimonial"
+              placeholder="Search testimonials"
+              onChange={(e) => setSearchText(e.target.value)}
               className={`${styles.paragraph4} text-[#849299] bg-transparent outline-0 flex-1`}
             />
             <img src={search} className="w-5 h-5" />
           </div>
-
-          <div className="grid grid-cols-2  gap-3 mt-5 lg:mt-0">
-            <AddTestimonials />
-
-            <button className="flex items-center gap-2 py-3 px-7 border-[1px] rounded-xl border-[#D8DDE4]">
-              <img src={sort} className="w-6 h-6" />
-              <p className="text-sm font-semibold text-[#849299]">
-                Sort By: descending
-              </p>
-            </button>
-          </div>
+          <AddTestimonials />
         </div>
       </div>
 
-      <div className="p-3 lg:px-8 lg:py-4 overflow-y-scroll ">
-        <div className="grid lg:grid-cols-4 gap-3 ">
-          <div className="lg:col-span-3 ">
-            <div className=" grid md:grid-cols-2 p-5 lg:grid-cols-3 gap-5 bg-white ">
-              <TestimonialCard />
-              <TestimonialCard />
-              <TestimonialCard />
-            </div>
+      {/* Projects Section */}
+      <div className="p-3 lg:px-8 lg:py-4 overflow-y-scroll">
+        <div className="grid lg:grid-cols-4 gap-3">
+          <div className="lg:col-span-3">
+            {filteredTestimonials?.length > 0 ? (
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 bg-white p-5">
+                {filteredTestimonials?.map((testimonials: any) => (
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => setSelectedItem(testimonials)}
+                    key={testimonials.id}
+                  >
+                    <TestimonialCard data={testimonials} />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-white h-[300px] w-full grid place-items-center">
+                <p className="text-center text-blue-700">
+                  No Testimonials found
+                </p>
+              </div>
+            )}
           </div>
-          <SelectGallery />
+          <TestimonialPreview
+            testimonial={selectedItem}
+            setSelectedTestimonial={setSelectedItem}
+          />
         </div>
       </div>
     </div>

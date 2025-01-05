@@ -17,15 +17,14 @@ export interface ProgramCardProps {
   id?: number;
   image: string;
   link_url: string;
-  title?: string
+  title?: string;
 }
-export interface Review{
+export interface Review {
   id?: number;
   name: string;
   feedback: string;
   image: string;
   rating: number;
- 
 }
 export interface ServicesCardsProps {
   id?: number;
@@ -37,12 +36,12 @@ export interface FeaturedsDevelopment {
   title: string;
   image: string;
   url: string;
-};
+}
 export interface FeaturedTypes {
   id: number;
   title: string;
   url: string;
-};
+}
 export interface News {
   id?: number;
   title: string;
@@ -51,13 +50,13 @@ export interface News {
   desc: string;
   month: string;
   date: number;
-};
+}
 export interface Testimonial {
   name: string;
   image: string;
   rating: number;
   feedback: string;
-};
+}
 
 export interface CouncilServiceCard {
   image: string;
@@ -76,89 +75,89 @@ export interface SupportedProgram {
   id?: number;
   title: string;
   image: string;
-};
+}
 export interface CouncilPolicy {
   id?: number;
   image: string;
-};
+}
 export interface YouthDevelopment {
   id?: number;
   title: string;
   image: string;
   url: string;
   description: string;
-};
+}
 export interface EducationalPolicy {
   id?: number;
   title: string;
   image: string;
   url: string;
   description: string;
-};
+}
 export interface AgriculturalResource {
   id?: number;
   image: string;
-  url: string
-  title: string,
-  description: string
-};
+  url: string;
+  title: string;
+  description: string;
+}
 export interface RoadConstructions {
-  image: string
-  title: string,
-  description: string
-};
+  image: string;
+  title: string;
+  description: string;
+}
 export interface LawCard {
-  id: number
-  image: string
-  title: string,
-  description: string
-};
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+}
 export interface ByLaw {
-  id: number
-  image: string
-  title: string,
-  description: string
-};
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+}
 
-export interface BudgetProject{
-  id: number,
-  title: string,
-  text: string,
-  link_url: string,
-  status: string,
+export interface BudgetProject {
+  id: number;
+  title: string;
+  text: string;
+  link_url: string;
+  status: string;
 }
-export interface ExpenditureProject{
-  id: number,
-  title: string,
-  text: string,
-  link_url: string,
-  status: string,
+export interface ExpenditureProject {
+  id: number;
+  title: string;
+  text: string;
+  link_url: string;
+  status: string;
 }
-export interface ProjectFunding{
-  id: number,
-  title: string,
-  text: string,
-  link_url: string,
-  status: string,
+export interface ProjectFunding {
+  id: number;
+  title: string;
+  text: string;
+  link_url: string;
+  status: string;
 }
-export interface AnnualBudget{
-  id: number,
-  title: string,
-  text: string,
-  link_url: string,
+export interface AnnualBudget {
+  id: number;
+  title: string;
+  text: string;
+  link_url: string;
 }
-export interface DepartmentalContact{
-  id: number,
-  department: string,
-  phone: string,
-  email: string,
+export interface DepartmentalContact {
+  id: number;
+  department: string;
+  phone: string;
+  email: string;
 }
 export interface ServicesProps {
   id: number;
   img: string;
   title: string;
-  content: string
-  url: string
+  content: string;
+  url: string;
 }
 export type GeneralListModel = {
   id: string;
@@ -182,7 +181,7 @@ export type ChiefdomProps = {
   title: string;
   content: string;
   summary?: string;
-}
+};
 export interface CouncilServiceCard {
   image: string;
   title: string;
@@ -220,4 +219,66 @@ export interface Button3 {
   name: string;
   py: number;
   px: number;
+}
+
+export interface HomeDataType {
+  id?: number;
+  title: string;
+  message: string;
+  image: string | null | File;
+}
+
+export interface ProjectCategoryType {
+  id: number;
+  title: string;
+}
+
+export interface ProjectType {
+  id?: number;
+  title: string;
+  description: string;
+  image: any;
+  report: any;
+  category: string;
+  completion_rate: string;
+  budget: string;
+  starting_date: string;
+  date_completed: string;
+  status: string;
+}
+
+export interface NewsType {
+  id?: number;
+  title: string;
+  image: any;
+  report: any;
+  description: string;
+}
+
+export interface TestimonialType {
+  id?: number;
+  name: string;
+  image: any;
+  rating: string;
+  text: string;
+}
+
+export interface ProjectStatusType {
+  id?: number;
+  title: string;
+}
+
+export interface AboutUsType {
+  id?: number;
+  title: string;
+  description: string;
+  image: any;
+}
+
+export interface OfficialType {
+  id?: number;
+  name: string;
+  description: string;
+  summary: string;
+  image: any;
 }
