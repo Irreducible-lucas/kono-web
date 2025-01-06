@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -58,15 +59,26 @@ import { loader as ProjectsLoader } from "./pages/Admin/Project";
 import { loader as NewsLoader } from "./pages/Admin/News";
 import { loader as TestimonialLoader } from "./pages/Admin/Testimonial";
 import { loader as AboutUsLoader } from "./pages/Admin/AboutUs";
+import { useAuth } from "./hooks/useAuth";
+
+const PrivateRoute = ({ children }: any) => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
 
 function PagesRoutes() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" errorElement={<ErrorPage />}>
+        <Route path="login" element={<Login />} />
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
           <Route index element={<LandingPage />} />
-          <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="aboutus" element={<AboutUsPage />} />
           <Route path="aboutus/history" element={<History />} />
@@ -138,7 +150,14 @@ function PagesRoutes() {
           <Route path="contact" element={<Contact />} />
         </Route>
         {/* Admin Dashboard */}
-        <Route path="dashboard" element={<DashboardRoot />}>
+        <Route
+          path="dashboard"
+          element={
+            <PrivateRoute>
+              <DashboardRoot />
+            </PrivateRoute>
+          }
+        >
           <Route index element={<AdminHome />} loader={HomeLoader} />
           <Route path="home" element={<AdminHome />} loader={HomeLoader} />
           <Route path="project" element={<Project />} loader={ProjectsLoader} />
@@ -156,7 +175,7 @@ function PagesRoutes() {
         <Route path="*" element={<ErrorPage />} />
       </Route>
     ),
-    { basename: "/kono-web" }
+    { basename: "/kono-web/" }
   );
 
   return <RouterProvider router={router} />;

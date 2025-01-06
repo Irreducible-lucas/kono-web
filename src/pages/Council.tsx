@@ -12,6 +12,8 @@ const Council = () => {
     queryFn: () => fetchAboutInfo(),
   });
 
+  console.log(data, "council data");
+
   return (
     <motion.div
       id="home"
@@ -45,15 +47,15 @@ const Council = () => {
             <h1
               className={`${styles.heading1} text-center mb-8 lg:text-[2.3rem]`}
             >
-              {data?.data[1]?.title
-                ? data?.data[1]?.title
+              {data && data.length > 0
+                ? data[1]?.title
                 : "Organizational Excellence"}
 
               {/* Organizational Excellence */}
             </h1>
             <p className={`${styles.paragraph2} text-justify`}>
-              {data?.data[1]?.description
-                ? data?.data[1]?.description
+              {data && data.length > 0
+                ? data[1]?.description
                 : `Success in the development of our district is determined by
               working together to deliver strategic initiatives and build
               organizational excellence. To influence development for Kono

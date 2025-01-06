@@ -22,10 +22,12 @@ const Testimonial = () => {
     },
   };
 
-  const { data }: any = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["Testimonial", ""],
     queryFn: () => fetchTestimonials(),
   });
+
+  // console.log(data.length);
 
   return (
     <div className="py-[2rem] text-center px-10" id="client">
@@ -42,29 +44,36 @@ const Testimonial = () => {
         className="mt-20 px-8 mb-20"
         style={{ paddingBottom: "30px", position: "relative" }}
       >
-        <Carousel
-          responsive={responsive}
-          removeArrowOnDeviceType={["tablet", "mobile"]}
-          renderDotsOutside
-          // showDots
-          swipeable
-          className="custom-carousel"
-          // customLeftArrow={<CustomLeftArrow />}
-          // customRightArrow={<CustomRightArrow />}
-        >
-          {data &&
-            data.map((review, index) => (
-              <TestimonialCard
-                key={index}
-                image={
-                  review.image ? review.image : "https://picsum.photos/200"
-                }
-                name={review.name}
-                rating={review.rating}
-                feedback={review.text}
-              />
-            ))}
-        </Carousel>
+        {isLoading ? (
+          <p className="m-auto mt-4 max-w-lg text-center info-text">
+            Fetching data
+          </p>
+        ) : (
+          <Carousel
+            responsive={responsive}
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            renderDotsOutside
+            // showDots
+            swipeable
+            className="custom-carousel"
+            // customLeftArrow={<CustomLeftArrow />}
+            // customRightArrow={<CustomRightArrow />}
+          >
+            {data &&
+              data.length > 0 &&
+              data.map((review, index) => (
+                <TestimonialCard
+                  key={index}
+                  image={
+                    review.image ? review.image : "https://picsum.photos/200"
+                  }
+                  name={review.name}
+                  rating={review.rating}
+                  feedback={review.text}
+                />
+              ))}
+          </Carousel>
+        )}
       </div>
     </div>
   );

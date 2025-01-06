@@ -110,15 +110,15 @@ const Vision = () => {
                     </span>
                   </div>
                   <h2 className="text-3xl font-bold text-gray-900">
-                    {data?.data[2]?.title
-                      ? data?.data[2]?.title
+                    {data && data.length > 0
+                      ? data[2].title
                       : `To be a progressive, peaceful, united, and cohesive district
                     that promotes economic development through
                     industrialization, agriculturalization, and services.`}
                   </h2>
                   <p className="text-lg text-gray-600">
-                    {data?.data[2]?.description
-                      ? data?.data[2]?.description
+                    {data && data.length > 0
+                      ? data[2].description
                       : ` The Kono District Council envisions a future where the
                     district becomes a model of development, prosperity, and
                     harmony. By focusing on economic growth through
@@ -142,14 +142,14 @@ const Vision = () => {
                     </span>
                   </div>
                   <h2 className="text-3xl font-bold text-gray-900">
-                    {data?.data[3]?.title
-                      ? data?.data[3]?.title
+                    {data && data.length > 0
+                      ? data[3]?.title
                       : `  Working together to foster exceptional living standards and
                     inclusive development.`}
                   </h2>
                   <p className="text-lg text-gray-600">
-                    {data?.data[3]?.description
-                      ? data?.data[3]?.description
+                    {data && data.length > 0
+                      ? data[3]?.description
                       : `We will work collectively as one District bringing together our supportive traditional leaders, our conclave of councilors, our dynamic support staff and every stakeholder to provide exceptional standard of living for our people. We will do this through effective dialogue, collaboration, communication and mutual respect. We will build on the District’s long standing traditions of brotherhood and respect for the rule of law and the protection of the rights and freedom of all, while fostering a culture of hard work, creativity, innovation and development.We are committed to equality of opportunity and to fostering inclusivity, transparency and accountability, ensuring that our people are granted equal opportunity to flourish and prosper without hindrance. We believe that as diverse as our District this strengthens our resolve to forge lasting alliances, strengthen collaboration, mend broken relationships and prosper together.Our District’s distinctive mode of participative service delivery and democratic engagement and honest communication is, born out of the desire to change the narrative of public service delivery in the country; we will continue to pioneer servant leadership, honest, integrity trust and hard work.`}
                   </p>
                 </div>

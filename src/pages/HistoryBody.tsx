@@ -12,7 +12,6 @@ const HistoryBody = () => {
     queryFn: () => fetchAboutInfo(),
   });
 
-  console.log(isPending, error, data?.data[0]);
   return (
     <section className={`${layout.section} `}>
       {/* Main Content */}
@@ -28,11 +27,11 @@ const HistoryBody = () => {
         <div className="flex flex-col items-start">
           <YellowDivider />
           <h1 className={`${styles.heading1} text-center mb-8`}>
-            {data?.data[0]?.title ? data?.data[0]?.title : "Our District"}
+            {data && data.length > 0 ? data[0]?.title : "Our District"}
           </h1>
           <p className={`${styles.paragraph2} text-justify`}>
-            {data?.data[0]?.description
-              ? data?.data[0]?.description
+            {data && data.length > 0
+              ? data[0]?.description
               : `Founded between the Fifteenth and Sixteenth centuries by
             Mali-Guinean descendants, Kono District is one of three districts in
             the Eastern region of Sierra Leone; sitting 360 kilometers away from
