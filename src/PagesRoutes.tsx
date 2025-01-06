@@ -175,7 +175,7 @@ function PagesRoutes() {
         <Route path="*" element={<ErrorPage />} />
       </Route>
     ),
-    { basename: "/kono-web/" }
+    // { basename: "/kono-web/" }
   );
 
   return <RouterProvider router={router} />;
