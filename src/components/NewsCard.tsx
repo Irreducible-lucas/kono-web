@@ -15,7 +15,7 @@ const NewsCard = ({ image, title, url, desc, date, month }: News) => {
         <div className="overflow-hidden relative h-[300px] lg:h-[350px]">
           {" "}
           <img
-            src={image}
+            src={image ? image : "https://picsum.photos/200"}
             className={`object-contain object-center w-full rounded-md mb-3 transition-opacity duration-300 `}
             style={{
               transform: isHovered ? "scale(1.05)" : "scale(1)",

@@ -3,8 +3,17 @@ import { motion } from "framer-motion";
 import { Alice, Structure } from "../assets";
 import styles, { layout } from "../styles";
 import YellowDivider from "./YellowDivider";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAboutInfo } from "../api";
 
 const Council = () => {
+  const { isPending, error, data }: any = useQuery({
+    queryKey: ["about", ""],
+    queryFn: () => fetchAboutInfo(),
+  });
+
+  console.log(data, "council data");
+
   return (
     <motion.div
       id="home"
@@ -38,10 +47,16 @@ const Council = () => {
             <h1
               className={`${styles.heading1} text-center mb-8 lg:text-[2.3rem]`}
             >
-              Organizational Excellence
+              {data && data.length > 0
+                ? data[1]?.title
+                : "Organizational Excellence"}
+
+              {/* Organizational Excellence */}
             </h1>
             <p className={`${styles.paragraph2} text-justify`}>
-              Success in the development of our district is determined by
+              {data && data.length > 0
+                ? data[1]?.description
+                : `Success in the development of our district is determined by
               working together to deliver strategic initiatives and build
               organizational excellence. To influence development for Kono
               District, we require a diverse skillset and an empowered team
@@ -49,7 +64,7 @@ const Council = () => {
               excellence is achieved by leading with humility, integrity and
               professionalism, maintaining a district-wide focus, being
               strategic and effective, and using well-developed evidence to
-              advocate for our district.
+              advocate for our district.`}
             </p>
           </div>
         </div>

@@ -21,7 +21,7 @@ const FeaturedDevelopmentCard = ({
         >
           <div className="overflow-hidden relative">
             <img
-              src={image}
+              src={image ? image : "https://picsum.photos/200"}
               className={`object-contain object-center w-full rounded-md mb-3 transition-opacity duration-300`}
               style={{
                 transform: isHovered ? "scale(1.05)" : "scale(1)",

@@ -3,8 +3,15 @@ import { chiefdomsList } from "../constants";
 import YellowDivider from "./YellowDivider";
 import styles, { layout } from "../styles";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAboutInfo } from "../api";
 
 const HistoryBody = () => {
+  const { isPending, error, data }: any = useQuery({
+    queryKey: ["about", ""],
+    queryFn: () => fetchAboutInfo(),
+  });
+
   return (
     <section className={`${layout.section} `}>
       {/* Main Content */}
@@ -20,10 +27,12 @@ const HistoryBody = () => {
         <div className="flex flex-col items-start">
           <YellowDivider />
           <h1 className={`${styles.heading1} text-center mb-8`}>
-            Our District
+            {data && data.length > 0 ? data[0]?.title : "Our District"}
           </h1>
           <p className={`${styles.paragraph2} text-justify`}>
-            Founded between the Fifteenth and Sixteenth centuries by
+            {data && data.length > 0
+              ? data[0]?.description
+              : `Founded between the Fifteenth and Sixteenth centuries by
             Mali-Guinean descendants, Kono District is one of three districts in
             the Eastern region of Sierra Leone; sitting 360 kilometers away from
             the nation’s Capital, Freetown. Our District is renowned for its
@@ -32,7 +41,7 @@ const HistoryBody = () => {
             coffee, rice, etc. However, our District became a self-administered
             territory in 1927, when the colonial administrative headquarter was
             moved to Sefadu. Before that, the district was administered from
-            Panguma.
+            Panguma.`}
           </p>
         </div>
       </div>
