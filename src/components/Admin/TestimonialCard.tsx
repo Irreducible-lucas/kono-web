@@ -5,7 +5,7 @@ const TestimonialCard = ({ data }: any) => {
   return (
     <div className="p-5 grid gap-4 bg-[#F4F7FC]">
       <img
-        src={testimonial}
+        src={data?.image}
         className="w-24 h-24 rounded-full border-2 border-[#1B43C6]"
       />
       <div>

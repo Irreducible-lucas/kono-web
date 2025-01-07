@@ -1,5 +1,5 @@
 import { notif, ProfilePic, search, sort } from "@/src/assets";
-import AddReport from "@/src/components/Admin/AddReport";
+import AddReport from "@/src/components/Admin/AddPolicy";
 import ReportTab from "@/src/components/Admin/ReportTab";
 import styles from "@/src/styles";
 

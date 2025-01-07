@@ -20,13 +20,15 @@ export async function loader() {
 
 const AdminHome = () => {
   const { heroData, chairmanMessage }: any = useLoaderData();
-
+  console.log("Hero Data:", heroData);
   const [heroFormData, setHeroFormData] = useState<HomeDataType>(heroData);
-  const [heroImage, setHeroImage] = useState<string | null>(null);
+  const [heroImage, setHeroImage] = useState<string | null>(heroData?.image);
 
   const [chairmanFormData, setChairmanFormData] =
     useState<HomeDataType>(chairmanMessage);
-  const [chairmanImage, setChairmanImage] = useState<string | null>(null);
+  const [chairmanImage, setChairmanImage] = useState<string | null>(
+    chairmanMessage?.image
+  );
 
   return (
     <div className="w-full bg-[#FAFAFA] h-full grid grid-rows-[70px_1fr]">

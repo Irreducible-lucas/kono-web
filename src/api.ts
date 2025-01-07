@@ -54,3 +54,13 @@ export async function deleteOfficial(id: number) {
   const { data } = await axios.delete(`/official/${id}`);
   return data;
 }
+
+export async function fetchPolicies() {
+  const { data } = await axios.get("/policy");
+  return data;
+}
+
+export async function deletePolicy(id: number) {
+  const { data } = await axios.delete(`/policy/${id}`);
+  return data;
+}

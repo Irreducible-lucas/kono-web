@@ -51,18 +51,18 @@ export const links = [
     icon: faUsers,
     url: "/dashboard/about-us",
   },
-  {
-    id: 7,
-    text: "Council Services",
-    icon: faCog,
-    url: "/dashboard/council-services",
-  },
-  {
-    id: 8,
-    text: "Report",
-    icon: faFileAlt,
-    url: "/dashboard/report",
-  },
+  // {
+  //   id: 7,
+  //   text: "Council Services",
+  //   icon: faCog,
+  //   url: "/dashboard/council-services",
+  // },
+  // {
+  //   id: 8,
+  //   text: "Report",
+  //   icon: faFileAlt,
+  //   url: "/dashboard/report",
+  // },
   {
     id: 10,
     text: "Policies",

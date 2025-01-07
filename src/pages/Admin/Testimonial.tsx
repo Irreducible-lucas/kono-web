@@ -2,7 +2,6 @@ import { fetchTestimonials } from "@/src/api";
 import { search } from "@/src/assets";
 import {
   NavHeader,
-  AddNews,
   TestimonialCard,
   TestimonialPreview,
   AddTestimonials,
@@ -19,7 +18,6 @@ export async function loader() {
 
 const Testimonial = () => {
   const { testimonials }: any = useLoaderData();
-  console.log("Testimonials:", testimonials);
   const [searchText, setSearchText] = useState("");
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [filteredTestimonials, setFilteredTestimonials] = useState([]);

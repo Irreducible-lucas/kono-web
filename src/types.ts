@@ -282,3 +282,12 @@ export interface OfficialType {
   summary: string;
   image: any;
 }
+
+export interface PolicyType {
+  id?: number;
+  title: string;
+  description: string;
+  image: any;
+  document: any;
+  document_type: string;
+}

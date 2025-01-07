@@ -204,7 +204,7 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
   const handleMissionFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("Form Data:", missionFormData);
+    // console.log("Form Data:", missionFormData);
 
     const submitData = new FormData();
     submitData.append("title", missionFormData.title);
@@ -245,9 +245,9 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
           <Tab className="custom-tab" selectedClassName="active">
             Vision and Mission
           </Tab>
-          <Tab className="custom-tab" selectedClassName="active">
+          {/* <Tab className="custom-tab" selectedClassName="active">
             Officials and Chiefdoms
-          </Tab>
+          </Tab> */}
         </TabList>
         <TabPanel className="mt-10" id="custom-tab-panel">
           <form onSubmit={handleHistoryFormSubmit}>
@@ -504,8 +504,8 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
             </form>
           </div>
         </TabPanel>
-        <TabPanel>
-          {/* <form onSubmit={handleSubmit}>
+        {/* <TabPanel>
+          <form onSubmit={handleSubmit}>
             <label htmlFor="principle">Principles</label>
             <textarea
               id="principle"
@@ -515,8 +515,8 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
               onChange={handleInputChange}
             ></textarea>
             <Button name="Save Changes" py={2} px={3} />
-          </form> */}
-        </TabPanel>
+          </form> 
+        </TabPanel> */}
       </Tabs>
     </div>
   );

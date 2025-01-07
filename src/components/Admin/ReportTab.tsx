@@ -133,7 +133,6 @@ const ReportTab = () => {
             <SelectGallery />
           </div>
         </TabPanel>
-          
       </Tabs>
     </div>
   );

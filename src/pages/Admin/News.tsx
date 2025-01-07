@@ -14,7 +14,7 @@ export async function loader() {
 
 const News = () => {
   const { news }: any = useLoaderData();
-  console.log("News:", news);
+  // console.log("News:", news);
   const [searchText, setSearchText] = useState("");
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [filteredNews, setFilteredNews] = useState([]);
