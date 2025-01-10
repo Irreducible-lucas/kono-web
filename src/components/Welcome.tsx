@@ -50,13 +50,13 @@ const Welcome = () => {
       <img
         src={data?.image}
         alt="chairman"
-        className="mt-1 w-full h-[500px] object-cover object-top rounded-lg transition-transform duration-300 hover:scale-105"
+        className="mt-1 w-full h-[250px] lg:h-[500px] object-cover object-top rounded-lg transition-transform duration-300 hover:scale-105"
       />
       <div className="flex flex-col items-start">
         <YellowDivider />
         {/* Title Animation */}
         <motion.h1
-          className={`${styles.heading1} lg:text-[2rem] text-center mb-8`}
+          className={`${styles.heading1} lg:text-[2rem] text-center mb-4`}
           variants={titleAnimation}
           initial="hidden"
           animate="visible"

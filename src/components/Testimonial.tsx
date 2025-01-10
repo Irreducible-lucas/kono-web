@@ -1,6 +1,5 @@
 import Carousel, { ResponsiveType } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { reviews } from "../constants";
 import TestimonialCard from "./TestimonialCard";
 import styles from "../styles";
 import { useQuery } from "@tanstack/react-query";
@@ -10,11 +9,11 @@ const Testimonial = () => {
   const responsive: ResponsiveType = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 2,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
+      items: 1,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -53,6 +52,8 @@ const Testimonial = () => {
             responsive={responsive}
             removeArrowOnDeviceType={["tablet", "mobile"]}
             renderDotsOutside
+            autoPlay={true}
+            infinite
             // showDots
             swipeable
             className="custom-carousel"
@@ -61,7 +62,7 @@ const Testimonial = () => {
           >
             {data &&
               data.length > 0 &&
-              data.map((review, index) => (
+              data.map((review: any, index: any) => (
                 <TestimonialCard
                   key={index}
                   image={

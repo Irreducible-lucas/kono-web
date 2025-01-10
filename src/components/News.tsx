@@ -3,11 +3,11 @@ import { fetchNews } from "../api";
 
 import styles, { layout } from "../styles";
 import NewsCard from "./NewsCard";
-import { News as NewsType } from "../types";
+import { NewsType} from "../types";
 import moment from "moment";
 const News = () => {
   const { data }: any = useQuery({
-    queryKey: ["news", ""],
+    queryKey: ["news"],
     queryFn: () => fetchNews(),
   });
 
@@ -27,8 +27,7 @@ const News = () => {
                 month={moment(news.createdAt).format("MMMM")}
                 date={moment(news.createdAt).format("DD")}
                 image={news.image}
-                url={news.url}
-                desc={news.desc}
+                desc={news.description}
               />
             ))}
       </div>

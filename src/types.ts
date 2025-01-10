@@ -46,7 +46,6 @@ export interface News {
   id?: number;
   title: string;
   image: string;
-  url: string;
   desc: string;
   month: string;
   date: any;
@@ -254,6 +253,7 @@ export interface NewsType {
   image: any;
   report: any;
   description: string;
+  createdAt: any;
 }
 
 export interface TestimonialType {

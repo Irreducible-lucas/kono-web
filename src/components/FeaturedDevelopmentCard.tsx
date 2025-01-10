@@ -30,7 +30,7 @@ const FeaturedDevelopmentCard = ({ data }: { data: ProjectType }) => {
             </div>
             {/* Airplane Icon Container */}
             <div
-              className="absolute left-2 bottom-[-25px] z-10 flex items-center justify-center w-16 h-16 bg-black "
+              className="absolute left-2 -bottom-[25px] z-10 flex items-center justify-center w-16 h-16 bg-black "
               style={{ transform: "translateX(50%)" }}
             >
               <FaPlane
@@ -41,16 +41,20 @@ const FeaturedDevelopmentCard = ({ data }: { data: ProjectType }) => {
             </div>
           </div>
 
-          <div className="px-4 py-10 h-[300px]">
+          <div className="px-4 pt-12 pb-4 h-[400px] lg:h-[350px]">
+            <div className="max-h-[70px]">
             <h2
               className={`${styles.paragraph} text-center lg:text-left text-black font-bold uppercase`}
             >
-              {data?.title}
+              {data?.title.substring(0, 55)} {data?.title.length > 55 ? "..." : ""}
             </h2>
-            <p className="mt-4">
-              {data?.description.substring(0, 200)}
-              {data?.description.length > 200 ? "..." : ""}
+            </div>
+            <div className="mt-4 h-[200px]">
+            <p className="text-center lg:text-left">
+              {data?.description.substring(0, 320)}
+              {data?.description.length > 320 ? "..." : ""}
             </p>
+            </div>
           </div>
         </div>
       </div>
