@@ -1,21 +1,28 @@
 import { image } from "@/src/assets";
-import { useNavigate } from "react-router-dom";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { AxiosError, AxiosResponse } from "axios";
 import axios from "@/src/axios";
 import { HomeDataType } from "@/src/types";
 import styles from "../../styles";
+import { useQuery } from "@tanstack/react-query";
+import { fetchHomeData, updateHome } from "@/src/api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const ChairmanMessageEditForm = ({
-  formData,
-  Image,
-  setFormData,
-  setImage,
-}: any) => {
+const ChairmanMessageEditForm = () => {
+  const queryClient = useQueryClient();
   const [isSaving, setIsSaving] = useState(false);
+  const { data } = useQuery({
+    queryKey: ["home"],
+    queryFn: fetchHomeData,
+  });
 
-  const navigate = useNavigate();
+  const [formData, setFormData] = useState<HomeDataType>({
+    title: data?.[1].title,
+    message: data?.[1].message,
+    image: data?.[1].image,
+  });
+  const [Image, setImage] = useState<string | null>(data?.[1].image);
 
   const handleInputChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -45,9 +52,23 @@ const ChairmanMessageEditForm = ({
     ImageInputRef.current?.click();
   };
 
+  const mutation = useMutation(
+    (upadatedData) => updateHome(data?.[1].id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("Data updated successfully!!!");
+        setIsSaving(false);
+        queryClient.invalidateQueries(["home"]);
+      },
+      onError: () => {
+        toast.error("Error occurred while updating data");
+        setIsSaving(false);
+      },
+    }
+  );
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Form Data:", formData);
 
     const submitData = new FormData();
     submitData.append("title", formData.title);
@@ -56,27 +77,8 @@ const ChairmanMessageEditForm = ({
       submitData.append("image", formData.image);
     }
 
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(
-        `/home/${formData.id}`,
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      if (response.data) {
-        toast.success("Data updated successfully!!!");
-        setIsSaving(false);
-        navigate("/dashboard/home");
-      }
-    } catch (error) {
-      toast.error("Error occurred while updating partner");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    setIsSaving(true);
+    mutation.mutate(submitData);
   };
   return (
     <form onSubmit={handleSubmit} className="flex flex-1 flex-col">

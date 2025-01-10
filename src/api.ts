@@ -1,5 +1,11 @@
 import axios from "./axios/index";
 
+export async function fetchHomeData() {
+  const { data } = await axios.get("/home");
+  console.log("Home Data:", data);
+  return data;
+}
+
 export async function fetchHeroData() {
   const { data } = await axios.get("/home/1");
   return data;
@@ -62,5 +68,87 @@ export async function fetchPolicies() {
 
 export async function deletePolicy(id: number) {
   const { data } = await axios.delete(`/policy/${id}`);
+  return data;
+}
+
+// update codes
+export async function updatePolicy(id: any, updatedData: any) {
+  const { data } = await axios.put(`/policy/${id}`, updatedData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return data;
+}
+
+export async function updateHome(id: any, submitData: any) {
+  const { data } = await axios.put(`/home/${id}`, submitData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return data;
+}
+
+export async function updateAbout(id: any, submitData: any) {
+  const { data } = await axios.put(`/about/${id}`, submitData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return data;
+}
+
+export async function updateProject(id: any, submitData: any) {
+  const { data } = await axios.put(`/projects/${id}`, submitData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return data;
+}
+
+export async function updateNews(id: any, submitData: any) {
+  const { data } = await axios.put(`/news/${id}`, submitData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return data;
+}
+
+export async function updateTestimonial(id: any, submitData: any) {
+  const { data } = await axios.put(`/testimonials/${id}`, submitData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return data;
+}
+
+export async function createProject(submitData: any) {
+  const { data } = await axios.post("/projects", submitData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return data;
+}
+
+export async function createNews(submitData: any) {
+  const { data } = await axios.post("/news", submitData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return data;
+}
+
+export async function createTestimonial(submitData: any) {
+  const { data } = await axios.post("/testimonials", submitData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   return data;
 }

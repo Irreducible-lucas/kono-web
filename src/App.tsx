@@ -1,4 +1,5 @@
 import PageRoutes from "./PagesRoutes";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
@@ -49,6 +50,7 @@ const App = () => {
         <ToastContainer />
         <PageRoutes />
       </AuthContext.Provider>
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   );
 };

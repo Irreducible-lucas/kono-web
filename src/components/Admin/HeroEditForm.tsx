@@ -6,16 +6,23 @@ import { AxiosError, AxiosResponse } from "axios";
 import axios from "@/src/axios";
 import { HomeDataType } from "@/src/types";
 import styles from "../../styles";
+import { useQuery } from "@tanstack/react-query";
+import { fetchHomeData, updateHome } from "@/src/api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const HeroEditForm = ({
-  heroFormData,
-  heroImage,
-  setHeroFormData,
-  setHeroImage,
-}: any) => {
+const HeroEditForm = () => {
+  const queryClient = useQueryClient();
   const [isSaving, setIsSaving] = useState(false);
-
-  const navigate = useNavigate();
+  const { data } = useQuery({
+    queryKey: ["home"],
+    queryFn: fetchHomeData,
+  });
+  const [heroFormData, setHeroFormData] = useState<HomeDataType>({
+    title: data?.[0].title,
+    message: data?.[0].message,
+    image: data?.[0].image,
+  });
+  const [heroImage, setHeroImage] = useState<string | null>(data?.[0].image);
 
   const handleHeroInputChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -45,9 +52,23 @@ const HeroEditForm = ({
     heroImageInputRef.current?.click();
   };
 
+  const mutation = useMutation(
+    (upadatedData) => updateHome(data?.[0].id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("Hero data updated successfully!!!");
+        setIsSaving(false);
+        queryClient.invalidateQueries(["home"]);
+      },
+      onError: () => {
+        toast.error("Error occurred while updating hero data");
+        setIsSaving(false);
+      },
+    }
+  );
+
   const handleHeroDataSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Form Data:", heroFormData);
 
     const submitData = new FormData();
     submitData.append("title", heroFormData.title);
@@ -55,28 +76,8 @@ const HeroEditForm = ({
     if (heroFormData.image instanceof File) {
       submitData.append("image", heroFormData.image);
     }
-
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(
-        `/home/${heroFormData.id}`,
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      if (response.data) {
-        toast.success("Hero data updated successfully!!!");
-        setIsSaving(false);
-        navigate("/dashboard/home");
-      }
-    } catch (error) {
-      toast.error("Error occurred while updating partner");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    setIsSaving(true);
+    mutation.mutate(submitData);
   };
   return (
     <form onSubmit={handleHeroDataSubmit} className="flex flex-1 flex-col">

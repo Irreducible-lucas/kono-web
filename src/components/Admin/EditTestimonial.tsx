@@ -14,12 +14,11 @@ import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import styles from "@/src/styles";
 import { FormEvent, useRef, useState, ChangeEvent, useEffect } from "react";
-import { AxiosResponse, AxiosError } from "axios";
-import axios from "../../axios/index";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { TestimonialType } from "../../types";
 import Rating from "../Rating";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { updateTestimonial } from "@/src/api";
 
 const EditTestimonial = ({
   item,
@@ -28,8 +27,8 @@ const EditTestimonial = ({
   item: TestimonialType;
   setSelectedItem: any;
 }) => {
+  const queryClient = useQueryClient();
   const [open, setIsOpen] = useState(false);
-  const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
   const [stars, setStars] = useState<number>(0);
 
@@ -41,7 +40,20 @@ const EditTestimonial = ({
     rating: item.rating,
   });
 
-  const navigate = useNavigate();
+  const mutation = useMutation(
+    (upadatedData) => updateTestimonial(item.id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("Testimonial updated successfully!!!");
+        setIsOpen(false);
+        setSelectedItem(null);
+        queryClient.invalidateQueries(["testimonials"]);
+      },
+      onError: () => {
+        toast.error("error occurred while updating testimonial");
+      },
+    }
+  );
 
   useEffect(() => {
     if (item.image) {
@@ -54,7 +66,7 @@ const EditTestimonial = ({
   }, [item]);
 
   const handleFormClose = () => {
-    if (saving) {
+    if (mutation.isLoading) {
       toast.warning("Please wait, updating testimonial.");
       return;
     }
@@ -131,43 +143,20 @@ const EditTestimonial = ({
     submitData.append("image", formData.image);
 
     // Submit Data to the Server
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(
-        `/testimonials/${item.id}`,
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${idToken}`,
-          },
-        }
-      );
-      if (response.data) {
-        toast.success("Testimonial updated successfully!!!");
-        setIsSaving(false);
-        setIsOpen(false);
-        setSelectedItem(null);
-        navigate("/dashboard/testimonial");
-      }
-    } catch (error) {
-      toast.error("error occurred while updating Testimonial");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    mutation.mutate(submitData);
   };
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
       <DialogTrigger className="flex items-center bg-[#1B43C6] py-3 px-7 gap-5 rounded-md">
         <p className="text-xs font-semibold font-nunito text-white">
-          Edit Project
+          Edit Testimonial
         </p>
       </DialogTrigger>
 
       <DialogContent className="overflow-y-auto w-full h-4/5">
         <DialogHeader>
           <DialogTitle className="text-center font-nunito text-lg font-semibold">
-            Edit Project
+            Edit Testimonial
           </DialogTitle>
           <DialogDescription className="text-center">
             All fields are required unless otherwise indicated.
@@ -261,10 +250,10 @@ const EditTestimonial = ({
             </DialogClose>
             <Button
               type="submit"
-              disabled={saving}
+              disabled={mutation.isLoading}
               className="bg-blue-800 hover:bg-blue-600 text-white w-full mb-2 "
             >
-              {saving ? "Saving please wait..." : "Save"}
+              {mutation.isLoading ? "Saving please wait..." : "Save"}
             </Button>
           </DialogFooter>
         </form>

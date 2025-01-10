@@ -9,10 +9,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/dropdown-menu";
-// import { useAuth } from "@/src/hooks/useAuth";
+import { useAuth } from "@/src/hooks/useAuth";
 
 const NavHeader = ({ title }: any) => {
-  //   const { user, logout } = useAuth();
+  const { user, logout }: any = useAuth();
   return (
     <div className="flex items-center justify-between ">
       <div>
@@ -30,10 +30,10 @@ const NavHeader = ({ title }: any) => {
             className="w-[35px] h-[35px] rounded-full"
           />
         </div>
-        {/* <DropdownMenu>
+        <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <div className="bg-blue-100 flex items-center gap-4 py-2 px-4 rounded-lg text-blue-700 cursor-pointer">
-              <p className="font-bold">{user.email}</p>
+              <p className="font-bold text-sm">{user?.email}</p>
               <ChevronDown className="h-4 w-4" />
             </div>
           </DropdownMenuTrigger>
@@ -49,7 +49,7 @@ const NavHeader = ({ title }: any) => {
               </div>
             </DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu> */}
+        </DropdownMenu>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ export { default as Agricultiure } from "./agriculture.jpg";
 export { default as AgricultiureDevelopment } from "./Agriculture-Development.jpg";
 export { default as Bridge } from "./bridge.jpg";
 export { default as EducationBuilding } from "./Education-buildings.jpg";
-export { default as Education } from "./eductation.jpg"
+export { default as Education } from "./eductation.jpg";
 export { default as EnvironmentalService } from "./environmentalservices.jpg";
 export { default as EnvironmentalService2 } from "./environmental services2.jpg";
 export { default as Infrastructure2 } from "./infrastructure.jpg";
@@ -22,13 +22,13 @@ export { default as Classroom } from "./eductation.jpg";
 export { default as Agriculture2 } from "./agriculture2.jpg";
 export { default as AgedWoman } from "./agedwoman.jpg";
 export { default as Dietary } from "./dietary.jpg";
-export { default as DisabledChiild} from "./disable child.jpg";
+export { default as DisabledChiild } from "./disable child.jpg";
 export { default as Drug } from "./drug.jpg";
 export { default as Orphans } from "./orphans.jpg";
 export { default as Psycho } from "./psycho.jpg";
 export { default as PWD } from "./pwd.jpg";
 export { default as Sensitization } from "./sensitization.jpg";
-export { default as Welfares} from "./Socialwelfare.jpg";
+export { default as Welfares } from "./Socialwelfare.jpg";
 export { default as DayReport } from "./day-report (1).jpg";
 export { default as ChildrenDatabase } from "./children-database.jpg";
 export { default as Legal } from "./legal.jpg";
@@ -48,10 +48,6 @@ export { default as Report } from "./Project-report-1024x534.jpg";
 export { default as Structure } from "./structure.jpg";
 export { default as Upcoming } from "./upcoming.jpg";
 export { default as VisionMission } from "./vision.png";
-
-
-
-
 
 export { default as HeroImage } from "./hero-image.png";
 export { default as hero2 } from "./hero2.png";
@@ -227,3 +223,4 @@ export { default as konoMap } from "./kono map.png";
 export { default as OrganisationStructure } from "../assets/organization structure.jpg";
 export { default as irishaid } from "./irish-aid-logo.png";
 export { default as sendserial } from "./tity.jpeg";
+export { default as Spinner } from "./spinnner.gif";

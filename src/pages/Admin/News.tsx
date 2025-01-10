@@ -1,30 +1,44 @@
 import { fetchNews } from "@/src/api";
-import { search } from "@/src/assets";
+import { search, Spinner } from "@/src/assets";
 import { NavHeader, NewsCard, AddNews } from "@/src/components/Admin";
 import NewsPreview from "@/src/components/Admin/NewsPreview";
 import styles from "@/src/styles";
 import { NewsType } from "@/src/types";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-
-export async function loader() {
-  const news = await fetchNews();
-  return { news };
-}
+import { useQuery } from "@tanstack/react-query";
 
 const News = () => {
-  const { news }: any = useLoaderData();
-  // console.log("News:", news);
+  const {
+    data: news,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["news"],
+    queryFn: fetchNews,
+  });
   const [searchText, setSearchText] = useState("");
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [filteredNews, setFilteredNews] = useState([]);
 
   useEffect(() => {
-    const filtered = news.filter((news: NewsType) =>
-      news.title.toLowerCase().includes(searchText.toLowerCase())
+    const filtered = news?.filter((news: NewsType) =>
+      news?.title.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredNews(filtered);
   }, [searchText, news]);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col justify-center items-center h-full bg-white">
+        <img src={Spinner} className="h-8 w-8" alt="" />
+        <p>Loading data...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return <div>Sorry, error occured while fetching data</div>;
+  }
   return (
     <div className="w-full bg-[#FAFAFA] h-full grid grid-rows-[240px_1fr] lg:grid-rows-[180px_1fr]">
       <div className="p-3 lg:px-8 lg:py-4 bg-white">
@@ -48,7 +62,7 @@ const News = () => {
         <div className="grid lg:grid-cols-4 gap-3">
           <div className="lg:col-span-3">
             {filteredNews?.length > 0 ? (
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 bg-white p-5">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 bg-white p-5">
                 {filteredNews?.map((news: any) => (
                   <div
                     className="cursor-pointer"

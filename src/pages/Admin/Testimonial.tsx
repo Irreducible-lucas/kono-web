@@ -1,5 +1,5 @@
 import { fetchTestimonials } from "@/src/api";
-import { search } from "@/src/assets";
+import { search, Spinner } from "@/src/assets";
 import {
   NavHeader,
   TestimonialCard,
@@ -9,15 +9,17 @@ import {
 import styles from "@/src/styles";
 import { TestimonialType } from "@/src/types";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-
-export async function loader() {
-  const testimonials = await fetchTestimonials();
-  return { testimonials };
-}
+import { useQuery } from "@tanstack/react-query";
 
 const Testimonial = () => {
-  const { testimonials }: any = useLoaderData();
+  const {
+    data: testimonials,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["testimonials"],
+    queryFn: fetchTestimonials,
+  });
   const [searchText, setSearchText] = useState("");
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [filteredTestimonials, setFilteredTestimonials] = useState([]);
@@ -28,6 +30,19 @@ const Testimonial = () => {
     );
     setFilteredTestimonials(filtered);
   }, [searchText, testimonials]);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col justify-center items-center h-full bg-white">
+        <img src={Spinner} className="h-8 w-8" alt="" />
+        <p>Loading data...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return <div>Sorry, error occured while fetching data</div>;
+  }
   return (
     <div className="w-full bg-[#FAFAFA] h-full grid grid-rows-[240px_1fr] lg:grid-rows-[180px_1fr]">
       <div className="p-3 lg:px-8 lg:py-4 bg-white">

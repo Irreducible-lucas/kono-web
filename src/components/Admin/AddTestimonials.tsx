@@ -14,16 +14,15 @@ import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import styles from "@/src/styles";
 import { FormEvent, useRef, useState, ChangeEvent } from "react";
-import { AxiosResponse, AxiosError } from "axios";
-import axios from "../../axios/index";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { TestimonialType } from "../../types";
 import Rating from "../Rating";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createTestimonial } from "@/src/api";
 
 const AddTestimonial = () => {
+  const queryClient = useQueryClient();
   const [open, setIsOpen] = useState(false);
-  const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
   const [stars, setStars] = useState<number>(0);
 
@@ -35,10 +34,20 @@ const AddTestimonial = () => {
     rating: "0.0",
   });
 
-  const navigate = useNavigate();
+  const mutation = useMutation({
+    mutationFn: createTestimonial,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["testimonials"] });
+      toast.success("Testimonial created successfully!!!");
+      setIsOpen(false);
+    },
+    onError: () => {
+      toast.error("error occurred while creating testimonial");
+    },
+  });
 
   const handleFormClose = () => {
-    if (saving) {
+    if (mutation.isLoading) {
       toast.warning("Please wait, testimonial saving to the database.");
       return;
     }
@@ -111,30 +120,7 @@ const AddTestimonial = () => {
     submitData.append("image", formData.image);
 
     // Submit Data to the Server
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.post(
-        "/testimonials",
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${idToken}`,
-          },
-        }
-      );
-      if (response.data) {
-        toast.success("Testimonial created successfully!!!");
-        setIsSaving(false);
-        setIsOpen(false);
-        setStars(0);
-        navigate("/dashboard/testimonial");
-      }
-    } catch (error) {
-      toast.error("error occurred while creating testimonial");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    mutation.mutate(submitData);
   };
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
@@ -240,10 +226,10 @@ const AddTestimonial = () => {
             </DialogClose>
             <Button
               type="submit"
-              disabled={saving}
+              disabled={mutation.isLoading}
               className="bg-blue-800 hover:bg-blue-600 text-white w-full mb-2 "
             >
-              {saving ? "Saving please wait..." : "Save"}
+              {mutation.isLoading ? "Saving please wait..." : "Save"}
             </Button>
           </DialogFooter>
         </form>

@@ -1,11 +1,10 @@
 import { CorporateImage, gallery } from "@/src/assets";
 import styles from "@/src/styles";
-import { NewsType, ProjectType } from "@/src/types";
-import EditProject from "./EditProject";
+import { NewsType } from "@/src/types";
 import React from "react";
-import DeleteItemButton from "./DeleteItemButton";
-import { deleteNews, deleteProject } from "@/src/api";
+import { deleteNews } from "@/src/api";
 import EditNews from "./EditNews";
+import DeleteItemButton2 from "./DeleteItemButton2";
 
 const NewsPreview = ({
   news,
@@ -61,7 +60,8 @@ const NewsPreview = ({
             {/* <button className="px-4 py-2 text-sm border border-blue-700 rounded-lg text-blue-700">
               Delete
             </button> */}
-            <DeleteItemButton
+            <DeleteItemButton2
+              queryKey="news"
               itemId={news.id}
               handleSelectedItem={setSelectedNews}
               itemType="News"

@@ -1,9 +1,9 @@
 import { CorporateImage, gallery } from "@/src/assets";
 import styles from "@/src/styles";
 import React from "react";
-import DeleteItemButton from "./DeleteItemButton";
 import { deletePolicy } from "@/src/api";
 import EditPolicy from "./EditPolicy";
+import DeleteItemButton2 from "./DeleteItemButton2";
 
 interface PolicyPropsType {
   id?: number;
@@ -78,12 +78,13 @@ const PolicyPreview = ({
             {/* <button className="px-4 py-2 text-sm border border-blue-700 rounded-lg text-blue-700">
               Delete
             </button> */}
-            <DeleteItemButton
+            <DeleteItemButton2
               itemId={policy.id}
               handleSelectedItem={setSelectedPolicy}
               itemType="Policy"
               navigateTo="/dashboard/policies"
               deleteItem={deletePolicy}
+              queryKey="policies"
             />
             <EditPolicy item={policy} setSelectedItem={setSelectedPolicy} />
           </div>

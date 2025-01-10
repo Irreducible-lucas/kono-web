@@ -21,20 +21,10 @@ import {
   SelectValue,
 } from "@/components/select";
 import { FormEvent, useRef, useState, ChangeEvent, useEffect } from "react";
-import { AxiosResponse, AxiosError } from "axios";
-import axios from "../../axios/index";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import {
-  PolicyType,
-  ProjectCategoryType,
-  ProjectStatusType,
-  ProjectType,
-} from "../../types";
-import { ProjectCategory, ProjectStatus } from "@/src/constants";
-import { format } from "date-fns";
-import { Slider } from "@/components/ui/slider";
-import DatePicker from "../DatePicker";
+import { PolicyType } from "../../types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { updatePolicy } from "@/src/api";
 
 const EditPolicy = ({
   item,
@@ -43,6 +33,7 @@ const EditPolicy = ({
   item: PolicyType;
   setSelectedItem: any;
 }) => {
+  const queryClient = useQueryClient();
   const [open, setIsOpen] = useState(false);
   const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
@@ -56,8 +47,6 @@ const EditPolicy = ({
     document: item.document,
     document_type: item.document_type,
   });
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (item.image) {
@@ -130,6 +119,23 @@ const EditPolicy = ({
     imageInputRef.current?.click();
   };
 
+  const mutation = useMutation(
+    (upadatedData) => updatePolicy(item.id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("Policy updated successfully!!!");
+        setIsSaving(false);
+        setIsOpen(false);
+        setSelectedItem(null);
+        queryClient.invalidateQueries(["policies"]);
+      },
+      onError: () => {
+        toast.error("error occurred while updating policy");
+        setIsSaving(false);
+      },
+    }
+  );
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -168,30 +174,8 @@ const EditPolicy = ({
     submitData.append("description", formData.description);
 
     // Submit Data to the Server
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(
-        `/policy/${item.id}`,
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${idToken}`,
-          },
-        }
-      );
-      if (response.data) {
-        toast.success("Policy updated successfully!!!");
-        setIsSaving(false);
-        setIsOpen(false);
-        setSelectedItem(null);
-        navigate("/dashboard/policies");
-      }
-    } catch (error) {
-      toast.error("error occurred while updating policy");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    setIsSaving(true);
+    mutation.mutate(submitData);
   };
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, loading, setLoading, isAuthenticated } = useAuth();
+  const { login, loading, setLoading, isAuthenticated }: any = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className=" bg-blue-900 relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-secondary hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="bg-blue-700 relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               {loading ? "Signing in...." : "Sign in"}
             </button>

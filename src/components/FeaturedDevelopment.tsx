@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
-import { FeaturedDevelopments, FeaturedType } from "../constants";
 import { styles, layout } from "../styles";
 import FeaturedDevelopmentCard from "./FeaturedDevelopmentCard";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProjects } from "../api";
-import { FeaturedsDevelopment } from "../types";
+import { ProjectType } from "../types";
 
 const FeaturedDevelopment = () => {
   const { data }: any = useQuery({
@@ -18,7 +16,7 @@ const FeaturedDevelopment = () => {
         Featured Development Projects
       </h2>
 
-      <div className="lg:flex items-center justify-center hidden lg:gap-x-5 my-10 ">
+      {/* <div className="lg:flex items-center justify-center hidden lg:gap-x-5 my-10 ">
         {FeaturedType.map((feature) => (
           <Link
             to={feature.url}
@@ -28,18 +26,13 @@ const FeaturedDevelopment = () => {
             {feature.title}
           </Link>
         ))}
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 md:gap-x-1 mt-3 p-3">
+      </div> */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3 p-3">
         {data &&
           data
             .slice(0, 6)
-            .map((feature: FeaturedsDevelopment) => (
-              <FeaturedDevelopmentCard
-                key={feature.id}
-                title={feature.title}
-                image={feature.image}
-                url={feature.url}
-              />
+            .map((project: ProjectType) => (
+              <FeaturedDevelopmentCard key={project.id} data={project} />
             ))}
       </div>
     </section>

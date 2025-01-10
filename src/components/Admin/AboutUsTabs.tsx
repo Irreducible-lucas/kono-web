@@ -2,16 +2,15 @@ import styles from "@/src/styles";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../../index.css";
 import Button from "./Button";
-import { AboutUsType, OfficialType } from "@/src/types";
+import { AboutUsType } from "@/src/types";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { AxiosError, AxiosResponse } from "axios";
-import { useNavigate } from "react-router-dom";
 import { image } from "@/src/assets";
-import axios from "@/src/axios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { updateAbout } from "@/src/api";
 
-const AboutUsTabs = ({ aboutInfo, officials }: any) => {
-  const navigate = useNavigate();
+const AboutUsTabs = ({ aboutInfo }: any) => {
+  const queryClient = useQueryClient();
   const [historyFormData, setHistoryFormData] = useState<AboutUsType>(
     aboutInfo[0]
   );
@@ -27,7 +26,7 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
   const [isSaving, setIsSaving] = useState(false);
 
   //   History Tab Data
-  const [historyImage, setHistoryImage] = useState<any>(null);
+  const [historyImage, setHistoryImage] = useState<any>(aboutInfo?.[0].image);
 
   const handleHistoryInputChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -59,6 +58,21 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
     historyImageInputRef.current?.click();
   };
 
+  const historyMutation = useMutation(
+    (upadatedData) => updateAbout(aboutInfo[0].id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("History updated successfully!!!");
+        setIsSaving(false);
+        queryClient.invalidateQueries(["about"]);
+      },
+      onError: () => {
+        toast.error("Error occurred while updating history");
+        setIsSaving(false);
+      },
+    }
+  );
+
   const handleHistoryFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -68,28 +82,14 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
     if (historyFormData.image instanceof File) {
       submitData.append("image", historyFormData.image);
     }
-
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(`/about/1`, submitData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      if (response.data) {
-        toast.success("History data updated successfully!!!");
-        setIsSaving(false);
-        navigate("/dashboard/about-us");
-      }
-    } catch (error) {
-      toast.error("Error occurred while updating history info");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    setIsSaving(true);
+    historyMutation.mutate(submitData);
   };
 
   //   Council Structure Tab Data
-  const [structureImage, setStructureImage] = useState<any>(null);
+  const [structureImage, setStructureImage] = useState<any>(
+    aboutInfo?.[1].image
+  );
   const structureImageInputRef = useRef<HTMLInputElement>(null);
 
   const handleStructureInputChange = (
@@ -121,12 +121,25 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
     structureImageInputRef.current?.click();
   };
 
+  const structureMutation = useMutation(
+    (upadatedData) => updateAbout(aboutInfo[1].id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("Council Structure updated successfully!!!");
+        setIsSaving(false);
+        queryClient.invalidateQueries(["about"]);
+      },
+      onError: () => {
+        toast.error("Error occurred while updating council structure");
+        setIsSaving(false);
+      },
+    }
+  );
+
   const handleStructureFormSubmit = async (
     event: FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-
-    console.log("Form Data:", structureFormData);
 
     const submitData = new FormData();
     submitData.append("title", structureFormData.title);
@@ -135,23 +148,8 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
       submitData.append("image", structureFormData.image);
     }
 
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(`/about/2`, submitData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      if (response.data) {
-        toast.success("Council Structure data updated successfully!!!");
-        setIsSaving(false);
-        navigate("/dashboard/about-us");
-      }
-    } catch (error) {
-      toast.error("Error occurred while updating Council Structure info");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    setIsSaving(true);
+    structureMutation.mutate(submitData);
   };
 
   //   Vision Tab Data
@@ -162,10 +160,23 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
     setVisionFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const visionMutation = useMutation(
+    (upadatedData) => updateAbout(aboutInfo[2].id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("Vision updated successfully!!!");
+        setIsSaving(false);
+        queryClient.invalidateQueries(["about"]);
+      },
+      onError: () => {
+        toast.error("Error occurred while updating vision");
+        setIsSaving(false);
+      },
+    }
+  );
+
   const handleVisionFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    console.log("Form Data:", visionFormData);
 
     const submitData = new FormData();
     submitData.append("title", visionFormData.title);
@@ -174,23 +185,8 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
       submitData.append("image", visionFormData.image);
     }
 
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(`/about/3`, submitData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      if (response.data) {
-        toast.success("vision updated successfully!!!");
-        setIsSaving(false);
-        navigate("/dashboard/about-us");
-      }
-    } catch (error) {
-      toast.error("Error occurred while updating vision");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    setIsSaving(true);
+    visionMutation.mutate(submitData);
   };
 
   //   Mission Tab Data
@@ -200,6 +196,21 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
     const { name, value } = event.target;
     setMissionFormData((prevState) => ({ ...prevState, [name]: value }));
   };
+
+  const missionMutation = useMutation(
+    (upadatedData) => updateAbout(aboutInfo[3].id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("Mission updated successfully!!!");
+        setIsSaving(false);
+        queryClient.invalidateQueries(["about"]);
+      },
+      onError: () => {
+        toast.error("Error occurred while updating mission");
+        setIsSaving(false);
+      },
+    }
+  );
 
   const handleMissionFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -213,23 +224,8 @@ const AboutUsTabs = ({ aboutInfo, officials }: any) => {
       submitData.append("image", missionFormData.image);
     }
 
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(`/about/4`, submitData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      if (response.data) {
-        toast.success("mission updated successfully!!!");
-        setIsSaving(false);
-        navigate("/dashboard/about-us");
-      }
-    } catch (error) {
-      toast.error("Error occurred while updating mission");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    setIsSaving(true);
+    missionMutation.mutate(submitData);
   };
 
   return (

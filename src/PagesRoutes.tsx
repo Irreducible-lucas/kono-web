@@ -53,16 +53,10 @@ import {
 import DashboardRoot from "./layouts/DashboardRoot";
 import AboutUs from "./pages/Admin/AboutUs";
 
-// Loaders
-import { loader as HomeLoader } from "./pages/Admin/AdminHome";
-import { loader as ProjectsLoader } from "./pages/Admin/Project";
-import { loader as NewsLoader } from "./pages/Admin/News";
-import { loader as TestimonialLoader } from "./pages/Admin/Testimonial";
-import { loader as AboutUsLoader } from "./pages/Admin/AboutUs";
 import { useAuth } from "./hooks/useAuth";
 
 const PrivateRoute = ({ children }: any) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated }: any = useAuth();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
@@ -158,23 +152,19 @@ function PagesRoutes() {
             </PrivateRoute>
           }
         >
-          <Route index element={<AdminHome />} loader={HomeLoader} />
-          <Route path="home" element={<AdminHome />} loader={HomeLoader} />
-          <Route path="project" element={<Project />} loader={ProjectsLoader} />
-          <Route path="news" element={<AdminNews />} loader={NewsLoader} />
-          <Route
-            path="testimonial"
-            element={<Testimonial />}
-            loader={TestimonialLoader}
-          />
-          <Route path="about-us" element={<AboutUs />} loader={AboutUsLoader} />
+          <Route index element={<AdminHome />} />
+          <Route path="home" element={<AdminHome />} />
+          <Route path="project" element={<Project />} />
+          <Route path="news" element={<AdminNews />} />
+          <Route path="testimonial" element={<Testimonial />} />
+          <Route path="about-us" element={<AboutUs />} />
           <Route path="council-services" element={<CouncilService />} />
           <Route path="report" element={<ReportFinance />} />
           <Route path="policies" element={<Policies />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Route>
-    ),
+    )
     // { basename: "/kono-web/" }
   );
 

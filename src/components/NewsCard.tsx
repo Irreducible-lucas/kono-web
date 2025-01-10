@@ -16,7 +16,7 @@ const NewsCard = ({ image, title, url, desc, date, month }: News) => {
           {" "}
           <img
             src={image ? image : "https://picsum.photos/200"}
-            className={`object-contain object-center w-full rounded-md mb-3 transition-opacity duration-300 `}
+            className={`h-[250px] object-cover object-center w-full rounded-md mb-3 transition-opacity duration-300 `}
             style={{
               transform: isHovered ? "scale(1.05)" : "scale(1)",
               transition: "transform 0.3s, opacity 0.3s",
@@ -26,7 +26,7 @@ const NewsCard = ({ image, title, url, desc, date, month }: News) => {
           />
         </div>
 
-        <div className="absolute bottom-4 left-4 flex flex-col rotate">
+        <div className="absolute bottom-12 left-4 flex flex-col rotate">
           <div className="bg-orange-500 text-white rounded-t-lg p-5 flex flex-col items-center">
             <span className="text-2xl font-bold">{date}</span>
           </div>

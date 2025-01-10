@@ -2,10 +2,10 @@ import { CorporateImage, gallery } from "@/src/assets";
 import styles from "@/src/styles";
 import { TestimonialType } from "@/src/types";
 import React from "react";
-import DeleteItemButton from "./DeleteItemButton";
 import { deleteTestimonial } from "@/src/api";
 import EditTestimonial from "./EditTestimonial";
 import { FiStar } from "react-icons/fi";
+import DeleteItemButton2 from "./DeleteItemButton2";
 
 const TestimonialPreview = ({
   testimonial,
@@ -60,7 +60,8 @@ const TestimonialPreview = ({
             </div>
           </div>
           <div className="flex gap-4">
-            <DeleteItemButton
+            <DeleteItemButton2
+              queryKey="testimonials"
               itemId={testimonial.id}
               handleSelectedItem={setSelectedTestimonial}
               itemType="testimonial"

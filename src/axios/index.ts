@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
-const env: any = "live"; // or dev
+const env: any = "dev"; // or dev
 const instance: AxiosInstance = axios.create({
   baseURL:
     env === "dev"

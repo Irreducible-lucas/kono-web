@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Alice } from "../assets";
 import YellowDivider from "../pages/YellowDivider";
 import styles, { layout } from "../styles";
 import Button from "./Button";
@@ -31,12 +30,11 @@ const Welcome = () => {
   });
 
   const paragraphs = data?.message
-    ? data?.message
-        .split("., ")
-        .map(
-          (paragraph: any) =>
-            paragraph.trim() + (paragraph.endsWith(".") ? "" : ".")
-        )
+    ? data?.message.split("\n").map((paragraph: any, index: number) => (
+        <p key={index} className="mb-4">
+          {paragraph}
+        </p>
+      ))
     : [
         "The role of Kono District Council is to support our communities to grow, develop and take advantage of the significant benefits our district has to offer including its vast natural resources, fertile land for commercial agriculture, natural landscape for tourism and hospitality and a promising economy.",
         "By working in partnership with the central Government, our paramount chiefs, businesses and communities, the Council aims to coordinate and support endeavours that build an integrated district economy, fostering growth, and transform our communities into vibrant places to live, work, grow and prosper.",
@@ -47,12 +45,12 @@ const Welcome = () => {
 
   return (
     <section
-      className={`${layout.section} grid grid-cols-1 lg:grid-cols-2 items-center gap-5`}
+      className={`${layout.section} grid grid-cols-1 lg:grid-cols-2 gap-5`}
     >
       <img
-        src={Alice}
+        src={data?.image}
         alt="chairman"
-        className="mt-1 w-full h-full rounded-lg transition-transform duration-300 hover:scale-105"
+        className="mt-1 w-full h-[500px] object-cover object-top rounded-lg transition-transform duration-300 hover:scale-105"
       />
       <div className="flex flex-col items-start">
         <YellowDivider />
@@ -72,7 +70,7 @@ const Welcome = () => {
           .map((text: string, index: number) => (
             <motion.p
               key={index}
-              className={`${styles.paragraph2} my-4 text-justify`}
+              className={`${styles.paragraph2} text-justify`}
               variants={animationVariants}
               initial="hidden"
               animate="visible"

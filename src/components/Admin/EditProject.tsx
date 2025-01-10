@@ -21,9 +21,6 @@ import {
   SelectValue,
 } from "@/components/select";
 import { FormEvent, useRef, useState, ChangeEvent, useEffect } from "react";
-import { AxiosResponse, AxiosError } from "axios";
-import axios from "../../axios/index";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   ProjectCategoryType,
@@ -34,6 +31,8 @@ import { ProjectCategory, ProjectStatus } from "@/src/constants";
 import { format } from "date-fns";
 import { Slider } from "@/components/ui/slider";
 import DatePicker from "../DatePicker";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { updateProject } from "@/src/api";
 
 const EditProject = ({
   item,
@@ -42,8 +41,8 @@ const EditProject = ({
   item: ProjectType;
   setSelectedItem: any;
 }) => {
+  const queryClient = useQueryClient();
   const [open, setIsOpen] = useState(false);
-  const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
   const [changeReport, setChangeReport] = useState<Boolean>(false);
   const [startingDate, setStartingDate] = useState<Date>();
@@ -63,8 +62,6 @@ const EditProject = ({
     date_completed: item.date_completed,
     status: item.status,
   });
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (item.image) {
@@ -94,7 +91,7 @@ const EditProject = ({
   }, [startingDate, dateCompleted, completionRate]);
 
   const handleFormClose = () => {
-    if (saving) {
+    if (mutation.isLoading) {
       toast.warning("Please wait, updating project.");
       return;
     }
@@ -172,6 +169,21 @@ const EditProject = ({
     imageInputRef.current?.click();
   };
 
+  const mutation = useMutation(
+    (upadatedData) => updateProject(item.id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("Project updated successfully!!!");
+        setIsOpen(false);
+        setSelectedItem(null);
+        queryClient.invalidateQueries(["projects"]);
+      },
+      onError: () => {
+        toast.error("error occurred while updating project");
+      },
+    }
+  );
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -231,30 +243,7 @@ const EditProject = ({
     submitData.append("status", formData.status);
 
     // Submit Data to the Server
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(
-        `/projects/${item.id}`,
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${idToken}`,
-          },
-        }
-      );
-      if (response.data) {
-        toast.success("Project updated successfully!!!");
-        setIsSaving(false);
-        setIsOpen(false);
-        setSelectedItem(null);
-        navigate("/dashboard/project");
-      }
-    } catch (error) {
-      toast.error("error occurred while updating project");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    mutation.mutate(submitData);
   };
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
@@ -478,10 +467,10 @@ const EditProject = ({
             </DialogClose>
             <Button
               type="submit"
-              disabled={saving}
+              disabled={mutation.isLoading}
               className="bg-blue-800 hover:bg-blue-600 text-white w-full mb-2 "
             >
-              {saving ? "Saving please wait..." : "Save"}
+              {mutation.isLoading ? "Saving please wait..." : "Save"}
             </Button>
           </DialogFooter>
         </form>

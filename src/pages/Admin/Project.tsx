@@ -1,5 +1,5 @@
 import { fetchProjects } from "@/src/api";
-import { search } from "@/src/assets";
+import { search, Spinner } from "@/src/assets";
 import {
   AddProject,
   NavHeader,
@@ -9,25 +9,37 @@ import {
 import styles from "@/src/styles";
 import { ProjectType } from "@/src/types";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-
-export async function loader() {
-  const projects = await fetchProjects();
-  return { projects };
-}
+import { useQuery } from "@tanstack/react-query";
 
 const Project = () => {
-  const { projects }: any = useLoaderData();
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["projects"],
+    queryFn: fetchProjects,
+  });
+
   const [searchText, setSearchText] = useState("");
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [filteredProjects, setFilteredProjects] = useState([]);
 
   useEffect(() => {
-    const filtered = projects.filter((project: ProjectType) =>
-      project.title.toLowerCase().includes(searchText.toLowerCase())
+    const filtered = data?.filter((project: ProjectType) =>
+      project?.title.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredProjects(filtered);
-  }, [searchText, projects]);
+  }, [searchText, data]);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col justify-center items-center h-full bg-white">
+        <img src={Spinner} className="h-8 w-8" alt="" />
+        <p>Loading data...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return <div>Sorry, error occured while fetching data</div>;
+  }
   return (
     <div className="w-full bg-[#FAFAFA] h-full grid grid-rows-[240px_1fr] lg:grid-rows-[180px_1fr]">
       <div className="p-3 lg:px-8 lg:py-4 bg-white">
@@ -47,11 +59,11 @@ const Project = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="p-3 lg:px-8 lg:py-4 overflow-y-scroll">
-        <div className="grid lg:grid-cols-4 gap-3">
-          <div className="lg:col-span-3">
+      <div className="lg:py-4 overflow-y-scroll">
+        <div className="grid lg:grid-cols-4 gap-4">
+          <div className="lg:col-span-3 bg-white">
             {filteredProjects?.length > 0 ? (
-              <div className="grid grid-cols-2 gap-5 p-5 h-full">
+              <div className="grid grid-cols-2 gap-5 p-5">
                 {filteredProjects?.map((project: any) => (
                   <div
                     className="cursor-pointer"

@@ -3,8 +3,8 @@ import styles from "@/src/styles";
 import { ProjectType } from "@/src/types";
 import EditProject from "./EditProject";
 import React from "react";
-import DeleteItemButton from "./DeleteItemButton";
 import { deleteProject } from "@/src/api";
+import DeleteItemButton2 from "./DeleteItemButton2";
 
 const ProjectPreview = ({
   project,
@@ -99,7 +99,8 @@ const ProjectPreview = ({
             {/* <button className="px-4 py-2 text-sm border border-blue-700 rounded-lg text-blue-700">
               Delete
             </button> */}
-            <DeleteItemButton
+            <DeleteItemButton2
+              queryKey="projects"
               itemId={project.id}
               handleSelectedItem={setSelectedProject}
               itemType="Project"

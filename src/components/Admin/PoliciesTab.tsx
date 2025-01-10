@@ -1,18 +1,17 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../../index.css";
-import PhotoCard from "../PhotoCard";
-import { SelectGallery } from ".";
 import PolicyCard from "./PolicyCard";
 import { useEffect, useState } from "react";
 import { PolicyType } from "@/src/types";
+import PolicyPreview from "./PolicyPreview";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPolicies } from "@/src/api";
-import PolicyPreview from "./PolicyPreview";
+import { Spinner } from "@/src/assets";
 
 const PoliciesTab = ({ searchText }: any) => {
   const { data, isLoading }: any = useQuery({
     queryKey: ["policies"],
-    queryFn: () => fetchPolicies(),
+    queryFn: fetchPolicies,
   });
 
   const [selectedPolicy, setSelectedPolicy] = useState<any>(null);
@@ -23,7 +22,16 @@ const PoliciesTab = ({ searchText }: any) => {
       policy?.title.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredPolicies(filtered);
-  }, [searchText]);
+  }, [searchText, data]);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col justify-center items-center h-full bg-white">
+        <img src={Spinner} className="h-8 w-8" alt="" />
+        <p>Loading data...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="p-3 grid grid-cols-[1fr_300px] gap-8 lg:px-8 lg:py-4 overflow-y-scroll">
@@ -38,7 +46,7 @@ const PoliciesTab = ({ searchText }: any) => {
         </TabList>
         <TabPanel className="mt-5" id="custom-tab-panel">
           <div className="grid bg-white p-4">
-            {filteredPolicies.length > 0 ? (
+            {filteredPolicies?.length > 0 ? (
               <div className="grid gap-3 grid-cols-3 bg-white ">
                 {filteredPolicies?.map((policy: PolicyType) => (
                   <div

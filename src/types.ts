@@ -49,7 +49,8 @@ export interface News {
   url: string;
   desc: string;
   month: string;
-  date: number;
+  date: any;
+  createdAt?: any;
 }
 export interface Testimonial {
   name: string;

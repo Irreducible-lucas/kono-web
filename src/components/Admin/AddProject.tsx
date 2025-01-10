@@ -21,7 +21,6 @@ import {
   SelectValue,
 } from "@/components/select";
 import { FormEvent, useRef, useState, ChangeEvent, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   ProjectCategoryType,
@@ -32,12 +31,12 @@ import { ProjectCategory, ProjectStatus } from "@/src/constants";
 import { Slider } from "@/components/ui/slider";
 import DatePicker from "../DatePicker";
 import { format } from "date-fns";
-import { AxiosError, AxiosResponse } from "axios";
-import axios from "@/src/axios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createProject } from "@/src/api";
 
 const AddProject = () => {
+  const queryClient = useQueryClient();
   const [open, setIsOpen] = useState(false);
-  const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
   const [startingDate, setStartingDate] = useState<Date>();
   const [dateCompleted, setDateCompleted] = useState<Date>();
@@ -78,10 +77,8 @@ const AddProject = () => {
     }));
   }, [startingDate, dateCompleted, completionRate]);
 
-  const navigate = useNavigate();
-
   const handleFormClose = () => {
-    if (saving) {
+    if (mutation.isLoading) {
       toast.warning("Please wait, project saving to the database.");
       return;
     }
@@ -159,9 +156,20 @@ const AddProject = () => {
     imageInputRef.current?.click();
   };
 
+  const mutation = useMutation({
+    mutationFn: createProject,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["projects"] });
+      toast.success("Project created successfully!!!");
+      setIsOpen(false);
+    },
+    onError: () => {
+      toast.error("error occurred while creating project");
+    },
+  });
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Data to be saved:", typeof formData.budget);
 
     // Get the authentication token
     // const user = auth.currentUser;
@@ -211,35 +219,12 @@ const AddProject = () => {
     submitData.append("category", formData.category);
     submitData.append("report", formData.report);
     submitData.append("budget", formData.budget);
-    
+
     submitData.append("starting_date", formData.starting_date);
     submitData.append("date_completed", formData.date_completed);
     submitData.append("status", formData.status);
 
-    // Submit Data to the Server
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.post(
-        "/projects",
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${idToken}`,
-          },
-        }
-      );
-      if (response.data) {
-        toast.success("Project created successfully!!!");
-        setIsSaving(false);
-        setIsOpen(false);
-        navigate("/dashboard/project");
-      }
-    } catch (error) {
-      toast.error("error occurred while creating project");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    mutation.mutate(submitData);
   };
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
@@ -416,10 +401,10 @@ const AddProject = () => {
             </DialogClose>
             <Button
               type="submit"
-              disabled={saving}
+              disabled={mutation.isLoading}
               className="bg-blue-800 hover:bg-blue-600 text-white w-full mb-2 "
             >
-              {saving ? "Saving please wait..." : "Save"}
+              {mutation.isLoading ? "Saving please wait..." : "Save"}
             </Button>
           </DialogFooter>
         </form>

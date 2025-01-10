@@ -14,11 +14,10 @@ import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import styles from "@/src/styles";
 import { FormEvent, useRef, useState, ChangeEvent, useEffect } from "react";
-import { AxiosResponse, AxiosError } from "axios";
-import axios from "../../axios/index";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { NewsType } from "../../types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { updateNews } from "@/src/api";
 
 const EditNews = ({
   item,
@@ -27,8 +26,8 @@ const EditNews = ({
   item: NewsType;
   setSelectedItem: any;
 }) => {
+  const queryClient = useQueryClient();
   const [open, setIsOpen] = useState(false);
-  const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
   const [changeReport, setChangeReport] = useState<Boolean>(false);
 
@@ -40,7 +39,20 @@ const EditNews = ({
     description: item.description,
   });
 
-  const navigate = useNavigate();
+  const mutation = useMutation(
+    (upadatedData) => updateNews(item.id, upadatedData),
+    {
+      onSuccess: () => {
+        toast.success("News updated successfully!!!");
+        setIsOpen(false);
+        setSelectedItem(null);
+        queryClient.invalidateQueries(["news"]);
+      },
+      onError: () => {
+        toast.error("error occurred while updating news");
+      },
+    }
+  );
 
   useEffect(() => {
     if (item.image) {
@@ -49,7 +61,7 @@ const EditNews = ({
   }, [item]);
 
   const handleFormClose = () => {
-    if (saving) {
+    if (mutation.isLoading) {
       toast.warning("Please wait, updating news.");
       return;
     }
@@ -137,43 +149,20 @@ const EditNews = ({
     }
 
     // Submit Data to the Server
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.put(
-        `/news/${item.id}`,
-        submitData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${idToken}`,
-          },
-        }
-      );
-      if (response.data) {
-        toast.success("News updated successfully!!!");
-        setIsSaving(false);
-        setIsOpen(false);
-        setSelectedItem(null);
-        navigate("/dashboard/news");
-      }
-    } catch (error) {
-      toast.error("error occurred while updating news");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    mutation.mutate(submitData);
   };
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
       <DialogTrigger className="flex items-center bg-[#1B43C6] py-3 px-7 gap-5 rounded-md">
         <p className="text-xs font-semibold font-nunito text-white">
-          Edit Project
+          Edit News
         </p>
       </DialogTrigger>
 
       <DialogContent className="overflow-y-auto w-full h-4/5">
         <DialogHeader>
           <DialogTitle className="text-center font-nunito text-lg font-semibold">
-            Edit Project
+            Edit News
           </DialogTitle>
           <DialogDescription className="text-center">
             All fields are required unless otherwise indicated.
@@ -290,10 +279,10 @@ const EditNews = ({
             </DialogClose>
             <Button
               type="submit"
-              disabled={saving}
+              disabled={mutation.isLoading}
               className="bg-blue-800 hover:bg-blue-600 text-white w-full mb-2 "
             >
-              {saving ? "Saving please wait..." : "Save"}
+              {mutation.isLoading ? "Saving please wait..." : "Save"}
             </Button>
           </DialogFooter>
         </form>

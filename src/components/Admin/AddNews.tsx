@@ -14,15 +14,14 @@ import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import styles from "@/src/styles";
 import { FormEvent, useRef, useState, ChangeEvent } from "react";
-import { AxiosResponse, AxiosError } from "axios";
-import axios from "../../axios/index";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { NewsType } from "../../types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createNews } from "@/src/api";
 
 const AddNews = () => {
+  const queryClient = useQueryClient();
   const [open, setIsOpen] = useState(false);
-  const [saving, setIsSaving] = useState(false);
   const [imagePreview, setImagePreview] = useState<any>(null);
 
   const imageInputRef = useRef<HTMLInputElement>(null);
@@ -33,10 +32,20 @@ const AddNews = () => {
     report: null,
   });
 
-  const navigate = useNavigate();
+  const mutation = useMutation({
+    mutationFn: createNews,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["news"] });
+      toast.success("News created successfully!!!");
+      setIsOpen(false);
+    },
+    onError: () => {
+      toast.error("error occurred while creating news");
+    },
+  });
 
   const handleFormClose = () => {
-    if (saving) {
+    if (mutation.isLoading) {
       toast.warning("Please wait, news saving to the database.");
       return;
     }
@@ -117,27 +126,7 @@ const AddNews = () => {
       toast.warning("Please upload image");
       return;
     }
-
-    // Submit Data to the Server
-    try {
-      setIsSaving(true);
-      const response: AxiosResponse = await axios.post("/news", submitData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          // Authorization: `Bearer ${idToken}`,
-        },
-      });
-      if (response.data) {
-        toast.success("News created successfully!!!");
-        setIsSaving(false);
-        setIsOpen(false);
-        navigate("/dashboard/news");
-      }
-    } catch (error) {
-      toast.error("error occurred while creating news");
-      setIsSaving(false);
-      console.error("Error:", error as AxiosError);
-    }
+    mutation.mutate(submitData);
   };
   return (
     <Dialog open={open} onOpenChange={handleFormClose}>
@@ -250,10 +239,10 @@ const AddNews = () => {
             </DialogClose>
             <Button
               type="submit"
-              disabled={saving}
+              disabled={mutation.isLoading}
               className="bg-blue-800 hover:bg-blue-600 text-white w-full mb-2 "
             >
-              {saving ? "Saving please wait..." : "Save"}
+              {mutation.isLoading ? "Saving please wait..." : "Save"}
             </Button>
           </DialogFooter>
         </form>
