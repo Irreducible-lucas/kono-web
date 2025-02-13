@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchHeroData } from "../api";
-import { Lillian } from "../assets";
+import { LocalWoman } from "../assets";
 import YellowDivider from "../pages/YellowDivider";
 import styles from "../styles";
 
@@ -35,7 +35,7 @@ const HeroSection = () => {
           </p>
         </div>
         <img
-          src={data?.image ? data?.image : Lillian}
+          src={data?.image ? data?.image : LocalWoman}
           width={340}
           height={180}
           className="rounded-full"
