@@ -224,3 +224,4 @@ export { default as OrganisationStructure } from "../assets/organization structu
 export { default as irishaid } from "./irish-aid-logo.png";
 export { default as sendserial } from "./tity.jpeg";
 export { default as Spinner } from "./spinnner.gif";
+export { default as LocalWoman } from "./local-woman.jpg";
