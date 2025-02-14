@@ -39,7 +39,6 @@ import {
   SocialWelfare,
 } from "./pages";
 
-import SignUp from "./pages/SignUp";
 import Root from "./layouts/Root";
 import {
   AdminHome,
@@ -73,7 +72,6 @@ function PagesRoutes() {
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
           <Route index element={<LandingPage />} />
-          <Route path="signup" element={<SignUp />} />
           <Route path="aboutus" element={<AboutUsPage />} />
           <Route path="aboutus/history" element={<History />} />
           <Route path="aboutus/council-structure" element={<Council />} />
