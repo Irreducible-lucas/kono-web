@@ -48,6 +48,7 @@ export interface News {
   image: string;
   desc: string;
   month: string;
+  url: string
   date: any;
   createdAt?: any;
 }

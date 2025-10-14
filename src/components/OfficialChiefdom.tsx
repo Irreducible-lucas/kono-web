@@ -55,16 +55,16 @@ const OfficialChiefdom = (props: Props) => {
         className={`${layout.sectionImg} w-full`}
       >
         <div>
-          <img
+          {/* <img
             src={image ? image : Alice}
             alt={title}
             className="h-full object-contain lg:mb-8"
-          />
+          /> */}
           {showMoreInfo && (
             <div className="">
               {oddChiefdoms.map((item) => (
                 <div key={item.id} className="mb-8">
-                  <h1 className={` ${styles.heading2} `}>{item.title}</h1>
+                  <h1 className={` ${styles.heading3} `}>{item.title}</h1>
                   <p
                     className={`font-poppins md:p-0 text-justify mt-5 md:mt-0 lg:mt-5 leading-8`}
                   >
@@ -78,9 +78,11 @@ const OfficialChiefdom = (props: Props) => {
                       {showAllContent[item.id] ? " Show Less" : " See More"}
                     </span>
                   </p>
-                  <p className={`mt-3 font-bold`}>
-                    <span>Key Summary: </span> {item.summary}
+                  {item.summary && (
+                  <p className={`mt-3 text-sm`}>
+                    <span className="font-bold">Key Summary: </span> {item.summary}
                   </p>
+                )}
                 </div>
               ))}
             </div>
@@ -94,13 +96,13 @@ const OfficialChiefdom = (props: Props) => {
         transition={{ type: "spring", stiffness: 140 }}
         className={`${layout.sectionInfo} w-full`}
       >
-        <div className="flex mb-5" />
+        {/* <div className="flex mb-5" /> */}
 
         {showMoreInfo && (
           <div>
             {evenChiefdoms.map((item) => (
               <div key={item.id} className="mb-8">
-                <h1 className={` ${styles.heading2} `}>{item.title}</h1>
+                <h1 className={` ${styles.heading3} `}>{item.title}</h1>
                 <p
                   className={`font-poppins md:p-0 text-justify mt-5 md:mt-0 lg:mt-5 leading-8`}
                 >
@@ -114,9 +116,11 @@ const OfficialChiefdom = (props: Props) => {
                     {showAllContent[item.id] ? " Show Less" : " See More"}
                   </span>
                 </p>
-                <p className={`mt-3 font-bold`}>
-                  <span>Key Summary: </span> {item.summary}
-                </p>
+                {item.summary && (
+                  <p className={`mt-3 text-sm`}>
+                    <span className="font-bold">Key Summary: </span> {item.summary}
+                  </p>
+                )}
               </div>
             ))}
           </div>
