@@ -180,6 +180,7 @@ export type ChiefdomProps = {
   id: number;
   name: string;
   title: string;
+  image: string
   content: string;
   summary?: string;
 };

@@ -1,10 +1,9 @@
-import { Alice } from "../assets";
 import { chiefdomsList } from "../constants";
-import styles, { layout } from "../style";
+import { layout } from "../style";
 import { GeneralListModel } from "../types";
 import Button from "./Button";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import ChiefdomPresenter from "./Chiefdom";
 
 type Props = {
   title?: string;
@@ -21,9 +20,7 @@ type Props = {
 
 const OfficialChiefdom = (props: Props) => {
   const {
-    title,
     showButton,
-    image,
     buttonText,
     onclick,
     showMoreInfo = true,
@@ -31,14 +28,6 @@ const OfficialChiefdom = (props: Props) => {
 
   const oddChiefdoms = chiefdomsList.filter((item) => item.id % 2 !== 0);
   const evenChiefdoms = chiefdomsList.filter((item) => item.id % 2 === 0);
-
-  const [showAllContent, setShowAllContent] = useState<{
-    [key: number]: boolean;
-  }>({});
-
-  const toggleContentVisibility = (id: number) => {
-    setShowAllContent((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
 
   return (
     <motion.section
@@ -55,35 +44,10 @@ const OfficialChiefdom = (props: Props) => {
         className={`${layout.sectionImg} w-full`}
       >
         <div>
-          {/* <img
-            src={image ? image : Alice}
-            alt={title}
-            className="h-full object-contain lg:mb-8"
-          /> */}
           {showMoreInfo && (
             <div className="">
               {oddChiefdoms.map((item) => (
-                <div key={item.id} className="mb-8">
-                  <h1 className={` ${styles.heading3} `}>{item.title}</h1>
-                  <p
-                    className={`font-poppins md:p-0 text-justify mt-5 md:mt-0 lg:mt-5 leading-8`}
-                  >
-                    {showAllContent[item.id]
-                      ? item.content
-                      : `${item.content.substring(0, 500)}...`}{" "}
-                    <span
-                      className="text-blue-500 cursor-pointer ml-2"
-                      onClick={() => toggleContentVisibility(item.id)}
-                    >
-                      {showAllContent[item.id] ? " Show Less" : " See More"}
-                    </span>
-                  </p>
-                  {item.summary && (
-                  <p className={`mt-3 text-sm`}>
-                    <span className="font-bold">Key Summary: </span> {item.summary}
-                  </p>
-                )}
-                </div>
+                <ChiefdomPresenter key={item.id} item={item} />
               ))}
             </div>
           )}
@@ -101,27 +65,7 @@ const OfficialChiefdom = (props: Props) => {
         {showMoreInfo && (
           <div>
             {evenChiefdoms.map((item) => (
-              <div key={item.id} className="mb-8">
-                <h1 className={` ${styles.heading3} `}>{item.title}</h1>
-                <p
-                  className={`font-poppins md:p-0 text-justify mt-5 md:mt-0 lg:mt-5 leading-8`}
-                >
-                  {showAllContent[item.id]
-                    ? item.content
-                    : `${item.content.substring(0, 500)}...`}{" "}
-                  <span
-                    className="text-blue-500 cursor-pointer ml-2"
-                    onClick={() => toggleContentVisibility(item.id)}
-                  >
-                    {showAllContent[item.id] ? " Show Less" : " See More"}
-                  </span>
-                </p>
-                {item.summary && (
-                  <p className={`mt-3 text-sm`}>
-                    <span className="font-bold">Key Summary: </span> {item.summary}
-                  </p>
-                )}
-              </div>
+              <ChiefdomPresenter key={item.id} item={item} />
             ))}
           </div>
         )}

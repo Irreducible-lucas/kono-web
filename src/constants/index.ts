@@ -1195,6 +1195,7 @@ export const chiefdomsList: ChiefdomProps[] = [
     id: 1,
     title: "Fiama Chiefdom",
     name: "Fiama",
+    image: "",
     content: `Fiama Chiefdom is a great place with lots of supernatural tales of black magic, sorcery and witchcraft in the District. The chiefdom traces its history from a warrior who was amongst the first settlers known as Aiah Kontandey M’briwa. According to sources, Aiah Kontandey M’briwa arrived with Kaimachiende M’ba who later reestablished in another territory that we now call Gbense Chiefdom. Sahr Kontandey M’briwa, a son of Aiah, eventually became the Paramount Chief when the British were formalizing chieftaincy as he was the first contact and he eventually broke off from Gbense to lead his own territory in 1913. 
 The current Paramount Chief is called Sahr Yongai Kontaday Mbriwa; he was elected on the 16th January, 2024. The current speaker is called S. A. G. Fomba. 
 The local government area of Fiama Chiefdom stretches more than 281 km² off of the East of Koidu City. Its capital, Njagbwema it’s about 81.9km (51 miles) which is about 2hr 17min by car or motor bike or 17hr 23min on foot from Koidu City. Njagbwema is the chiefdoms current chiefdom headquarters and the main urban centre; the chiefdom has - sections, - towns and several smaller communities in the chiefdom.
@@ -1209,6 +1210,7 @@ Moreover, with a land area of 47.77 km², there is no record of how much GDP the
     id: 2,
     name: "Gbane-kandor",
     title: "Gbane-Kandor Chiefdom",
+    image: "",
     content: `The Chiefdom of Gbane-Kandor stretches from the East of Koidu City around the north-east concourse of Soa Chiefdom to the Western basin of Mafindor Chiefdom. It boasts productive farmlands and picturesque scenery, and describes itself (“Kandor”) as the top of the two Gbanes in the district. 
 The chiefdom traces its origin to a warrior named Mamina, who came to settle in the territory during the 19th century. According to popular tales, Mamina is said to have been born in a place called Fanda, but took the region, in a great battle from other residents, causing most of the residents to flee to Guinea. 
 Mamina was succeeded by Kamachi M’bawa, who was recognized as the first Paramount Chief by the Birtish colonial rulers. The chiefdom only has one ruling house. The current Paramount Chief is called Sahr Edward M'bawa; he was elected on the 16th January, 2024. The speaker is called Kwigba K. Sansie.
@@ -1224,6 +1226,7 @@ Annual Population Change: -3.7% [2015-2021]
     id: 3,
     name: "Gbane",
     title: "Gbane Chiefdom",
+    image: "",
     content: `With a population of about 28,043, Gbane is one of the densely populated chiefdoms in Kono District. The chiefdom lie South of Koidu City and borders with Guinea on the South-West. Gbane traces its origin to two key Kono warriors who demonstrated tremendous bravery and gallantry during the 19th century. However, there is no story of any migration from anywhere, but the Konos, part of the Mane language group, are thought to have been part of the Mane migration from present day Guinea during the 15th to 16th century. 
 According to history, it was Ngobu Kakpata who first settled at Tombodu Mainfe (present day Mongor section). His deputy was Fenfa, who stayed at Kondendu. The first chief of the chiefdom was Ngobu Nyandmoqui, son of Kakpata, who became the first to be recognized by the British Colonial system. 
 According to sources, Sahr Nyandamoqui III, the paramount chief during the war, fled the chiefdom for the duration of the war. Nyandamoqui means “fine human leopard”. The chiefdom only has one ruling house. The current Paramount Chief is called Aiah Bindi Feinfa Gongor; he was elected on the 16th January, 2024. The speaker is called Allieu Konkuwa (Ag).
@@ -1240,6 +1243,7 @@ With land area of about 363.3 km² and such a huge population, there is basicall
     id: 4,
     name: "Gbense",
     title: "Gbense Chiefdom",
+    image: "",
     content: `Gbense chiefdom is one of two chiefdoms which surround Koidu City. Gbense sits on the North of Koidu. A great portion of the chiefdom is made up on metropolis. The chiefdom is renowned for having some of the largest deposits of diamonds in the District and the country as a whole.  
 The chiefdom however, traces its origin to a great warrior called Kaimachiende M’ba. In our local parlance, Kaimachiende means “fearsome man”. Tales have it that during the 19th the chief in Gbense was also in charge of Fiama Chiefdom. Fiama lies adjacent to Gbense. 
 During the 1900s, Kaimachiende M’ba was arrested by the British for the hut tax rebellion, allowing Tao Kabba to take over. After Tao Kabba was arrested again for financial fraud, the people of Fiama declared independence from Gbense in 1913, led by Aiah Kontandey M’briwa, who was believed to be a brother of Kaimachiende.  
@@ -1259,6 +1263,7 @@ Annual Population Change: 4.9%.
     id: 5,
     name: "Gorama-kono",
     title: "Gorama-Kono Chiefdom",
+    image: "",
     content: `Gorama-Kono Chiefdom stretches from the North of Lower Bambara chiefdom, in the Kenema District to the South-East of Nimiyama Chiefdom and the South of Nimikoro Chiefdom. As the name imply, the chiefdom is one of the places on the District that is revered for its thick forests, strategically positioning it for ecotourism, wildlife breeding and research as well as enviable furniture production for both national and international markets. 
 The Chiefdom traces its origin to a group of Kono warriors who conquered the territory during the 19th century. The warriors were led by a brave commander called Konobundoh. His entourage includes Dugbawa, Manyeh, Sogboh, and Kanda. Konobundoh was the eldest and became the leader. The current Paramount Chief Sahr Cyrus Ngebuva Konobundoh II is the oldest paramount chief in Kono District and one of the oldest alive in the country. He was elected in 1984 after the long reign of Forewa. His speaker
 Forewa who succeeded Konobundoh I is said to be one of his witch doctors and a closest aides. P.C. Forewa hailed from the Mandingo tribe and migrated to Kono District from a small village called Kakor in the neighbouring Guinea. At the unfortunate death of Paramount Chief Konobundoh in 1920, Forewa became a regent chief, due to the lack of an ageable successor and ruled for 63 years in a role.
@@ -1272,6 +1277,7 @@ The local government area of Gorama-Kono stretches about 319.8km² from lower Ba
     id: 6,
     name: "Kamaa",
     title: "Kamaa Chiefdom",
+    image: "",
     content: `Presently spelled Kamara, due to the mispronunciation of the white man, the original word for the name of the chiefdom is Kamaa. Kamaa, in our Kono parlance simply means “go away from us.” The chiefdom traces its origin to a warrior named Hindowa Ngandi who was asked by his commanders to command in the territory. 
 The first chief to be recognized by the British was Sumana Tieh, a son of Hindowa. At the death of PC Tieh, Ngekia his house traces the lineage of Paramount Chief Ngekia I, who was crowned in 1932.
 During the civil war, it was S.G.M. Fania fled in 1992 and died in the United Kingdom in 1999. Tieh This house traces the lineage of Sumana Tieh the first chief to be recognized by the British. Their headquarters is at Tombodu. He is also thought to have descended from prominent warriors in the chiefdom. Their headquarters is also at Tombodu. 
@@ -1282,6 +1288,7 @@ During the civil war, it was S.G.M. Fania fled in 1992 and died in the United Ki
     id: 7,
     name: "Lei",
     title: "Lei Chiefdom",
+    image: "",
     content: `Lei chiefdom strategically stretches from the greater-eastern basin of Kono District to the Western borders of the Republic of Guinea. This Chiefdom traces its origin to a Kissy warrior called Kogbanda, who migrated from present day Guinea. The story is that in the midst of other chiefs in the area, it was Kogbanda who had the courage to face the British when they arrived and was therefore, the first to be recognized as Paramount Chief. His house, the Mani family, has ruled ever since. His predecessor, Aiah Alpha Mani, fled the chiefdom in 1992 during the war before dying of natural causes in 2001. 
 The current Paramount Chief is called   Fengai Mani; he was elected on the 16th January, 2024. The current speaker is called Joseph Mbowa(Ag). 
 Lei Chiefdom is the second largest chiefdom by land area and the fifth most populated chiefdom in the District. The local government area stretches about 667.1km² bothering the Republic of Guinea on the East; Toli Chiefdom on the North; Soa and Fiama Chiefdoms on the South; Gbane and Gbense Chiefdoms on East; Gbane-Kandor and Mafindor Chiefdoms on the far South. The capital of the chiefdom is called Siama. 
@@ -1294,6 +1301,7 @@ The chiefdom is divided in to - sections, - towns and smaller communities. There
     id: 8,
     name: "Mafindor",
     title: "Mafindor Chiefdom",
+    image: "",
     content: `Mafindor chiefdom borders Guinea along the river Maleh. It traces its history to a warrior named Suluku Handupor, a Kono who led the chiefdom throughout the nineteenth century, and was about 88 years old when he was recognized by the British in 1891 and became the first Paramount Chief. In a famous battle, which likely occurred in the 1880s, he deterred the Sofa from the north led by Mori Turay. After the death of P.C. Sahr Lamin Musa in 1948, this chiefdom was briefly administrated by the Paramount Chief of Gbane Kandor Chiefdom. It became independent again under the leadership of P.C. Kekura Lyod Musa in 1959. PC Musa was succeeded by another warrior Paramount Chief called Abu M’bawa Kongorba, who was elected in 1986. P.C. Kongorba played a great leadership role in the early part of the Sierra Leone civil war. He fled to neighbouring Guinea during the war between 1997 and 2001. 
 The current Paramount Chief is called Fengai Mani; he was elected on the 16th January, 2024. The current speaker is called Joseph Mbowa(Ag).
  The Chiefdom is one two smallest territories by land area in the District. Like Toli and Lei Chiefdoms, it is seated right on the borders of the Republic of Guinea. The local government area stretches about 81.06km² bothering Gbane-Kandor Chiefdom on the West and Lei on the North. The capital of the chiefdom is called Kamiendor. 
@@ -1307,6 +1315,7 @@ The chiefdom is divided in to - sections, - towns and smaller communities. There
     id: 9,
     name: "Nimikor",
     title: "Nimikor Chiefdom",
+    image: "",
     content: `Nimikoro Chiefdom is a strategic chiefdom in Kono District, renowned for hosting some of the largest mining conglomerates in the country. Also, the chiefdom is the place where the first diamond was discovered in 1930 in a town called Marmu; after a couple of years of exploration. Being the headquarters of a mining project funded by the Sierra Leone Selection Trust (SLST) (a subsidiary of Selection Trust (ST) of England), Nimikoro is one of the chiefdoms which has contributed greatly and still continues to the GDP of Sierra Leone.
 This chiefdom however, traces its history to a Kono warrior from a nearby Mende area named Komba Foamansa Matturi. When Sierra Leone was declared a Protectorate in 1896, Komba Foamansa Matturi was the first Paramount Chief in Kono District that was crowned by the British.
  It was Foamansa Matturi I who led his fellows in fighting abilities and a diplomacy that helped bring stability to Kono District. Kono District continually became the target of invasions from both the Mendes and other tribe as well as by Samori Toure's Mandinka warriors from French Guinea (now Guinea).
@@ -1329,6 +1338,7 @@ The chiefdom is divided in to - sections, - towns and smaller communities. There
     id: 10,
     name: "Nimiyama",
     title: "Nimiyama Chiefdom",
+    image: "",
     content: `Nimiyama Chiefdom is the gateway to Kono District coming from Tonkolili District. Famous for the great Sewafe Bridge and the Bikongor falls, Nimiyama has played pivotal roles in the liberation of Kono and the consolidation of power the District. Seating 26 miles away from Koidu City, the chiefdom has five sections: banfinfeh, ngaiyafie, njagbakahun, peyiefeh, and taima forest.
 The Chiefdom traces its origin to two Kono warriors named Chika and Sogboh Torto, who were recognized as leaders by the British in the late 19th century. The current Paramount Chief is George Bockarie Torto, and was elected in 2009. 
 The local government area of Nimiyama stretches about 363.4 km² from Tonkolili District; bother with Nimikor Chiefdom in the East and Sandor Chiefdom on the North. 
@@ -1342,6 +1352,7 @@ The chiefdom is divided in to 5 sections, - towns and smaller communities. There
     id: 11,
     name: "Sandor",
     title: "Sandor Chiefdom",
+    image: "",
     content: `Sandor is the largest chiefdom in Kono District both by land area and population. The chiefdom borders with Koinadugu District on the North-East, and five other chiefdom in Kono on the South-East basin. 
 This chiefdom traces its lineage from a warrior named Fasulukuwa. Tales hold it that Fasulukuwa must have migrated from Mali to settle in the area. He established himself in the area after successfully defending against the Sofa invasion of the 1880s, and was recognized as the first Paramount Chief in 1896 by the British. A chiefdom report from 1899 says that Suluku, at his headquarters in Kayima, was the most powerful chiefdom of the era in Kono district, who once divided the region with Nyagua, another powerful chief at the time. 
 The current Paramount chief is called Sheku Ahemd Tejan Fasuluku III; a prominent farmer who was elected in 2005. The Chief during the war, Kainbondo Sunduwa Fasuluku fled. It is suspected that he was viewed as illegitimate, and found it difficult to return after the war. During the war, the chiefdom was a site of the prominent Donso hunter groups, which organized to defend the chiefdom against the RUF. 
@@ -1355,6 +1366,7 @@ The chiefdom is divided in to - sections, - towns and smaller communities. There
     id: 12,
     name: "Soa",
     title: "Soa Chiefdom",
+    image: "",
     content: `Soa is a great place with a high potential for commercial agriculture, water bottling factory, eco-tourism, mining and many more. Land types range from enviable scrubs to exotic rain forests and beautiful streams. There many ancient ranges of hills, believed to be filled with precious minerals, which could be used for hiking and camping. 
 The chiefdom has a wonderful history that is traceable to a warrior named Gbendewa, who attained prominence defending the area from other groups. The current Paramount Chief is called Tamba Emmanuel Tokeh Foyoh. He was elected in 2009. 
 The local government area of Soa is about 528.8 km² stretching from Lei Chiefdom on the North; Fiama and Gbane Chiefdoms on the West; and Gbane-Kandor Chiefdom on the East. The chiefdom capital is called Kainkordu. 
@@ -1368,6 +1380,7 @@ The chiefdom is divided in to - sections, - towns and smaller communities. There
     id: 13,
     name: "Tankoro",
     title: "Tankoro Chiefdom",
+    image: "",
     content: `Tankoro chiefdom is one of two chiefdoms which surround Koidu City. Unlike Gbense, Tankoro sits on the South of Koidu. The chiefdom is renowned for hosting one of the largest mining conglomerates arguably in Africa.   
 The chiefdom traces its lineage to a group of Kono warriors who are said to have come from the south and driven the Mandingos from the land in the late 19th century. The chiefdom is undoubtedly quite rich, as it is the host of the Koidu Limited Kimberlite Project. The current Paramount Chief is called Paul Gabba Saquee. He was elected in 2006. 
 According to sources, his predecessor, P.C. Joseph Saquee, fled between 1998 and 2002 to escape heavy fighting in the area. 
@@ -1383,6 +1396,7 @@ The chiefdom is divided in to - sections, - towns and smaller communities. There
     id: 14,
     name: "Toli",
     title: "Toli Chiefdom",
+    image: "",
     content: `Sitting on the North of the District Toli Chiefdom is the smallest chiefdom in Kono district as well as population. The Chiefdom borders with Koinadugu District on the North and the Republic of Guinea on East. The people of Toli chiefdom traces their origin to a fierce warrior called Suluku who migrated from neighbouring Guinea. It is believed that Soluku settled first in Kuateneh in present day Sandor chiefdom, but later moved to Kondewakor, where Soluku’s brother Landa established himself as leader. 
 Descendants of Suluku have ruled the chiefdom ever since. This chiefdom was at the end of the 19th century considered a part of Neya chiefdom, but broke off on its own at the time of Suluku. It is unclear what exact relationship Suluku had with the leaders of Neya at that time. There are basically two ruling houses: the Suluku’s and the Nya Songoh’s. 
 The Suluku’s traces their lineage from Landa, a brother of Suluku. On the other hand, the Nya Songoh house traces their lineage from their great grandfather Nya Songoh, who lived at the time of Soluku in the late 19th century. Nevertheless, there are some controversies over their legitimacy to the Paramount chieftaincy.
@@ -1397,6 +1411,7 @@ The chiefdom is divided in to - sections, - towns and smaller communities. There
     id: 15,
     name: "Sahr Francis Gbondo",
     title: "Regent Paramount Chief of Lei Chiefdom",
+    image: "",
     content: `Regent Paramount Chief Sahr Francis Gbondo serves as the acting traditional leader of Lei Chiefdom in Kono District, Sierra Leone. Following the passing of the previous paramount chief, he was appointed to oversee the chiefdom's affairs until a new paramount chief is elected. In this capacity, he has been instrumental in maintaining customary governance and ensuring continuity in leadership.
 Chief Gbondo's leadership is characterized by a deep commitment to fostering peace, unity, and development within his chiefdom and beyond. He has been instrumental in initiatives aimed at enhancing local infrastructure, promoting education, and improving the livelihoods of his people.
 Under his stewardship, Lei Chiefdom has navigated the transitional period with a focus on preserving cultural heritage and promoting community development. His role as regent paramount chief underscores the vital function of traditional leadership in Sierra Leone's governance framework, bridging the gap between customary practices and modern administrative structures.
@@ -1407,6 +1422,7 @@ Under his stewardship, Lei Chiefdom has navigated the transitional period with a
     id: 16,
     name: "Tamba Emmanuel Torche Foryoh IV",
     title: "Paramount Chief of Soa Chiefdom",
+    image: "",
     content: `Paramount Chief Tamba Emmanuel Torche Foryoh IV is a distinguished traditional leader in Sierra Leone, serving as the Paramount Chief of Soa Chiefdom in Kono District. He also held the esteemed position of Chairman of the Council of Paramount Chiefs for Kono District, a role that places him at the forefront of customary governance and community development in the district.
 Chief Foryoh's leadership is characterized by a deep commitment to fostering peace, unity, and development within his chiefdom and beyond. He has been instrumental in initiatives aimed at enhancing local infrastructure, promoting education, and improving the livelihoods of his people. Notably, he played a pivotal role in the establishment of a community radio station in Soa Chiefdom, a project supported by Fambul Tok through the Human Security project. This initiative has provided a platform for local voices, facilitating communication and information dissemination within the community.
 Under Chief Foryoh's stewardship, Soa Chiefdom has witnessed significant strides in development and social cohesion. His leadership continues to inspire and guide the people of Soa, ensuring that tradition and progress go hand in hand in the pursuit of a prosperous future.
@@ -1417,6 +1433,7 @@ Under Chief Foryoh's stewardship, Soa Chiefdom has witnessed significant strides
     id: 17,
     name: "Alie Musa",
     title: "Paramount Chief of Mofindor Chiefdom",
+    image: "",
     content: `Hon. Paramount Chief Alie Musa is the traditional leader of Mofindor Chiefdom, Kono District, where he has served with distinction as custodian of the land, traditions, and cultural heritage of his people. A respected statesman and community mobilizer, he is widely recognized for his role in promoting peace, unity, and grassroots development.
 PC Musa has been instrumental in strengthening local governance, mediating conflicts, and advancing opportunities for youth and women in his chiefdom. His leadership balances the preservation of cultural values with the pursuit of modern development priorities, making him a pillar of stability and progress in both Mofindor Chiefdom and the wider Kono District.
 `,
@@ -1426,6 +1443,7 @@ PC Musa has been instrumental in strengthening local governance, mediating confl
     id: 18,
     name: "Abu Duramani Soloko",
     title: "Paramount Chief of Toli Chiefdom",
+    image: "",
     content: `Paramount Chief Abu Duramani Soloko has served as the traditional leader of Toli Chiefdom since 2004. His leadership is characterized by a commitment to community development, cultural preservation, and ethical governance. As the deputy Chairman of the Council of Paramount Chiefs in Kono District, Chief Soloko plays a pivotal role in district-wide initiatives and policy discussions. His leadership continues to inspire progress and unity within his chiefdom and the broader Kono District.
 `,
     summary: "",
@@ -1434,6 +1452,7 @@ PC Musa has been instrumental in strengthening local governance, mediating confl
     id: 19,
     name: "Edward Saa Mbawa",
     title: "Paramount Chief of Gbane-Kandor Chiefdom",
+    image: "",
     content: `Edward Saa Mbawa is the esteemed Paramount Chief of Gbane-Kandor Chiefdom, a position he has held since his ascension in 2005. As a scion of the Mbawa ruling house, Chief Mbawa embodies a lineage renowned for its historical leadership, commitment to social cohesion, and preservation of cultural heritage in Kono District. His tenure represents a synthesis of traditional authority and progressive governance aimed at fostering sustainable development and inclusive community growth.
 `,
     summary: "",
@@ -1442,6 +1461,7 @@ PC Musa has been instrumental in strengthening local governance, mediating confl
     id: 20,
     name: "George Bockarie Torto III",
     title: "Paramount Chief of Nimiyama Chiefdom",
+    image: "",
     content: `Paramount Chief George Bockarie Torto III is the custodian of tradition and head of governance in Nimiyama Chiefdom, one of the largest and most mineral-rich chiefdoms of Kono District. As Paramount Chief, he presides over land administration, settlement of disputes, and the installation and supervision of section, town, and village chiefs. His office provides a bridge between the customary authorities of Nimiyama and the policies of government, civil society, and investors working in the district.
 Chief Torto is also recognised in community life beyond chieftaincy: he has been associated with the Diamond Stars Football Club, serving as chairman and strengthening its role as a symbol of unity and pride for Kono youth. By supporting sports and youth development, he has sought to complement his administrative duties with initiatives that nurture talent and social cohesion.
 Like many contemporary chiefs, his stewardship has been shaped by the pressures of managing land and mineral rights, balancing stakeholder interests, and maintaining harmony in a politically diverse environment. Public reports in recent years have raised questions about neutrality and community by-laws in the run-up to elections; these underscore the complex expectations facing paramount chiefs in Sierra Leone — to act as both impartial guardians of custom and active agents of progress.
@@ -1453,6 +1473,7 @@ Through a blend of traditional authority, civic engagement, and willingness to i
     id: 21,
     name: "Sangor Korgbende Kaimachende IV",
     title: "Paramount Chief of Gbense Chiefdom",
+    image: "",
     content: `Paramount Chief Sangor Korgbende Kaimachende IV is the newly elected traditional leader of Gbense Chiefdom, located in Kono District in the Eastern Province of Sierra Leone. He was elected on January 16, 2024, securing a decisive victory with 76.1% of the vote, amounting to 982 valid votes cast in his favour.
 Chief Kaimanchende’s election marks a significant milestone for Gbense Chiefdom, which had been without a paramount chief since the passing of Honourable P.C. Sahr Fengai K. Kaimachende III in January 2022. The election process had been delayed beyond the legally stipulated timeframe, but with the appointment of a Regent Chief, the chiefdom has now restored its traditional leadership.
 As the paramount chief, Chief Kaimachende holds the responsibility of overseeing customary governance, land administration, and the resolution of disputes within the chiefdom. His leadership is expected to foster unity, promote development, and uphold the cultural heritage of Gbense Chiefdom.
@@ -1464,6 +1485,7 @@ The formal recognition and coronation of Chief Kaimachende are anticipated to ta
     id: 22,
     name: "Sahr Charles Quee",
     title: "Regent Paramount Chief of Kamara Chiefdom",
+    image: "",
     content: `Regent Paramount Chief Sahr Charles Quee serves as the acting traditional leader of Kamara Chiefdom in Kono District, Sierra Leone. Following the passing of the previous paramount chief, he was appointed to oversee the chiefdom's affairs until a new paramount chief is elected. In this capacity, he has been instrumental in maintaining customary governance and ensuring continuity in leadership.
 Chief Quee's leadership has been marked by a commitment to transparency and accountability. He welcomed a visit from the Anti-Corruption Commission (ACC), where he expressed gratitude for the commission's efforts and emphasized the importance of upholding integrity in managing public funds within the chiefdom.
 Under his stewardship, Kamara Chiefdom has navigated the transitional period with a focus on preserving cultural heritage and promoting community development. His role as regent paramount chief underscores the vital function of traditional leadership in Sierra Leone's governance framework, bridging the gap between customary practices and modern administrative structures.
@@ -1474,6 +1496,7 @@ Under his stewardship, Kamara Chiefdom has navigated the transitional period wit
     id: 23,
     name: "Alhaji Sahr Cyrus Konobundoh II",
     title: "Paramount Chief of Gorama-Kono Chiefdom",
+    image: "",
     content: `Paramount Chief Alhaji Sahr Cyrus Konobundoh is a revered traditional leader, statesman, and custodian of culture who has dedicated decades of service to the people of Gorama-Kono Chiefdom in Kono District, Eastern Sierra Leone. As the oldest Paramount Chief in Kono District (and arguably the entire country) he stands as a living embodiment of history, wisdom, and continuity in chieftaincy governance.
 Installed many decades ago, PC Konobundoh has played a central role in shaping the social, political, and economic development of his chiefdom Kono District and the entire country as a whole. His leadership has been marked by resilience through the post-colonial era, Sierra Leone’s turbulent civil war period, and the current drive toward peacebuilding, community development, and democratic governance.
 A practicing Muslim and respected elder, PC Alhaji Sahr Cyrus Konobundoh embodies integrity, patience, and deep wisdom. He is known for promoting peaceful coexistence among diverse ethnic and religious groups within Gorama-Kono and beyond. He has been pivotal in the installation of many of his new colleagues. His reign has been instrumental in preserving traditional values while adapting to the modern challenges of local governance, youth empowerment, and rural development.
@@ -1486,6 +1509,7 @@ Despite his age, PC Konobundoh continues to provide guidance to younger chiefs, 
     id: 24,
     name: "Chief Paul N’gabba Saquee V",
     title: "Hon. Paramount Chief of Tankoro Chiefdom",
+    image: "/chiefs/ngabba.jpg",
     content: `Honourable Paramount Chief Paul N’gabba Saquee V is the esteemed traditional leader of Tankoro Chiefdom in Kono District, Eastern Province of Sierra Leone. Elected in 2006, he has been a prominent figure in both local governance and national politics. Serving as a Member of Parliament for Kono District, the P.C. holds significant influence in shaping policies that affect his community. His leadership is characterized by a commitment to cultural preservation, community development, and advocacy for the rights and welfare of his people.`,
     summary: "",
   },
@@ -1493,6 +1517,7 @@ Despite his age, PC Konobundoh continues to provide guidance to younger chiefs, 
     id: 25,
     name: "Aiah Bindi Fainfa Ngongou II",
     title: "Paramount Chief of Gbane Chiefdom",
+    image: "/chiefs/bindi.jpg",
     content: `Paramount Chief Aiah Bindi Fainfa Ngongou II is the traditional leader of Gbane Chiefdom, one of the chiefdoms in Kono District. He was elected to this role in 2010, continuing a legacy of local governance rooted in the Gbane warrior tradition.
 Gbane Chiefdom traces its origins to two 19th-century Kono warriors: Ngombu Kakpata, who settled in the area known today as Tombodu Mainfe, and his deputy, Fainfa, who resided in Kondendu. The lineage of Fainfa gave rise to the house of Ngongou, among others, and Aiah Bindi Fainfa Ngongou comes from this ruling family line.
 During his tenure, PC Aiah Bindi Fainfa Ngongou has carried the responsibilities typical of Paramount Chieftaincy in Sierra Leone: customary law adjudication, land administration, overseeing sub-chiefs (town, village, section heads), and mediating between the state, private interests (such as mining or development), and the local population. While specific development projects under his leadership are not widely documented in publicly available sources, his role is significant in maintaining local social order, preserving traditions, and ensuring local governance continues in the post-conflict recovery period in Kono.
@@ -1506,6 +1531,7 @@ As a leader of the Ngongou ruling house, his legitimacy draws on both historical
     id: 26,
     name: "Sheku Ahmed Tejan Fasuluku III",
     title: "Hon. Paramount Chief Sandor Chiefdom",
+    image: "/chiefs/ahmed.jpg",
     content: `Honourable Paramount Chief Sheku Ahmed Tejan Fasuluku III is a distinguished traditional ruler, environmentalist, and national leader whose service to Sierra Leone spans more than two decades. Since 2005, he has been Paramount Chief of Sandor Chiefdom in Kono District, a position through which he has provided stewardship in local governance, cultural preservation, and community development. His leadership extends beyond his chiefdom, as he was elected in 2017 as the National Chairman of the National Council of Paramount Chiefs, thereby becoming the foremost voice of traditional authorities across the country.
 Chief Fasuluku’s academic foundation is equally impressive. He earned a Master of Science degree in Forestry (1996–1998) and a Pre-M.Sc. Certificate (1994–1995) from the Sokoine University of Agriculture in Tanzania, following a Bachelor of Science in Agriculture from Njala University College, Sierra Leone (1985–1989). This strong academic background laid the groundwork for a professional career dedicated to environmental stewardship, resource governance, and rural development.
 Before assuming chieftaincy, he served as Regional Forestry Officer for the Eastern Region and Coordinator of the Gola Rainforest Conservation Programme between 2000 and 2005. In these roles, he spearheaded forest conservation, community development, and conservation education initiatives with support from international partners. His contributions to academia included part-time lecturing at Njala University and Eastern Polytechnic, where he trained future generations in wildlife conservation and forestry management.
@@ -1518,6 +1544,7 @@ Chief Fasuluku is widely recognized for bridging traditional authority with mode
     id: 27,
     name: "Sahr Youngai Kontanday Mbriwa II",
     title: "Hon. Paramount Chief of Fiama Chiefdom",
+    image: "",
     content: `Hon. Paramount Chief Sahr Youngai Kontanday Mbriwa II is a respected traditional ruler, educator, peacebuilder, and statesman with extensive experience in governance, education, and post-war recovery in Sierra Leone.
 He has served as Paramount Chief of Fiama Chiefdom, Kono District, since December 2002, and from 2018 to 2023, represented the Paramount Chiefs of Kono District in the Parliament of Sierra Leone. His leadership has been marked by a commitment to peace consolidation, community development, and the preservation of cultural heritage.
 Before ascending to the chieftaincy, PC Mbriwa II built a distinguished career in education and development. He taught French and Geography for a decade at Jaiama Secondary and Islamic Secondary Schools (1983–1993), later transitioning to humanitarian and peacebuilding work. He held key positions with Children Associated with the War (CAW), UNICEF-supported reintegration programmes, and World Vision, where he focused on youth, gender, and civil society strengthening. Between 2000 and 2002, he worked with the American Embassy/USAID/MSI on peace education, youth reintegration, nation-building, and DDR programmes, playing a pivotal role in Sierra Leone’s post-conflict recovery.
@@ -1530,6 +1557,7 @@ With a career spanning education, peacebuilding, governance, and traditional lea
     id: 28,
     name: "Aiah Denton Bona Foamansa III",
     title: "Paramount Chief of Nimikor Chiefdom",
+    image: "",
     content: `P.C. Aiah Denton Bona Foamansa III serves as the Paramount Chief of Nimikor Chiefdom in Kono District. He represents the Bona family lineage and has been the chief since his election in 2006, a position that places him at the centre of traditional governance, land stewardship and local development in the chiefdom.
 As Paramount Chief, Bona Foamansa III has been an active interlocutor between mining companies, government agencies and local communities. Under his leadership the chiefdom has received surface rents from mining operators and he has publicly advocated for corporate social responsibility investments (including market and infrastructure projects) as part of agreements with mining firms.
 He has participated in formal government-industry events focused on mineral processing and local economic development, including hosting or engaging with national officials at ceremonies related to gold processing and mining-sector initiatives. These engagements reflect his role in negotiating benefits and safeguards for community members affected by extractive activity.
@@ -1537,7 +1565,29 @@ P.C. Bona Foamansa III is also prominent in community development discussions an
 Like many traditional leaders who sit at the interface of politics, business and customary authority, his tenure has not been free of controversy. Recent media reports allege instances of political interference and unrest tied to local party processes in the chiefdom; such reports underscore the complex, sometimes contested nature of contemporary chiefly authority in Kono. Allegations have been reported and are a matter of public record; yet the Paramount Chief stands vindicated.
 `,
     summary: "",
-  }
+  },
+  {
+    id: 29,
+    name: "Augustine Sahr Sheku",
+    title: "KONO District Council Chairman",
+    image: "",
+    content: `Augustine Sahr Sheku,  an accomplished Public Sector Management Consultant hails from the Soa Chiefdom in the Kono District of Eastern Sierra Leone.
+After his primary education in Kono, he secured his Ordinary and Advanced Level  School Certificates at the Kenema Government and Bo Government Secondary Schools  respectively. This took him to Fourah Bay College, University of Sierra Leone where he graduated with a bachelor's degree in liberal arts in 1983. He also holds a diploma in public heath communications from Jon Hopskins university in Bultomore, USA and a Master's degree in Public Sector Management from the Ghana Institute of Management abd Public Administration.
+After brief stay in the teaching profession, he joined the Administrative Cadre of the  Republic of Sierra Leone Civil Service in 1986 initialy as Higher Executive Officer and later as Assistant Secretary in 1989.
+He then rose through the ranks,  serving in various goverment offices and ministries incuding the then Establishment Secretary's Office, Office of the Presedent, Works, Health & Sanitation, Energy & Water Resources, Agriculture& Food Seculrity ect.
+He was promoted as Permanent Secrtary in 2006 and also served in several government ministries before retiring gracefully in 2022 as Senior Permanent Secretary in the Ministry of Trade & Industry.. He also served as Execuruve Secretary of the Justice Cowan Constitutional Review Comittee.
+Following his exist from the civil service, he transitioned from a professional bureaucrat to a politician and his track record of accomplishments together with his predigrer captivated vast majority of the people of Kono who overwhelminly voted him as the Chairman of the Kono District Council with 62% of the valid votes cast in the hotly contested 2023 general and district coucil elections held in Sierra Leone.
+Mr Sheku's vision is to nake Kono the centre of excellence for  technology and innovation in Sierra Leone wirh prosperity for all and he is combining experience and creativity to accomplish this.`,
+    summary: "",
+  },
+//   {
+//     id: 29,
+//     name: "",
+//     title: "",
+//     content: `
+// `,
+//     summary: "",
+//   }
 ];
 
 // Project Categories
